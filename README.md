@@ -23,7 +23,7 @@ I parametri di sopravvivenza sono essenzialmente tre:
 Questi valori possono assumere un valore da 0 a 4 e hanno dei rapporti tra di loro, ad esempio se la sezietà scende al di sotto di un valore prestabilitò, faraà scedere di conseguneza anche la salute.  
 Per mantenere alti questi valori il giocatore potrà usare degli oggetti, che possono essere acquisiti in vari modi, tuttavia, la temrine del proprio turno in un piano, solamente uno potrà essere portato al piano successivo.  
 
-####Oggetti
+#### Oggetti
 Gli oggetti possono essere di svariati generi e possono essere acquisit nei seguenti modi:
 
 * Oggetto iniziale del personaggio.
@@ -33,7 +33,7 @@ Gli oggetti possono essere di svariati generi e possono essere acquisit nei segu
 
 L'uso di un oggetto, può influire sui parametri del persongaggio, ad esempio un pezzo di pane può aumentare la sazietà, oppure, nel caso ci si trovi di fronte ad una altro personaggio ostile si potrà attaccarlo con un'arma.
 
-####Piani
+#### Piani
 
 In ogni piano saranno sempre presenti due oggetti random, la cui utilità è influenzata dall'altezza del piano (a piani a profondità maggiore si troveranno oggetti meno utili) e un altro personaggio in cerca di sopravvivere con un suo e un oggetto portato visibili.  
 Gli eventi si svolgono in due turni, uno per il giocatore uno per l'AI dell'altro personaggio.  
@@ -46,7 +46,7 @@ Le azioni che il giocatore o l'altro nemico sono:
 
 Sarà possibile, in ogni piano, effettuare due azioni, ad esempio, se si ha bisongo di una medicazione per migliorare il proprio livello di salute e il "nemico" ha una medicinale, si potrà proporgli uno scambio e, in caos rifiuti, si potrà attacrlo per ottenere il suo oggetto.
 
-####Personaggi
+#### Personaggi
 
 Il personaggio utilizzato dal giocatore verrà scelto liberamente all'inzio del gioco tra quattro disponibili.  
 Questa scelta influirà, oltre che sull'aspeto fisico, anche negli effetti degli oggetti utilizzati.
