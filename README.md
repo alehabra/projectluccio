@@ -49,4 +49,4 @@ Sarà possibile, in ogni piano, effettuare due azioni, ad esempio, se si ha biso
 #### Personaggi
 
 Il personaggio utilizzato dal giocatore verrà scelto liberamente all'inzio del gioco tra quattro disponibili.  
-Questa scelta influirà, oltre che sull'aspeto fisico, anche negli effetti degli oggetti utilizzati.
+Questa scelta influirà, oltre che sull'aspetto fisico, anche negli effetti degli oggetti utilizzati.
