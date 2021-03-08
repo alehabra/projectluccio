@@ -34,7 +34,7 @@ Gli oggetti possono essere di svariati generi e possono essere acquisit nei segu
 L'uso di un oggetto, può influire sui parametri del persongaggio, ad esempio un pezzo di pane può aumentare la sazietà, oppure, nel caso ci si trovi di fronte ad una altro personaggio ostile si potrà attaccarlo con un'arma.
 
 #### Piani
-
+ 
 In ogni piano saranno sempre presenti due oggetti random, la cui utilità è influenzata dall'altezza del piano (a piani a profondità maggiore si troveranno oggetti meno utili) e un altro personaggio in cerca di sopravvivere con un suo e un oggetto portato visibili.  
 Gli eventi si svolgono in due turni, uno per il giocatore uno per l'AI dell'altro personaggio.  
 Quale perosnaggio ha il primo turno viene deciso randomicamnete.
