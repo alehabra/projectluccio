@@ -21,7 +21,7 @@ I parametri di sopravvivenza sono essenzialmente tre:
 * Umore.
 
 Questi valori possono assumere un valore da 0 a 4 e hanno dei rapporti tra di loro, ad esempio se la sazietà scende al di sotto di un valore prestabilito, farà scedere di conseguneza anche la salute.  
-Per mantenere alti questi valori il giocatore potrà usare degli oggetti, che possono essere acquisiti in vari modi, tuttavia, la termine del proprio turno in un piano, solamente uno potrà essere portato al piano successivo.  
+Per mantenere alti questi valori il giocatore potrà usare degli oggetti, che possono essere acquisiti in vari modi, tuttavia, al termine del proprio turno in un piano, solamente uno potrà essere portato al piano successivo.  
 
 #### Oggetti
 Gli oggetti possono essere di svariati generi e possono essere acquisiti nei seguenti modi:
@@ -31,13 +31,13 @@ Gli oggetti possono essere di svariati generi e possono essere acquisiti nei seg
 * Portati con se dal piano precedente;
 * Scambiati con un altro personaggio.
 
-L'uso di un oggetto, può influire sui parametri del personaggio, ad esempio un pezzo di pane può aumentare la sazietà, oppure, nel caso ci si trovi di fronte ad una altro personaggio ostile si potrà attaccarlo con un'arma.
+L'uso di un oggetto, può influire sui parametri del personaggio, ad esempio un pezzo di pane può aumentare la sazietà, oppure, nel caso ci si trovi di fronte ad una altro personaggio, se ostile, si potrà attaccarlo con un'arma.
 
 #### Piani
  
-In ogni piano saranno sempre presenti due oggetti random, la cui utilità è influenzata dall'altezza del piano (a piani a profondità maggiore si troveranno oggetti meno utili) e un altro personaggio in cerca di sopravvivere con un suo e un oggetto portato visibili.  
+In ogni piano saranno sempre presenti due oggetti random, la cui utilità è influenzata dall'altezza del piano (a piani a profondità maggiore si troveranno oggetti meno utili) e un altro personaggio in cerca di sopravvivere con un suo stato e un oggetto portato visibili.  
 Gli eventi si svolgono in due turni, uno per il giocatore uno per l'AI dell'altro personaggio.  
-Quale personaggio ha il primo turno viene deciso randomicamnete.
+Quale personaggio ha il primo turno viene deciso randomicamnete.  
 Le azioni che il giocatore o l'altro nemico sono:
 
 * L'uso di un proprio oggetto o di uno presente nella stanza (inteso anche come attacco con un'arma);
