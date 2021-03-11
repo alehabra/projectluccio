@@ -8,8 +8,12 @@
         <script src="backpackItems.js"></script>
         <script src="characters.js"></script>
         <script src="floors.js"></script>
+        <script src="game.js"></script>
     </head>
     <body>
-        <p>Test effetuati via console</p>
+        <p>Utilizzare il pulsante sottostante per creare un gioco di test.<br>
+           I Campi sarnno visibili al di sotto. </p>
+        <button onclick="gamedump(new Game());">Genera</button>
+        <p id="dump"></p>
     </body>
 </html>

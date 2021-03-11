@@ -62,3 +62,30 @@ function random(arr)
     return(arr[randomInt(0, arr.length-1)]);    //Ritorna un elemnto causale dell'array
 }
 
+/*
+ * Visualizza i campi del gico nella pagina di test
+ * Parametri:
+ * - Game game                                  //Gioco di cui effettuare il dump
+ */
+function gamedump(game)
+{
+    document.getElementById("dump").innerText=JSON.safeStringify(game, 100);
+}
+
+// safely handles circular references
+JSON.safeStringify = (obj, indent = 2) => {
+    let cache = [];
+    const retVal = JSON.stringify(
+        obj,
+        (key, value) =>
+            typeof value === "object" && value !== null
+                ? cache.includes(value)
+                ? undefined // Duplicate reference found, discard key
+                : cache.push(value) && value // Store value in our collection
+                : value,
+        indent
+    );
+    cache = null;
+    return retVal;
+};
+
