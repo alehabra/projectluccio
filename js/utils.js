@@ -72,7 +72,10 @@ function gamedump(game)
     document.getElementById("dump").innerText=JSON.safeStringify(game, 100);
 }
 
-// safely handles circular references
+/*
+ * Trasforma un oggetto circolare in Json
+ * NOTA: Ok, questa l'ho presa dal web
+ */
 JSON.safeStringify = (obj, indent = 2) => {
     let cache = [];
     const retVal = JSON.stringify(
