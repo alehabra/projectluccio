@@ -67,9 +67,23 @@ let backpackItems=[
 ];
 
 /*
- * Ritorna un'oggetto a caso tra quelli presenti
- * TODO: Implementare un correttivo per l'abondanza nei piani
+ * Ritorna un'oggetto a caso tra tutti quelli presenti
  */
 function getRandomObject()
-{   return(backpackItems[Math.floor(Math.random() * (backpackItems.length ))]); //Ritorna oggetto casuale
+{
+    return(random(backpackItems));                      //Ritorna un'oggetto casuale
+}
+
+/*
+ * Ritorna due oggetti casuali in base al piano
+ * Parametri:
+ * - int floorNumber                                    //Numero del piano
+ */
+function getFloorObjects(floorNumber)
+{
+    var objects=[];                                     //Array ospite
+    //TODO: Il piano è ignorato per adesso, utilizzo direttamente funzione  getRandomObject()
+    objects.push(getRandomObject());                    //Aggiungi un'oggetto
+    objects.push(getRandomObject());                    //Aggiungi un altro oggetto
+    return objects;                                     //Ritorna array oggetti
 }

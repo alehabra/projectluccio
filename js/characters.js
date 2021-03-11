@@ -22,9 +22,17 @@ const HUNGER_MAX=0;                                                             
 const HEALTH_MIN=0;                                                                 //Salute minima
 const MOOD_MIN=0;                                                                   //Umore minimo
 const HUNGER_DAMAGE=1;                                                              //Danno da fame
+const GENERIC_STATS_MIN=1;                                                          //Minimo stato randomInt possibile
+const GENERIC_STATS_MAX=4;                                                          //Massimo stato randomInt possibile
 
 /*
  * Costruttore personaggio
+ * Parametri:
+ * - String charName;                                                               //Nome del personaggio
+ * - String charImage;                                                              //Url immagine personaggio
+ * - BackpackItem pastBag;                                                          //Oggetto portato
+ * Ritorna:
+ * - Character
  */
 function Character(charName, charImage, pastBag)
 {
@@ -53,7 +61,6 @@ function Character(charName, charImage, pastBag)
         if(this.hunger===HUNGER_MAX)                                                //Se si patisce la fame
         {
             this.damage(HUNGER_DAMAGE);                                             //Subisci danno da fame
-            //TODO: Dopo il danno da fame, la fame deve tornare a zero?
         }
     };
     this.enjoy=function(value)                                                      //Il personaggio miegliora l'umore
@@ -61,4 +68,60 @@ function Character(charName, charImage, pastBag)
         this.mood=checkBounds((this.mood+value), MOOD_MIN, INITIAL_MOOD);           //Goditela un po
     };
 }
+
+/*
+ * Crea un posbbile avversario con stato e oggetto dinamici
+ * Parametri:
+ * - Character player;                                                              //Puntatore al giocatore
+ * Ritorna:
+ * - Character
+ */
+function getEnemy(player)
+{
+    var anEnemy=new Character(                                                      //Crea un personaggio
+        random(enemyNames),                                                         //con nome casuale,
+        random(enemyPictures),                                                      //immagine casuale
+        getRandomObject());                                                         //e con oggetto casuale in mano.
+    anEnemy.health=getRandomStat();                                                 //Imposta salute avversario
+    anEnemy.hunger=getRandomStat();                                                 //Imposta fame avversario
+    anEnemy.mood=getRandomStat();                                                   //Imposta umore avversario;
+    anEnemy.setEnemy(player);                                                       //Imposta come avversario il giocatore
+    player.setEnemy(anEnemy);                                                       //Imposta come avversario del giocatore
+    return anEnemy;                                                                 //Ritorna avversario generato
+}
+
+
+/*
+ * Ritorna un valore casuale valido per una statistica di un personaggio
+ * Ritorna:
+ * - int
+ */
+function getRandomStat()
+{
+    return randomInt(GENERIC_STATS_MIN, GENERIC_STATS_MAX);                         //Ritorna un valore casuale valido per una statistica
+}
+
+/*
+ * Possibili nomi nemici
+ */
+let enemyNames=
+    [
+        "Pancrazio",
+        "Teomondo",
+        "Sifilia",
+        "Giosuè",
+        "Barabba",
+        "Tizio",
+        "Caio",
+        "Sempronio"
+    ];
+
+/*
+ * Possbili immagini nemici
+ */
+let enemyPictures=
+    [
+        ""
+    ]
+
 
