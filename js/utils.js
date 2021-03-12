@@ -59,36 +59,23 @@ function randomInt(min, max) {
  */
 function random(arr)
 {
-    return(arr[randomInt(0, arr.length-1)]);    //Ritorna un elemnto causale dell'array
+    var element=null;                                   //Ospite elemento
+    while(element===null)                               //Ficnhè non viene prelevato un elemnto valido
+    {
+        element=(arr[randomInt(0, arr.length - 1)]);    //Preleva un elemento casuale
+    }
+    return element;                                     //Ritorna elemento prelevato
 }
-
 /*
  * Visualizza i campi del gico nella pagina di test
  * Parametri:
- * - Game game                                  //Gioco di cui effettuare il dump
+ * - Game game                                          //Gioco di cui effettuare il dump
  */
 function gamedump(game)
 {
-    document.getElementById("dump").innerText=JSON.safeStringify(game, 100);
+    document.getElementById("dump").
+        innerHTML=game.toString();                      //Scrivi dati salienti gioco
 }
 
-/*
- * Trasforma un oggetto circolare in Json
- * NOTA: Ok, questa l'ho presa dal web
- */
-JSON.safeStringify = (obj, indent = 2) => {
-    let cache = [];
-    const retVal = JSON.stringify(
-        obj,
-        (key, value) =>
-            typeof value === "object" && value !== null
-                ? cache.includes(value)
-                ? undefined // Duplicate reference found, discard key
-                : cache.push(value) && value // Store value in our collection
-                : value,
-        indent
-    );
-    cache = null;
-    return retVal;
-};
+
 
