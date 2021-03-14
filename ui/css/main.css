@@ -20,7 +20,7 @@ html, body {
   top: -200vw !important; }
 
 #cella {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -31,6 +31,13 @@ html, body {
   transition: all .35s ease-in-out;
   filter: blur(8px);
   -webkit-filter: blur(8px); }
+  #cella .cella-enemy {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    width: 33%; }
+    #cella .cella-enemy img {
+      width: 100%; }
 
 .focus {
   filter: blur(0px) !important;
