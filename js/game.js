@@ -26,6 +26,23 @@ function Game()
     }
 
     /*
+     * Combattimento tra personaggi A e B
+     * Parametri:
+     * - Character charA;                                                   //Personaggio A
+     * - Character charB;                                                   //Personaggio B
+     */
+    function battle(charA, charB)
+    {
+        if(charA.bag.type===OBJECT_TYPE_WEAPON)                             //Se il personaggio A impugna un'arma
+        {
+            if(charB.bag.type===OBJECT_TYPE_WEAPON)                         //e l'ha anche il personaggio B
+            {
+
+            }
+        }
+    }
+
+    /*
      * Crea stringa con i dati salienti
      * Ritorna:
      * - String
@@ -33,7 +50,7 @@ function Game()
     this.toString=function()
     {
         var str="<br>Stato giocatore:";                                     //Etichetta stato giocatore
-        str+="<br>Salute: "+this.player.health;                             //Salute giocaotore
+        str+="<br>Salute: "+this.player.health;                             //Salute giocatore
         str+="<br>Sazietà: "+(GENERIC_STATS_MAX
             -this.player.hunger);                                           //Sazietà giocatore
         str+="<br>Umore: "+this.player.mood;                                //Umore giocatore

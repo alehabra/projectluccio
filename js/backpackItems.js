@@ -13,9 +13,10 @@
  */
 const OBJECT_TYPE_FOOD="food";                      //Oggetto con effetti su sazietà
 const OBJECT_TYPE_MEDICAMENT="medicament";          //Oggetto con effetti su salute
-const OBJECT_TYPE_MOOD="mood";                      //Oggetto con effetti su umore
+const OBJECT_TYPE_MOOD="mood";                      //Oggetto con effetti su psiche
 const OBJECT_TYPE_WEAPON="weapon";                  //Oggetto arma
 
+//TODO: Slegare effetto oggetti da funzione "perform", aggiungere campo valore
 
 /*
  * Array di oggetti disponibili
