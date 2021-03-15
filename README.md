@@ -18,10 +18,16 @@ I parametri di sopravvivenza sono essenzialmente tre:
 
 * Salute;
 * Sazietà;
-* Umore.
+* Psiche.
 
 Questi valori possono assumere un valore da 0 a 4 e hanno dei rapporti tra di loro, ad esempio se la sazietà scende al di sotto di un valore prestabilito, farà scedere di conseguneza anche la salute.  
 Per mantenere alti questi valori il giocatore potrà usare degli oggetti, che possono essere acquisiti in vari modi, tuttavia, al termine del proprio turno in un piano, solamente uno potrà essere portato al piano successivo.  
+
+#### Sopravvivenza
+
+Come descritto sopra, lo scopo ultimo è la sopravvivenza, di conseguenza il valore di salute del personaggio non dovrà mai scendere a zero, pena la perdita della partita.   
+Tuttavia, ogni volta che si cambia stanza, la sazietà scende di un'unità, e ogni due stanze scende di un'unità il valore di psiche.  
+Se uno di questi valori scende a zero, casusa la perdità di un'unità di salute al termine del turno.
 
 #### Oggetti
 Gli oggetti possono essere di svariati generi e possono essere acquisiti nei seguenti modi:
