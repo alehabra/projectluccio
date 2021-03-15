@@ -36,17 +36,29 @@ L'uso di un oggetto, può influire sui parametri del personaggio, ad esempio un 
 #### Piani
  
 In ogni piano saranno sempre presenti due oggetti random, la cui utilità è influenzata dall'altezza del piano (a piani a profondità maggiore si troveranno oggetti meno utili) e un altro personaggio in cerca di sopravvivere con un suo stato e un oggetto portato visibili.  
-Gli eventi si svolgono in due turni, uno per il giocatore uno per l'AI dell'altro personaggio.  
+Gli eventi si svolgono in turni, uno per il giocatore uno per l'AI dell'altro personaggio fino al compimento di tre azioni per ciascuno.  
 Quale personaggio ha il primo turno viene deciso randomicamnete.  
 Le azioni che il giocatore o l'altro nemico sono:
 
-* L'uso di un proprio oggetto o di uno presente nella stanza (inteso anche come attacco con un'arma);
+* L'uso di un proprio oggetto (inteso anche come attacco con un'arma);
 * Raccolta di un oggetto presente;
 * Proposta di uno scambio.
 
-Sarà possibile, in ogni piano, effettuare due azioni, ad esempio, se si ha bisongo di una medicazione per migliorare il proprio livello di salute e il "nemico" ha una medicinale, si potrà proporgli uno scambio e, in caso rifiuti, si potrà attaccarlo per ottenere il suo oggetto.
+Sarà possibile, in ogni piano, effettuare tre azioni, ad esempio, se si ha bisongo di una medicazione per migliorare il proprio livello di salute e il "nemico" ha una medicinale, si potrà proporgli uno scambio e, in caso rifiuti, si potrà attaccarlo per ottenere il suo oggetto e infine curarsi con tale oggetto.
 
 #### Personaggi
 
 Il personaggio utilizzato dal giocatore verrà scelto liberamente all'inzio del gioco tra quattro disponibili.  
 Questa scelta influirà, oltre che sull'aspetto fisico, anche negli effetti degli oggetti utilizzati.
+
+#### Battaglie
+
+Le battaglie tra personaggi servono ad appropriarsi dell'oggetto di un avversario se questi rifiuta uno scambio.
+Se un personaggio viene ucciso, il suo oggetto passa automaticamente all'attacante.  
+
+Le sorti di una battaglia vengono calcolate nel seguente modo: ad ogni personaggio viene  inflitto un danno pari al valore dell'arma dell'avversario meno il valore della propria arma.  
+Ad esempio:
+* Giocatore ha una arma da 1;
+* L'AI ha una arma da 2.  
+
+L'AI infliggerà 1 danno al giocatore (2-1)=1, mentre il giocatore non infliggerà danno all'AI dato che il suo valore di attacco è minore di quello dell'avversario.
