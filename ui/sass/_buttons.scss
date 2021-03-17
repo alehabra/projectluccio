@@ -14,7 +14,7 @@
     padding:0 3rem;
     line-height: 5rem;
     opacity: 1;
-    min-width: 550px;
+    min-width: 450px;
     min-height: 100px;
     @include transition(0.5s);
     span{
@@ -28,7 +28,6 @@
     outline: transparent;
     padding:0rem;
     min-width: 100px;
-    transform:translateX(225px);
     background: white;
     opacity: 0;
     span{
