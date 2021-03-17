@@ -1,5 +1,7 @@
 @import "_colors";
+@import "_fonts";
 @import "_animations";
+@import "_buttons";
 
 html,body{
     width:100%;
@@ -7,8 +9,9 @@ html,body{
     overflow: hidden;
     position: relative;
     background: black;
+    font-family: $font;
 }
-
+hr{margin:1.5rem 0rem;}
 #occhio-sopra{
     position: absolute;
     z-index:100;
@@ -34,6 +37,19 @@ html,body{
     filter: blur(8px);
     -webkit-filter: blur(8px);
 
+    .cella-floor{
+        color:$lightgrey;
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        h1{
+            font-size:4.0rem;
+            text-align: center;
+            margin:1.5rem 0rem;
+            letter-spacing: 0.15rem;
+        }
+    }
     .cella-enemy{
         position: absolute;
         top:38%;
@@ -48,3 +64,4 @@ html,body{
     filter: blur(0px) !important;
     -webkit-filter: blur(0px) !important;   
 }
+

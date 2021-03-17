@@ -1,9 +1,69 @@
+h4 {
+  color: white;
+  font-family: "Karla", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem; }
+
+@keyframes visibleSpanBtn {
+  100% {
+    opacity: 1;
+    display: block;
+    visibility: visible; } }
+
+.btn {
+  position: relative;
+  border: 1px solid #143642;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: 3px solid white;
+  background: transparent;
+  color: black;
+  border-radius: 50px;
+  font-family: "Karla", sans-serif;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  padding: 0 3rem;
+  line-height: 5rem;
+  opacity: 1;
+  min-width: 550px;
+  min-height: 100px;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out; }
+  .btn span {
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out; }
+
+.btn:focus {
+  outline: transparent; }
+
+.btn:disabled {
+  outline: transparent;
+  padding: 0rem;
+  min-width: 100px;
+  transform: translateX(225px);
+  background: white;
+  opacity: 0; }
+  .btn:disabled span {
+    display: none;
+    visibility: hidden;
+    animation: visibleSpanBtn;
+    animation-duration: 0.3s; }
+
 html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
-  background: black; }
+  background: black;
+  font-family: "Karla", sans-serif; }
+
+hr {
+  margin: 1.5rem 0rem; }
 
 #occhio-sopra {
   position: absolute;
@@ -31,6 +91,17 @@ html, body {
   transition: all .35s ease-in-out;
   filter: blur(8px);
   -webkit-filter: blur(8px); }
+  #cella .cella-floor {
+    color: #DAD2D8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    #cella .cella-floor h1 {
+      font-size: 4.0rem;
+      text-align: center;
+      margin: 1.5rem 0rem;
+      letter-spacing: 0.15rem; }
   #cella .cella-enemy {
     position: absolute;
     top: 38%;
