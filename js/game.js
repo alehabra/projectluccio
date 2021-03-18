@@ -37,7 +37,31 @@ function Game()
         {
             if(charB.bag.type===OBJECT_TYPE_WEAPON)                         //e l'ha anche il personaggio B
             {
-
+                charA.damage(checkBounds                                    //Infliggi al personaggio A
+                (charB.bag.value-charA.bag.value),                          //i danni dati non parati dell'arma di B
+                    0, GENERIC_STATS_MAX);                                  //nel range di validità
+                charB.damage(checkBounds                                    //Infliggi al personaggio B
+                (charA.bag.value-charB.bag.value),                          //i danni dati non parati dell'arma di A
+                    0, GENERIC_STATS_MAX);                                  //nel range di validità
+            }
+            else                                                            //Se il personaggio B è disarmato
+            {
+                charB.damage(checkBounds(charA.bag.value),                  //Infliggi al personaggio B i danni dell'arma di A
+                0, GENERIC_STATS_MAX);                                      //nel range di validità
+            }
+        }
+        else                                                                //Se il personaggio A è disarmato
+        {
+            if(charB.bag.type===OBJECT_TYPE_WEAPON)                         //e il personaggio B è armato
+            {
+                charA.damage(checkBounds(charB.bag.value),                  //Infliggi al personaggio A i danni dell'arma di B
+                0, GENERIC_STATS_MAX);                                      //nel range di validità
+            }
+            else
+            {
+                /*
+                 * Entrambi disarmati, la battaglia non ha luogo
+                 */
             }
         }
     }
