@@ -1,11 +1,12 @@
-(function() {
+//////////////////////VARIABILI DOM////////////////////////////////////////////////////
+const cella = document.getElementById("cella");
+let btns = document.querySelectorAll(".btn");
 
-    const cella = document.getElementById("cella");
-    
+
+//////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
+(function() {    
     //funzione apertura occhi inizio livello
-    aperturaOcchi();
-
-
+    //aperturaOcchi();
     function aperturaOcchi(){
         /*animazione apertura occhi*/  
         var svg = document.getElementById("occhio-sopra");
@@ -55,5 +56,22 @@
 
 
     }
-
 })()
+
+/////////////////////////////////////////////////////BOTTONI////////////////////////////
+
+    //funzione click su BOTTONE qualsiasi
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', e => {
+            if(!btns[i].disabled){
+                btns[i].disabled=true;
+            }
+        });
+
+    } 
+    //funzione riattiva BOTTONI
+    function resetBtn(){
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].disabled=false
+        }        
+    }

@@ -4,3 +4,6 @@
     -o-transition: all $duration ease-out;
     transition: all $duration ease-out;
 }
+@keyframes visibleSpanBtn {
+    100%  {opacity: 1; display: block; visibility: visible;} 
+}
