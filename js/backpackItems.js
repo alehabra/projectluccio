@@ -2,7 +2,7 @@
  * Liberty Software
  * Progetto     : Luccio
  * File         : backpackItems.js
- * Descrizione  : Array degli oggetti presenti nel gioco e funzioni relative
+ * Descrizione  : Oggetti presenti nel gioco e funzioni relative
  * Autore       : Marco Botter
  * Data         : 07/03/2021
  * Versione     : Alpha
@@ -19,7 +19,26 @@ const OBJECT_TYPE_WEAPON="weapon";                  //Oggetto arma
 //TODO: Slegare effetto oggetti da funzione "perform", aggiungere campo valore
 
 /*
- * Array di oggetti disponibili
+ * Costruttore di copia oggetto
+ * Parametri:
+ * - BackpackItem sample;                           //Oggetto campione da copiare
+ * Ritorna:
+ * - BackpackItem
+ */
+function BackpackItem(sample)
+{
+    this.name=sample.name;                          //Copia nome
+    this.description=sample.description;            //Copia descrizione
+    this.abundance=sample.abundance;                //Copia abbondanza
+    this.type=sample.type;                          //Copia tipo
+    this.value=sample.value;                        //Copia valore effetto base
+    this.maximumUses=sample.maximumUses;            //Copia valore utilizzi massimi
+    this.perform=sample.perform;                    //Copia funzione aggiuntiva
+    this.icon=sample.icon;                          //Copia icona
+}
+
+/*
+ * Array di campioni oggetti disponibili
  */
 let backpackItems=[
     {
@@ -27,10 +46,9 @@ let backpackItems=[
         description: "Un buon pezzo di pane",       //Descrizione dell'oggetto
         abundance: 10,                              //Abbondanza
         type: OBJECT_TYPE_FOOD,                     //Tipo (se non serve scambiarlo non serve)
+        value: 1,                                   //Valore effetto base
         maximumUses: 1,                             //Uilizzi massimi (0=infinito)
-        perform: function (char){                   //Funzione all'uso dell'oggetto (char è il personaggio che lo usa)
-            char.feed(1);                           //Riduci la fame
-        },
+        perform: function(char){},                  //Funzione aggiuntiva oggetto
         icon: ""                                    //File dell'icona
     },
     {
@@ -38,10 +56,9 @@ let backpackItems=[
         description: "Una semplice ma efficace arma da mischia",
         abundance: 5,
         type: OBJECT_TYPE_WEAPON,
+        value: 1,
         maximumUses: 0,                                   //Usabile infinite volte
-        perform: function (char){
-            char.enemy.damage(1);                   //Fai un danno al nemico
-        },
+        perform: function(char){},
         icon: ""
     },
     {
@@ -49,10 +66,9 @@ let backpackItems=[
         description: "\"A piedi nudi su Marte\", di Adrian Fartade",
         abundance: 20,
         type: OBJECT_TYPE_MOOD,
+        value: 1,
         maximumUses: 0,
-        perform: function (char){
-            char.enjoy(1);                          //Migliora l'umore leggendolo
-        },
+        perform: function(char){},
         icon: ""
     },
     {
@@ -60,10 +76,9 @@ let backpackItems=[
         description: "Un veloce medicamento",
         abundance: 5,
         type: OBJECT_TYPE_MEDICAMENT,
+        value: 1,
         maximumUses: 1,
-        perform: function (char){
-            char.heal(1);                           //Ti curi un po con la garza
-        },
+        perform: function(char){},
         icon: ""
     },
     {
@@ -71,10 +86,9 @@ let backpackItems=[
         description: "BWA-AH_AH Siete tutti morti!",
         abundance: 1,
         type: OBJECT_TYPE_WEAPON,
+        value: 4,
         maximumUses: 0,
-        perform: function (char){
-            char.enemy.damage(4);                   //Fai un sacco di danni al nemico
-        },
+        perform: function(char){},
         icon: ""
     },
     {
@@ -82,26 +96,29 @@ let backpackItems=[
         description: "Alcuni buoni biscotti",
         abundance: 5,
         type: OBJECT_TYPE_FOOD,
+        value: 1,
         maximumUses: 3,                                   //Puoi mangiarne tre volte
-        perform: function (char){
-            char.feed(1);                           //Riduci la fame
-        },
+        perform: function(char){},
         icon: ""
     }
 ];
 
 /*
  * Ritorna un'oggetto a caso tra tutti quelli presenti
+ * Ritorna:
+ * - BackpackItem
  */
 function getRandomObject()
 {
-    return(random(backpackItems));                      //Ritorna un'oggetto casuale
+    return(new BackpackItem(random(backpackItems)));    //Ritorna copia di un'oggetto casuale
 }
 
 /*
  * Ritorna due oggetti casuali in base al piano
  * Parametri:
  * - int floorNumber                                    //Numero del piano
+ * Ritorna:
+ * - BackpackItem[]
  */
 function getFloorObjects(floorNumber)
 {
