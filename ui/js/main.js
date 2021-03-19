@@ -2,6 +2,8 @@
 const cella = document.getElementById("cella");
 let btns = document.querySelectorAll(".btn");
 
+let statsChars = document.querySelectorAll(".stats-element");
+
 
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
 (function() {    
@@ -74,4 +76,16 @@ let btns = document.querySelectorAll(".btn");
         for (let i = 0; i < btns.length; i++) {
             btns[i].disabled=false
         }        
+    }
+
+    //////////////////////////////////////INTERFACCIA STATISTICHE /////////////////////////////////////
+
+    function YourTurn(){
+        statsChars[0].classList.remove('stats-element--disabled');
+        statsChars[1].classList.add('stats-element--disabled');
+    }
+
+    function EnemyTurn(){
+        statsChars[1].classList.remove('stats-element--disabled');
+        statsChars[0].classList.add('stats-element--disabled');
     }

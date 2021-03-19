@@ -3,12 +3,12 @@
     border:1px solid $darkblue;
     font-size: 1.4rem;
     font-weight:600;
-    border:3px solid white;
+    border:3px solid $lightgrey;
     background: transparent;
     color:black;
     border-radius: 50px;
     font-family: $font;
-    color:white;
+    color:$lightgrey;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     padding:0 3rem;
@@ -28,7 +28,7 @@
     outline: transparent;
     padding:0rem;
     min-width: 100px;
-    background: white;
+    background: $lightgrey;
     opacity: 0;
     span{
         display: none;

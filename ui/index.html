@@ -11,7 +11,7 @@
             <div id="cella-stats">
                 
             </div>
-            <div style="position:relative; padding:15rem 5rem;">
+            <div style="position:relative; padding:15rem 5rem 0rem; overflow-y: scroll; height:100%;">
                 <h4>PULSANTI</h4>
                 <hr/>
                 <div style="width: 100%; display: flex; justify-content: center;">
@@ -20,11 +20,84 @@
                     </button>
                 </div>
                 <div style="width: 100%; display: inline-block; margin-top:1rem;">
-                    <button onclick="resetBtn()">
+                    <button style="font-size:1.5rem;" onclick="resetBtn()">
                         Attiva pulsante
                     </button>
                 </div>
                 <hr/>
+                <h4>STATO PERSONE STANZA</h4>
+                <hr/>
+                <div id="stats">
+                    <div class="stats-element">
+                        <h3>Giocatore</h3>
+                        <div class="stats-stats">
+                            <div class="stats-icon">
+                                <img src="img/fame.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                            </div>
+                            <div class="stats-icon">
+                                <img src="img/salute.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                            </div>
+                            <div class="stats-icon">
+                                <img src="img/umore.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                            </div>
+                        </div>
+                        <div class="stats-bag">
+                            ZAINO: <span>cazzeruola</span>
+                        </div>
+                    </div>
+                    <div class="stats-element stats-element--enemy">
+                        <h3>Avversario</h3>
+                        <div class="stats-stats">
+                            <div class="stats-icon">
+                                <img src="img/fame.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>                                
+                            </div>
+                            <div class="stats-icon">
+                                <img src="img/salute.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>                            
+                            </div>
+                            <div class="stats-icon">
+                                <img src="img/umore.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>                            
+                            </div>
+                        </div>
+                        <div class="stats-bag">
+                            ZAINO: <span>cazzeruola</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 100%; display: inline-block; margin-top:2rem;">
+                    <button style="font-size:1.5rem;" onclick="EnemyTurn()">
+                        Turno nemico
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="YourTurn()">
+                        Turno tuo
+                    </button>
+                </div>
+
+
+
             </div>
         </div>
     </body>
