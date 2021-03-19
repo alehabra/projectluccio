@@ -163,6 +163,7 @@ hr {
           background-color: #A8201A;
           position: absolute;
           z-index: 5;
+          opacity: 0;
           -webkit-transition: all 0.3s ease-out;
           -moz-transition: all 0.3s ease-out;
           -o-transition: all 0.3s ease-out;
@@ -179,6 +180,8 @@ hr {
           #stats .stats-element .stats-stats .stats-icon .stats-icon-points:nth-child(5) {
             right: 0;
             bottom: 0; }
+        #stats .stats-element .stats-stats .stats-icon .stats-icon-points--active {
+          opacity: 1; }
     #stats .stats-element .stats-bag {
       padding: 1rem;
       background: #FCAB64;

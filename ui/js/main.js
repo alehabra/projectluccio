@@ -3,6 +3,12 @@ const cella = document.getElementById("cella");
 let btns = document.querySelectorAll(".btn");
 
 let statsChars = document.querySelectorAll(".stats-element");
+let statsCharsParts = document.querySelectorAll(".stats-element .stats-stats .stats-icon .stats-icon-points");
+
+//////////////////VARIABILI RISORSE MUSIC/////////////////
+const btnSound = new Audio('music/selection.mp3');
+const ouchSound = new Audio('music/ouch.ogg');
+const hungrySound = new Audio('music/hungry.ogg');
 
 
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
@@ -65,6 +71,7 @@ let statsChars = document.querySelectorAll(".stats-element");
     //funzione click su BOTTONE qualsiasi
     for (let i = 0; i < btns.length; i++) {
         btns[i].addEventListener('click', e => {
+            btnSound.play();
             if(!btns[i].disabled){
                 btns[i].disabled=true;
             }
@@ -88,4 +95,53 @@ let statsChars = document.querySelectorAll(".stats-element");
     function EnemyTurn(){
         statsChars[1].classList.remove('stats-element--disabled');
         statsChars[0].classList.add('stats-element--disabled');
+    }
+
+    function AddPointsDamage(char,statsType,points){
+        let pointsToAdd;
+        if(char == "nemico"){
+            if(statsType == "sazieta"){
+                let i = 13; 
+                let damage = 13 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+                hungrySound.play();
+            }
+            if(statsType == "salute"){
+                let i = 16; 
+                let damage = 16 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+                ouchSound.play();
+            }
+            if(statsType == "umore"){
+                let i = 21; 
+                let damage = 21 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+            }
+        }
+
+        //aggiungo la visibilita dei punti di danneggiamento relativi alla statistica segnalata
+        pointsToAdd = statsType.document.querySelectorAll('.stats-icon-points');
+        let i = 0;
+        while (i<=points) {
+            pointsToAdd[i].classList.add('stats-icon-points--active');
+            i++;
+        }
     }
