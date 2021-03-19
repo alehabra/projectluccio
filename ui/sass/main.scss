@@ -98,6 +98,8 @@ hr{margin:1.5rem 0rem;}
                 padding: 10px;
                 margin-right:1.2rem;
                 overflow: hidden;
+                touch-action: none;
+                -ms-touch-action: none;
                 img{
                     position: absolute;
                     width:80%;

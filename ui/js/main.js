@@ -14,7 +14,7 @@ const hungrySound = new Audio('music/hungry.ogg');
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
 (function() {    
     //funzione apertura occhi inizio livello
-    //aperturaOcchi();
+    aperturaOcchi();
     function aperturaOcchi(){
         /*animazione apertura occhi*/  
         var svg = document.getElementById("occhio-sopra");

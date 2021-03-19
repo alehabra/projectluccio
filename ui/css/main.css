@@ -149,7 +149,9 @@ hr {
         border-radius: 50%;
         padding: 10px;
         margin-right: 1.2rem;
-        overflow: hidden; }
+        overflow: hidden;
+        touch-action: none;
+        -ms-touch-action: none; }
         #stats .stats-element .stats-stats .stats-icon img {
           position: absolute;
           width: 80%;
