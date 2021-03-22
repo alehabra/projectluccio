@@ -4,12 +4,12 @@
 <link rel="stylesheet" href="dist/main.min.css"/>
 <html>
     <body>
-        <svg id="occhio-sopra" viewBox="0 0 2000 2000">
+<!--         <svg id="occhio-sopra" viewBox="0 0 2000 2000">
             <path id="chiuso-sopra" d="M2000,1000c0,0-340,0-1000,0c-631,0-1000,0-1000,0V0h2000V1000z"/>
             <path id="aperto-sopra" opacity="0" d="M2000,1000c0,0-340-424-1000-424C369,576,0,1000,0,1000V0h2000V1000z"/>
             <path id="chiuso-sotto" d="M0,1000c0,0,340,0,1000,0c631,0,1000,0,1000,0v1000H0V1000z"/>
             <path id="aperto-sotto" opacity="0" d="M0,1000c0,0,340,286,1000,286c631,0,1000-286,1000-286v1000H0V1000z"/>
-        </svg>
+        </svg> -->
 
         <div id="cella" class="focus">
             <div class="cella-floor">
@@ -104,13 +104,31 @@
                     <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','sazieta',0)">
                         danneggia 1 punto sazieta nemico
                     </button>
-                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','salute',1)">
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','salute',2)">
                         danneggia 2 punti salute nemico
                     </button>
                 </div>
-
-
-
+                <hr/>
+                <h4>MODALI</h4>
+                <hr/>
+                <div style="width: 100%; display: inline-block; margin-top:1rem;">
+                    <button style="font-size:1.5rem;" onclick="showModal()">
+                        Attiva modale scelta
+                    </button>
+                </div>
+                <div id="modal">
+                    <div class="modal-inner">
+                        <h1>COSA SCEGLI?</h1>
+                        <div class="modal-inner-content">
+                            <button class="btn" onclick="hideModal()">
+                                <span>Scelta uno</span>
+                            </button>
+                            <button class="btn" onclick="hideModal()">
+                                <span>Scelta due</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

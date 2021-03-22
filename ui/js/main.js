@@ -5,6 +5,9 @@ let btns = document.querySelectorAll(".btn");
 let statsChars = document.querySelectorAll(".stats-element");
 let statsCharsParts = document.querySelectorAll(".stats-element .stats-stats .stats-icon .stats-icon-points");
 
+const modal = document.getElementById("modal");
+let modalInner = document.querySelectorAll(".modal-inner");
+
 //////////////////VARIABILI RISORSE MUSIC/////////////////
 const btnSound = new Audio('music/selection.mp3');
 const ouchSound = new Audio('music/ouch.ogg');
@@ -14,7 +17,7 @@ const hungrySound = new Audio('music/hungry.ogg');
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
 (function() {    
     //funzione apertura occhi inizio livello
-    aperturaOcchi();
+    //aperturaOcchi();
     function aperturaOcchi(){
         /*animazione apertura occhi*/  
         var svg = document.getElementById("occhio-sopra");
@@ -101,8 +104,8 @@ const hungrySound = new Audio('music/hungry.ogg');
         let pointsToAdd;
         if(char == "nemico"){
             if(statsType == "sazieta"){
-                let i = 13; 
-                let damage = 13 + points; 
+                let i = 12; 
+                let damage = 12 + points; 
                 while (i<=damage) {
                     //aggiungo se trova
                     if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
@@ -145,3 +148,19 @@ const hungrySound = new Audio('music/hungry.ogg');
             i++;
         }
     }
+
+    //////////////////////////////////////INTERFACCIA MODAL /////////////////////////////////////
+
+    function showModal(){
+       !modal.classList.contains('modal--active') ? modal.classList.add('modal--active') : modal.classList.remove('modal--active')
+       setTimeout(function(){
+        modalInner[0].classList.add('modal-inner--active');
+       }, 300);
+    }
+    function hideModal(){
+        setTimeout(function(){
+            modalInner[0].classList.remove('modal-inner--active');
+        }, 300);
+        !modal.classList.contains('modal--active') ? modal.classList.add('modal--active') : modal.classList.remove('modal--active')
+     }
+ 
