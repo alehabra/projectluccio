@@ -160,7 +160,10 @@ const hungrySound = new Audio('music/hungry.ogg');
     function hideModal(){
         setTimeout(function(){
             modalInner[0].classList.remove('modal-inner--active');
-        }, 300);
-        !modal.classList.contains('modal--active') ? modal.classList.add('modal--active') : modal.classList.remove('modal--active')
+        }, 400);
+        setTimeout(function(){
+            !modal.classList.contains('modal--active') ? modal.classList.add('modal--active') : modal.classList.remove('modal--active')
+            resetBtn();
+        }, 600);
      }
  
