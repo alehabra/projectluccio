@@ -22,6 +22,7 @@ const HUNGER_MAX=0;                                                             
 const HEALTH_MIN=0;                                                                 //Salute minima
 const MOOD_MIN=0;                                                                   //Umore minimo
 const HUNGER_DAMAGE=1;                                                              //Danno da fame
+const MOOD_DAMAGE=1;                                                                //Danno da psicosi
 const GENERIC_STATS_MIN=1;                                                          //Minimo stato randomInt possibile
 const GENERIC_STATS_MAX=4;                                                          //Massimo stato randomInt possibile
 
@@ -43,18 +44,39 @@ function Character(charName, charImage, pastBag)
     this.hunger = INITIAL_HUNGER;                                                   //Inizializza fame
     this.mood = INITIAL_MOOD;                                                       //Inizializza umore
     this.enemy;                                                                     //Puntatore al nemico corrente (se il personaggio è un nemico, il puntatore punta al giocatore)
+    /*
+     * Imposta il nemico
+     * Parametri:
+     * - Character char;                                                            //Personaggio avversario
+     */
     this.setEnemy=function(char)                                                    //Imposta nemico corrente
     {
         this.enemy=char;                                                            //Imposta il personaggio passato come nemico
     };
+    /*
+     * Subisci danni
+     * Parametri:
+     * - int value;                                                                 //Quantità dei danni
+     */
     this.damage=function(value)                                                     //Subisci danni
     {
         this.health=checkBounds((this.health-value), HEALTH_MIN, INITIAL_HEALTH);   //Subisci danni
     };
+    /*
+     * Guarisci dai danni
+     * Parametri:
+     * - int value;                                                                 //Quantità di danni guariti
+     */
     this.heal=function(value)                                                       //Il personaggio guarisce
     {
         this.health=checkBounds((this.health+value), HEALTH_MIN, INITIAL_HEALTH);   //Guarisci da danni
     };
+    /*
+     * Nutriti o patisci fame
+     * Parametri:
+     * - int value;                                                                 //Entità fame o sazietà
+     * NOTA: Un valore positivo di value sfama, un valore negativo affama
+     */
     this.feed=function(value)                                                       //Il personaggio si nutre
     {
         this.hunger=checkBounds((this.ungher-value), INITIAL_HUNGER, HUNGER_MAX);   //Sfamati un po
@@ -63,9 +85,53 @@ function Character(charName, charImage, pastBag)
             this.damage(HUNGER_DAMAGE);                                             //Subisci danno da fame
         }
     };
+    /*
+     * Migliora o peggiora lo stato psichico
+     * Parametri:
+     * - int value;                                                                 //Entità miglioramento o peggioramento
+     * NOTA: Un valore positivo di value migliora, un valore negativo peggiora
+     */
     this.enjoy=function(value)                                                      //Il personaggio miegliora l'umore
     {
         this.mood=checkBounds((this.mood+value), MOOD_MIN, INITIAL_MOOD);           //Goditela un po
+        if(this.mood===MOOD_MIN)                                                    //Se umore troppo a terra
+        {
+            this.damage(MOOD_DAMAGE);                                               //Psicosi!
+            this.mood=INITIAL_MOOD;                                                 //L'umore torna su
+        }
+    };
+    /*
+     * Utilizzo del proprio oggetto
+     */
+    this.use=function()
+    {
+        if(this.bag!=null)                                                          //Se possiedo effetivamente un oggetto
+        {
+            this.bag.perform(this);                                                 //esegui eventuale funzione speciale
+            switch (this.bag.type)                                                  //In base al tipo di oggetto posseduto
+            {
+                case OBJECT_TYPE_FOOD:                                              //Se si tratta di cibo
+                    this.feed(this.bag.value);                                      //Mangia
+                    break;
+                case OBJECT_TYPE_MEDICAMENT:                                        //Se si tratta di un medicamento
+                    this.heal(this.bag.value);                                      //Curati
+                    break;
+                case OBJECT_TYPE_MOOD:                                              //Se é un oggetto con effetti sulla psiche
+                    this.enjoy(this.bag.value);                                     //Goditelo
+                    break;
+                case OBJECT_TYPE_WEAPON:                                            //Se è un'arma
+                    battle(this, this.enemy);                                       //Avvia battaglia
+                    break;
+            }
+            if(this.bag.maximumUses>0)                                              //Se l'oggetto ha un numero limitato di utilizzi
+            {
+                this.bag.maximumUses--;                                             //Decrementi gli utilizzi restanti
+                if(this.bag.maximumUses===0)                                        //Se non può piu' essere utilizzato
+                {
+                    this.bag=null;                                                  //Rimuovi oggetto (consumato)
+                }
+            }
+        }
     };
 }
 

@@ -47,7 +47,7 @@ let backpackItems=[
         abundance: 10,                              //Abbondanza
         type: OBJECT_TYPE_FOOD,                     //Tipo (se non serve scambiarlo non serve)
         value: 1,                                   //Valore effetto base
-        maximumUses: 1,                             //Uilizzi massimi (0=infinito)
+        maximumUses: 1,                             //Uilizzi massimi (negativo=infinito)
         perform: function(char){},                  //Funzione aggiuntiva oggetto
         icon: ""                                    //File dell'icona
     },
@@ -57,7 +57,7 @@ let backpackItems=[
         abundance: 5,
         type: OBJECT_TYPE_WEAPON,
         value: 1,
-        maximumUses: 0,                                   //Usabile infinite volte
+        maximumUses: -1,                                  //Usabile infinite volte
         perform: function(char){},
         icon: ""
     },
@@ -67,7 +67,7 @@ let backpackItems=[
         abundance: 20,
         type: OBJECT_TYPE_MOOD,
         value: 1,
-        maximumUses: 0,
+        maximumUses: -1,
         perform: function(char){},
         icon: ""
     },
@@ -87,7 +87,7 @@ let backpackItems=[
         abundance: 1,
         type: OBJECT_TYPE_WEAPON,
         value: 4,
-        maximumUses: 0,
+        maximumUses: -1,
         perform: function(char){},
         icon: ""
     },
