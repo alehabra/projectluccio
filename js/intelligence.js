@@ -36,32 +36,9 @@ function choice(char, floor)
      */
 
     /*
-     * Determina la necessità maggiore
+     * Determina ncessità maggiore
      */
-    var need;                                       //Necessità
-    var satiety=(GENERIC_STATS_MAX-char.hunger);    //Ottieni sazietà
-    if(satiety<char.health)                         //Se la sazietà é più urgente della salute
-    {
-        if(char.mood<satiety)                       //Verifica se percaso l'umore è più basso della sazietà
-        {
-            need=OBJECT_TYPE_MOOD;                  //La necessità maggiore è l'umore
-        }
-        else
-        {
-            need=OBJECT_TYPE_FOOD;                  //La necessità maggiore è la fame
-        }
-    }
-    else
-    {
-        if(char.mood<char.health)                   //Verifica se percaso l'umore è più basso della salute
-        {
-            need=OBJECT_TYPE_MOOD;                  //La necessità maggiore è l'umore
-        }
-        else
-        {
-            need=OBJECT_TYPE_MEDICAMENT;            //La necessità maggiore è la salute
-        }
-    }
+    var need=getNeed(char);                         //Ottieni necessità maggiore
     /*
      * Vedi se puoi arrangiarti con il tuo oggetto
      */
@@ -74,13 +51,15 @@ function choice(char, floor)
         /*
          * Vedi se un oggetto a terra può esserti utile
          */
+        var objIndex=0;                             //Varibile ospite indice oggetto
         for(obj of floor.objects)                   //Cicla oggetti a terra
         {
             if(need===obj.type)                     //Se l'oggetto in esame soddisfa la necessità
             {
-                //TODO: Implementare la raccolta dello specifico oggetto, non solo il ritorno della scelta
+                floor.pick(char, objIndex);         //Raccolta oggetto
                 return CHOICE_COLLECTION;           //Scegli di raccoglierlo
             }
+            objIndex++;                             //Incremente indice oggetto
         }
         /*
          * Vedi se il tuo avversario ha unoggetto che ti interessa
@@ -116,5 +95,89 @@ function choice(char, floor)
             return CHOICE_NONE;                     //Non fare nulla
         }
 
+    }
+}
+
+/*
+ * Funzione che determina la maggiore necessità di un personaggio
+ * Parametri:
+ * - Charater char;                                 //Personaggio in oggetto
+ * Ritorna:
+ * - OBJECT_TYPE
+ */
+function getNeed(char)
+{
+    /*
+     * Determina la necessità maggiore
+     */
+    var satiety=(GENERIC_STATS_MAX-char.hunger);    //Ottieni sazietà
+    if(satiety<char.health)                         //Se la sazietà é più urgente della salute
+    {
+        if(char.mood<satiety)                       //Verifica se percaso l'umore è più basso della sazietà
+        {
+            return  OBJECT_TYPE_MOOD;               //La necessità maggiore è l'umore
+        }
+        else
+        {
+            return OBJECT_TYPE_FOOD;                //La necessità maggiore è la fame
+        }
+    }
+    else
+    {
+        if(char.mood<char.health)                   //Verifica se percaso l'umore è più basso della salute
+        {
+            return OBJECT_TYPE_MOOD;                //La necessità maggiore è l'umore
+        }
+        else
+        {
+            return OBJECT_TYPE_MEDICAMENT;           //La necessità maggiore è la salute
+        }
+    }
+}
+
+/*
+ * Funzione che restituisce un valore booleano che indica se il personaggio accetta
+ * di scambiare il suo oggetto con un altro
+ * Parametri:
+ * - Character char;                                        //Personaggio in questione
+ * - BackpackItem otherObj;                                 //Oggetto che si otterebbe dallo scambio
+ */
+function acceptOrNot(char, otherObj)
+{
+    if(char.bag===null)                                     //Se il personaggio non ha nulla
+    {
+        return true;                                        //Accetta tutto
+    }
+    else
+    {
+        if(otherObj.type===getNeed(char))                   //Se l'oggetto che otterei può esser usato per la mia necessità
+        {
+            if(char.bag.type===otherObj.type)               //ma anche quello che ho in mano
+            {
+                return(char.bag.value<otherObj.value);      //Scelgo quello con effetto base più ampio, preferendo il mio per diffidenza
+            }
+            else                                            //altrimenti
+            {
+                return true;                                //mi serve di più, accetto
+            }
+        }
+        else                                                //Non mi serve nell'immediato
+        {
+            if(char.bag.type===getNeed(char))               //Se il mio oggetto mi serve
+            {
+                return false;                               //col cavolo che lo cedo
+            }
+            else                                            //Se non mi serve
+            {
+                if(char.bag.type!==OBJECT_TYPE_WEAPON)      //E se non ho in mano un'arma
+                {
+                    return(char.bag.value<otherObj.value);  //Indipendentemente dal tipo, sceglo quello col valore più alto preferendo il mio per diffidenza
+                }
+                else                                        //Altirmenti se sono armato
+                {
+                    return false;                           //Non cedo l'arma
+                }
+            }
+        }
     }
 }

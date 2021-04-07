@@ -133,6 +133,20 @@ function Character(charName, charImage, pastBag)
             }
         }
     };
+    /*
+     * Ritorna rappresentazione testuale
+     * Ritorna:
+     * - String
+     */
+    this.toString=function()
+    {
+        var str="<br>Personaggio: "+this.name;                                      //Nome
+        str+="<br>Salute: "+this.health;                                            //Salute
+        str+="<br>Saziet&agrave;: "+(GENERIC_STATS_MAX-this.hunger);                //Sazietà
+        str+="<br>Psiche: "+this.mood;                                              //Psiche
+        str+="<br>Zaino: "+this.bag.name;                                            //Nome oggetto nello zaino
+        return str;                                                                 //Ritorna stringa
+    }
 }
 
 /*
@@ -188,6 +202,6 @@ let enemyNames=
 let enemyPictures=
     [
         ""
-    ]
+    ];
 
 

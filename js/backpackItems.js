@@ -16,7 +16,6 @@ const OBJECT_TYPE_MEDICAMENT="medicament";          //Oggetto con effetti su sal
 const OBJECT_TYPE_MOOD="mood";                      //Oggetto con effetti su psiche
 const OBJECT_TYPE_WEAPON="weapon";                  //Oggetto arma
 
-//TODO: Slegare effetto oggetti da funzione "perform", aggiungere campo valore
 
 /*
  * Costruttore di copia oggetto
