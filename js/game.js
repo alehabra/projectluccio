@@ -9,6 +9,11 @@
  */
 
 /*
+ * Riferimenti globali
+ */
+var game;                                                           //Riferimento globale al gioco
+
+/*
  * Costruttore (inizia il gioco)
  * Ritorna:
  * - Game                                                           //Stato e gestore del gioco
@@ -19,20 +24,41 @@ function Game()
     this.currentFloor = new Floor(this.player);                       //Genera un piano
 
     /*
-     * TODO: Gestione dei turni, 3 azioni alternando i turni, ogni attività spende 1 azione
-     *       Chi inizia è scelto casualmente
-     *       Oggetto di tipo turno? Di tipo azione? Oggetto di tipo stato?
-     */
-
-    /*
      * Crea stringa con i dati salienti
      * Ritorna:
      * - String
      */
     this.toString=function()
     {
-        return this.currentFloor.toString();                                //Riepilogo piano
-    }
+        var str=this.currentFloor.toString();                               //Riepilogo piano
+        str+="<br><br><button onclick='game.play()'>Avanti</button>"
+        return str;
+    };
+
+    /*
+     * Logica di di gioco
+     */
+    this.play=function()
+    {
+        alert("funzia");
+        if(this.currentFloor.actions>NO_MORE_ACTIONS)                       //Se sul piano corrente si possono eseguire ancora azioni
+        {
+            if(this.currentFloor.turn===TURN_PLAYER)                        //Se è il turno del giocatore
+            {
+
+            }
+            else
+            {
+                //TODO: Turno della cpu
+            }
+            this.currentFloor.actions--;                                    //Diminuisci azioni rimanenti
+        }
+        else
+        {
+            //TODO: Cambio piano
+            alert("Cambio piano!");
+        }
+    };
 }
 
 /*

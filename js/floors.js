@@ -8,8 +8,14 @@
  * Versione     : Alpha
  */
 
-const FLOOR_NUMBER_MAX=100;
-const FLOOR_NUMBER_MIN=1;
+const FLOOR_NUMBER_MAX=100;                                     //Numero massimo del piano
+const FLOOR_NUMBER_MIN=1;                                       //Numero minimo del piano
+
+const TURN_PLAYER="player";                                     //Turno -> turno giocatore
+const TURN_CPU="cpu";                                           //Turno -> turno cpu
+
+const TOTAL_ACTIONS=6;                                          //Azioni complessive totali
+const NO_MORE_ACTIONS=0;                                        //Minimo azioni (fine piano)
 
 /*
  * Costruttore piano
@@ -20,10 +26,15 @@ const FLOOR_NUMBER_MIN=1;
  */
 function Floor(player)
 {
+    /*
+     * Inzializzazione del piano
+     */
     this.number=randomInt(FLOOR_NUMBER_MIN, FLOOR_NUMBER_MAX);  //Imposta numero casuale piano
     this.objects=getFloorObjects(this.number);                  //Ottieni oggetti presenti nel piano
     this.player=player;                                         //Imposta giocatore
     this.enemy=getEnemy(player);                                //Imposta avversario
+    this.turn=random([TURN_PLAYER,TURN_CPU]);                   //Scegli casualmente chi inizia
+    this.actions=TOTAL_ACTIONS;                                 //Imposta azioni rimanenti
 
     /*
      * Un personaggio scambia il suo oggetto con uno di quelli presenti sul piano
@@ -53,6 +64,7 @@ function Floor(player)
         }
         str+="<br><br>Giocatore:"+this.player.toString();       //Stampa stato giocatore
         str+="<br><br>Avversario:"+this.enemy.toString();       //Stampa stato avversario
+        str+="<br><br>Turno: "+this.turn;                       //Turno
         return str;                                             //Ritorna stringa
     }
 }

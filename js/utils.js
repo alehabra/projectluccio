@@ -53,14 +53,14 @@ function randomInt(min, max) {
 /*
  * Ritorna un elemento random da un array
  * Parametri:
- * - Array arr;                                 //Array di prelievo
+ * - Array arr;                                         //Array di prelievo
  * Ritorna:
  * - Object
  */
 function random(arr)
 {
     var element=null;                                   //Ospite elemento
-    while(element===null)                               //Ficnhè non viene prelevato un elemnto valido
+    while(element===null)                               //Finchè non viene prelevato un elemento valido
     {
         element=(arr[randomInt(0, arr.length - 1)]);    //Preleva un elemento casuale
     }
@@ -69,13 +69,16 @@ function random(arr)
 /*
  * Visualizza i campi del gico nella pagina di test
  * Parametri:
- * - Game game                                          //Gioco di cui effettuare il dump
+ * - Game agame                                          //Gioco di cui effettuare il dump
  */
-function gamedump(game)
+function gamedump(agame)
 {
+    game=agame;                                         //Imposta riferimento globale
     document.getElementById("dump").
         innerHTML=game.toString();                      //Scrivi dati salienti gioco
 }
+
+
 
 
 
