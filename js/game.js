@@ -30,9 +30,7 @@ function Game()
      */
     this.toString=function()
     {
-        var str=this.currentFloor.toString();                               //Riepilogo piano
-        str+="<br><br><button onclick='game.play()'>Avanti</button>"
-        return str;
+        rturn this.currentFloor.toString();                           //Riepilogo piano
     };
 
     /*

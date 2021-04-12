@@ -78,6 +78,39 @@ function gamedump(agame)
         innerHTML=game.toString();                      //Scrivi dati salienti gioco
 }
 
+/*
+ * Crea un pulsante
+ * Parametri
+ * - String text;                                       //Testo del pulsante
+ * - function behavior                                  //Funzionalità del pulsante
+ * Ritorna:
+ * - button
+ */
+function makeButton(text, behavior)
+{
+    var tmpBtn=document.createElement("BUTTON");        //Crea nuovo pulsante
+    tmpBtn.innerText=text;                              //Imposta testo pulsante
+    tmpBtn.onclick=behavior;                            //Imposta funzionalità
+    return tmpBtn;                                      //Ritorna pulsante creato
+}
+
+
+
+
+/*
+ * Debug
+ */
+function provaBtn()
+{
+    var aheadBtn=document.createElement("button");
+    aheadBtn.onclick=function()
+    {
+        alert("bla");
+    };
+    aheadBtn.innerText="Prova Bla";
+    document.getElementById("buttons").appendChild(aheadBtn);
+}
+
 
 
 
