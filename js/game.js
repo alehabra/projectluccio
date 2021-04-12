@@ -22,7 +22,6 @@ function Game()
 {
     this.player = new Character("Eroe", "", getRandomObject());       //TODO: Sostituire con la scelta tra 4 personaggi
     this.currentFloor = new Floor(this.player);                       //Genera un piano
-
     /*
      * Crea stringa con i dati salienti
      * Ritorna:
@@ -30,7 +29,7 @@ function Game()
      */
     this.toString=function()
     {
-        rturn this.currentFloor.toString();                           //Riepilogo piano
+        return(this.currentFloor.toString());                          //Riepilogo piano
     };
 
     /*
@@ -38,7 +37,7 @@ function Game()
      */
     this.play=function()
     {
-        alert("funzia");
+        updateUi();
         if(this.currentFloor.actions>NO_MORE_ACTIONS)                       //Se sul piano corrente si possono eseguire ancora azioni
         {
             if(this.currentFloor.turn===TURN_PLAYER)                        //Se è il turno del giocatore

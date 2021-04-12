@@ -44,6 +44,7 @@ function Floor(player)
      */
     this.pick=function(char, index)
     {
+        alert(index);
         var tmpObj=char.bag;                                    //Ottieni riferimento temporaneo all'oggetto da lasciare
         char.bag=this.objects[index];                           //Raccolta dell'oggetto
         this.objects[index]=tmpObj;                             //L'oggetto precedente viene rilasciato

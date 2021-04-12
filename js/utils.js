@@ -67,18 +67,6 @@ function random(arr)
     return element;                                     //Ritorna elemento prelevato
 }
 /*
- * Visualizza i campi del gico nella pagina di test
- * Parametri:
- * - Game agame                                          //Gioco di cui effettuare il dump
- */
-function gamedump(agame)
-{
-    game=agame;                                         //Imposta riferimento globale
-    document.getElementById("dump").
-        innerHTML=game.toString();                      //Scrivi dati salienti gioco
-}
-
-/*
  * Crea un pulsante
  * Parametri
  * - String text;                                       //Testo del pulsante
@@ -93,25 +81,3 @@ function makeButton(text, behavior)
     tmpBtn.onclick=behavior;                            //Imposta funzionalità
     return tmpBtn;                                      //Ritorna pulsante creato
 }
-
-
-
-
-/*
- * Debug
- */
-function provaBtn()
-{
-    var aheadBtn=document.createElement("button");
-    aheadBtn.onclick=function()
-    {
-        alert("bla");
-    };
-    aheadBtn.innerText="Prova Bla";
-    document.getElementById("buttons").appendChild(aheadBtn);
-}
-
-
-
-
-

@@ -9,9 +9,27 @@
  */
 
 /*
+ * Crea clousure di raccolta oggetto
+ * Parametri
+ * - int obIndex
+ * Ritorna:
+ * - function
+ */
+function makeCollectFunction(objIndex)
+{
+    return function()
+    {
+        var floor=game.currentFloor;                        //Ottieni piano
+        floor.pick(floor.player, objIndex); game.play();    //Raccogli oggetto
+    };
+}
+
+/*
  * Ritorna pulsanti da visualizzare
  * Parametri:
  * - Floor floor;                                           //Piano corrente
+ * Ritorna:
+ * - button[]                                               //Array di pulsanti
  */
 function getButtons(floor)
 {
@@ -42,13 +60,12 @@ function getButtons(floor)
          */
         for(let obj of floor.objects)                       //Per ogni oggetto presente sul piano
         {
-            var index=0;                                    //Indice degli oggetti
+            let index=0;                                    //Ospite indice oggetto
             for(let obj of floor.objects)                   //Per ogni oggetto presente sul piano
             {
                 buttons.push(makeButton(                    //Aggiungi
-                    "Raccolgli "+obj.name,function(){       //Il pulsante "raccogli"
-                        floor.pick(floor.player,            //con il quale il giocatore scambia il suo oggetto
-                            index); game.play();}));        //con quello all'indice
+                    "Raccolgli "+obj.name,                  //Pulsante "raccogli"
+                    makeCollectFunction(index)));           //che chiama una clousure per la raccolta dell'oggetto
                 index++;
             }
         }
@@ -61,3 +78,20 @@ function getButtons(floor)
     }
     return(buttons);                                        //Ritorna pulsanti
 }
+
+/*
+ * Aggiorna l'interfaccia
+ */
+function updateUi()
+{
+    var dump=document.getElementById("dump");               //Ottieni area di dump
+    var buttons=document.getElementById("buttons")          //Ottieni area pulsanti
+    dump.innerHTML=game.toString();                         //Scrivi dati del gioco
+    buttons.innerHTML="";                                   //Svuota area pulsanti
+    var btns=getButtons(game.currentFloor);                 //Ottieni pulsanti per lo stato corrente
+    for(let btn of btns)                                    //Per ogni pulsante ottenuto
+    {
+        buttons.appendChild(btn);                           //Aggiungi all'Ui
+    }
+}
+
