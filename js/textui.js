@@ -61,13 +61,10 @@ function getButtons(floor)
         for(let obj of floor.objects)                       //Per ogni oggetto presente sul piano
         {
             let index=0;                                    //Ospite indice oggetto
-            for(let obj of floor.objects)                   //Per ogni oggetto presente sul piano
-            {
-                buttons.push(makeButton(                    //Aggiungi
-                    "Raccolgli "+obj.name,                  //Pulsante "raccogli"
-                    makeCollectFunction(index)));           //che chiama una clousure per la raccolta dell'oggetto
-                index++;
-            }
+            buttons.push(makeButton(                        //Aggiungi
+                "Raccolgli "+obj.name,                      //Pulsante "raccogli"
+                        makeCollectFunction(index)));       //che chiama una clousure per la raccolta dell'oggetto
+            index++;
         }
     }
     else                                                    //Altrimenti
