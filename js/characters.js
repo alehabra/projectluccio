@@ -18,7 +18,8 @@
 const INITIAL_HEALTH=4;                                                             //Salute iniziale di base
 const INITIAL_HUNGER=0;                                                             //Fame iniziale di base
 const INITIAL_MOOD=4;                                                               //Umore iniziale di base
-const HUNGER_MAX=0;                                                                 //Fame minima
+const HUNGER_MIN=0;                                                                 //Fame minima
+const HUNGER_MAX=4;                                                                 //Fame massima
 const HEALTH_MIN=0;                                                                 //Salute minima
 const MOOD_MIN=0;                                                                   //Umore minimo
 const HUNGER_DAMAGE=1;                                                              //Danno da fame

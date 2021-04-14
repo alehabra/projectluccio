@@ -135,45 +135,54 @@ function getNeed(char)
  * Funzione che restituisce un valore booleano che indica se il personaggio accetta
  * di scambiare il suo oggetto con un altro
  * Parametri:
- * - Character char;                                        //Personaggio in questione
- * - BackpackItem otherObj;                                 //Oggetto che si otterebbe dallo scambio
+ * - Character char;                                            //Personaggio in questione
+ * - BackpackItem otherObj;                                     //Oggetto che si otterebbe dallo scambio
+ * Ritorna:
+ * - bool
  */
 function acceptOrNot(char, otherObj)
 {
-    if(char.bag===null)                                     //Se il personaggio non ha nulla
+    if(otherObj!==null)                                         //Se l'oggetto offerto non è nullo
     {
-        return true;                                        //Accetta tutto
+        if(char.bag===null)                                     //Se il personaggio non ha nulla
+        {
+            return true;                                        //Accetta tutto
+        }
+        else
+            {
+                if(otherObj.type===getNeed(char))               //Se l'oggetto che otterei può esser usato per la mia necessità
+                {
+                    if(char.bag.type===otherObj.type)           //ma anche quello che ho in mano
+                    {
+                        return(char.bag.value<otherObj.value);  //Scelgo quello con effetto base più ampio, preferendo il mio per diffidenza
+                    }
+                    else                                        //altrimenti
+                    {
+                        return true;                            //mi serve di più, accetto
+                    }
+            }
+            else                                                //Non mi serve nell'immediato
+            {
+                if(char.bag.type===getNeed(char))               //Se il mio oggetto mi serve
+                {
+                    return false;                               //col cavolo che lo cedo
+                }
+                else                                            //Se non mi serve
+                {
+                    if(char.bag.type!==OBJECT_TYPE_WEAPON)      //E se non ho in mano un'arma
+                    {
+                        return(char.bag.value<otherObj.value);  //Indipendentemente dal tipo, sceglo quello col valore più alto preferendo il mio per diffidenza
+                    }
+                    else                                        //Altirmenti se sono armato
+                    {
+                        return false;                           //Non cedo l'arma
+                    }
+                }
+            }
+        }
     }
-    else
+    else                                                        //Altrimenti, se l'offerta è nulla
     {
-        if(otherObj.type===getNeed(char))                   //Se l'oggetto che otterei può esser usato per la mia necessità
-        {
-            if(char.bag.type===otherObj.type)               //ma anche quello che ho in mano
-            {
-                return(char.bag.value<otherObj.value);      //Scelgo quello con effetto base più ampio, preferendo il mio per diffidenza
-            }
-            else                                            //altrimenti
-            {
-                return true;                                //mi serve di più, accetto
-            }
-        }
-        else                                                //Non mi serve nell'immediato
-        {
-            if(char.bag.type===getNeed(char))               //Se il mio oggetto mi serve
-            {
-                return false;                               //col cavolo che lo cedo
-            }
-            else                                            //Se non mi serve
-            {
-                if(char.bag.type!==OBJECT_TYPE_WEAPON)      //E se non ho in mano un'arma
-                {
-                    return(char.bag.value<otherObj.value);  //Indipendentemente dal tipo, sceglo quello col valore più alto preferendo il mio per diffidenza
-                }
-                else                                        //Altirmenti se sono armato
-                {
-                    return false;                           //Non cedo l'arma
-                }
-            }
-        }
+        return false;                                           //Non accetto
     }
 }

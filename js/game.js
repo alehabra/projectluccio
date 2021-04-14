@@ -62,11 +62,11 @@ function Game()
 }
 
 /*
-     * Combattimento tra personaggi A e B
-     * Parametri:
-     * - Character charA;                                                   //Personaggio A
-     * - Character charB;                                                   //Personaggio B
-     */
+ * Combattimento tra personaggi A e B
+ * Parametri:
+ * - Character charA;                                                       //Personaggio A
+ * - Character charB;                                                       //Personaggio B
+ */
 function battle(charA, charB)
 {
     if(charA.bag.type===OBJECT_TYPE_WEAPON)                                 //Se il personaggio A impugna un'arma
@@ -100,5 +100,18 @@ function battle(charA, charB)
              */
         }
     }
+}
+
+/*
+ * Scambio ogetti tra personaggi A e B
+ * Parametri:
+ * - Character charA;                                                       //Personaggio A
+ * - Character charB;                                                       //Personaggio B
+ */
+function exchange(charA, charB)
+{
+    var tmpObj=charA.bag;                                                   //Riferimento temporaneo all'oggetto di A
+    charA.bag=charB.bag;                                                    //A ottiene oggetto di B
+    charB.bag=tmpObj;                                                       //B ottiene oggetto di A
 }
 
