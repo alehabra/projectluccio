@@ -13,7 +13,7 @@
  * Parametri:
  * - int value;                                 //Valore da riportare nel range
  * - int min;                                   //Minimo che può assumere
- * - int masx;                                  //Massimo che può assumere
+ * - int max;                                  //Massimo che può assumere
  * Ritorna:
  * - int
  */

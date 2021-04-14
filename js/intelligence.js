@@ -27,14 +27,10 @@ const CHOICE_NONE="CHOICE_NONE";                            //Scelta -> Non fare
  */
 function choice(char, floor)
 {
-    /*
-     * NOTA: In un contesto reale, le persone evitano lo scontro se non necessario,
-     * quindi il personaggio cercherà di risolvere le proprie esigenze nel modo
-     * più pacifico possibile, prima cercando di arrangiarsi con il proprio
-     * oggetto, poi con quelli disponibili nel piano (anche lasciati), poi proponendo
-     * un possibile scambio e solo in ultima istanza attaccando
-     */
-
+    if(this.health<=HEALTH_MIN)                             //Se il personaggio è morto
+    {
+        return CHOICE_NONE;                                 //Non può fare alcuna scelta
+    }
     /*
      * Determina ncessità maggiore
      */

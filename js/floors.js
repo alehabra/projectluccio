@@ -44,7 +44,6 @@ function Floor(player)
      */
     this.pick=function(char, index)
     {
-        alert(index);
         var tmpObj=char.bag;                                    //Ottieni riferimento temporaneo all'oggetto da lasciare
         char.bag=this.objects[index];                           //Raccolta dell'oggetto
         this.objects[index]=tmpObj;                             //L'oggetto precedente viene rilasciato
@@ -61,7 +60,10 @@ function Floor(player)
         str+="<br>Oggetti presenti: ";                          //Intestazione oggetti presenti
         for(let obj of this.objects)                            //Per ogni oggetto presente
         {
-            str+=obj.name+", ";                                 //Scrivi nome dell'oggettp
+            if(obj!==null)                                      //Se l'oggetto è valido
+            {
+                str+=obj.name+", ";                             //Scrivi nome dell'oggetto
+            }
         }
         str+="<br><br>Giocatore:"+this.player.toString();       //Stampa stato giocatore
         str+="<br><br>Avversario:"+this.enemy.toString();       //Stampa stato avversario

@@ -42,13 +42,16 @@ function Game()
         {
             if(this.currentFloor.turn===TURN_PLAYER)                        //Se è il turno del giocatore
             {
-
+                /*
+                 * Nulla, attendi azioni del giocatore
+                 */
             }
             else
             {
                 //TODO: Turno della cpu
             }
             this.currentFloor.actions--;                                    //Diminuisci azioni rimanenti
+            //TODO: Cambio turno
         }
         else
         {

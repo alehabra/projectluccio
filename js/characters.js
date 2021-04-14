@@ -79,7 +79,7 @@ function Character(charName, charImage, pastBag)
      */
     this.feed=function(value)                                                       //Il personaggio si nutre
     {
-        this.hunger=checkBounds((this.ungher-value), INITIAL_HUNGER, HUNGER_MAX);   //Sfamati un po
+        this.hunger=checkBounds((this.hunger-value), INITIAL_HUNGER, HUNGER_MAX);   //Sfamati un po
         if(this.hunger===HUNGER_MAX)                                                //Se si patisce la fame
         {
             this.damage(HUNGER_DAMAGE);                                             //Subisci danno da fame
@@ -141,10 +141,21 @@ function Character(charName, charImage, pastBag)
     this.toString=function()
     {
         var str="<br>Personaggio: "+this.name;                                      //Nome
+        if(this.health<=HEALTH_MIN)                                                 //Se il personaggio è morto
+        {
+            str+=" (Morto)"                                                         //Specificalo di fianco al nome
+        }
         str+="<br>Salute: "+this.health;                                            //Salute
         str+="<br>Saziet&agrave;: "+(GENERIC_STATS_MAX-this.hunger);                //Sazietà
         str+="<br>Psiche: "+this.mood;                                              //Psiche
-        str+="<br>Zaino: "+this.bag.name;                                            //Nome oggetto nello zaino
+        if (this.bag!==null)                                                        //Se lo zaino non è vuoto
+        {
+            str+="<br>Zaino: "+this.bag.name;                                       //Nome oggetto nello zaino
+        }
+        else
+        {
+            str+="<br>Zaino vuoto";                                                 //Zaino vuoto
+        }
         return str;                                                                 //Ritorna stringa
     }
 }
