@@ -209,5 +209,5 @@ const hungrySound = new Audio('music/hungry.ogg');
         setInterval(function(){  
             i <= 48 ? i++ : i = 0;
             document.getElementById("enemy-img").src = '../personaggi/sgherro1/sgherro_'+i+'.png';
-        }, 100);
+        }, 50);
     }
