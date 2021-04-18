@@ -254,3 +254,10 @@ hr {
     letter-spacing: 0.15rem !important; }
   .modal-inner--active .modal-inner-content {
     opacity: 1 !important; }
+
+#enemy {
+  width: 50%;
+  height: auto;
+  display: inline-block; }
+  #enemy img {
+    width: 100%; }

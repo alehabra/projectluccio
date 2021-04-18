@@ -15,10 +15,13 @@ const hungrySound = new Audio('music/hungry.ogg');
 
 
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
+
+
 (function() {    
     //funzione apertura occhi inizio livello
+
     //aperturaOcchi();
-    function aperturaOcchi(){
+    function aperturaOcchi(){        
         /*animazione apertura occhi*/  
         var svg = document.getElementById("occhio-sopra");
         var s = Snap(svg);
@@ -139,14 +142,44 @@ const hungrySound = new Audio('music/hungry.ogg');
                 }
             }
         }
-
-        //aggiungo la visibilita dei punti di danneggiamento relativi alla statistica segnalata
-        pointsToAdd = statsType.document.querySelectorAll('.stats-icon-points');
-        let i = 0;
-        while (i<=points) {
-            pointsToAdd[i].classList.add('stats-icon-points--active');
-            i++;
-        }
+        //aggiungo danni personaggio
+        if(char == "personaggio"){
+            if(statsType == "sazieta"){
+                let i = 0; 
+                let damage = 0 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+                hungrySound.play();
+            }
+            if(statsType == "salute"){
+                let i = 4; 
+                let damage = 4 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+                ouchSound.play();
+            }
+            if(statsType == "umore"){
+                let i = 8; 
+                let damage = 8 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+            }
+        }        
     }
 
     //////////////////////////////////////INTERFACCIA MODAL /////////////////////////////////////
@@ -167,3 +200,14 @@ const hungrySound = new Audio('music/hungry.ogg');
         }, 600);
      }
  
+    ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
+    animateSgherro();
+
+    function animateSgherro(){
+        let enemySourceImg = document.getElementById("enemy-img").src;
+        let i = 0;
+        setInterval(function(){  
+            i <= 48 ? i++ : i = 0;
+            document.getElementById("enemy-img").src = '../personaggi/sgherro1/sgherro_'+i+'.png';
+        }, 100);
+    }

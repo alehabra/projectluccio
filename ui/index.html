@@ -4,12 +4,14 @@
 <link rel="stylesheet" href="dist/main.min.css"/>
 <html>
     <body>
-<!--         <svg id="occhio-sopra" viewBox="0 0 2000 2000">
+        <!--OCCHI ANIMAZIONE-->
+<!--        <svg id="occhio-sopra" viewBox="0 0 2000 2000">
             <path id="chiuso-sopra" d="M2000,1000c0,0-340,0-1000,0c-631,0-1000,0-1000,0V0h2000V1000z"/>
             <path id="aperto-sopra" opacity="0" d="M2000,1000c0,0-340-424-1000-424C369,576,0,1000,0,1000V0h2000V1000z"/>
             <path id="chiuso-sotto" d="M0,1000c0,0,340,0,1000,0c631,0,1000,0,1000,0v1000H0V1000z"/>
             <path id="aperto-sotto" opacity="0" d="M0,1000c0,0,340,286,1000,286c631,0,1000-286,1000-286v1000H0V1000z"/>
         </svg> -->
+        <!--OCCHI ANIMAZIONE-->
 
         <div id="cella" class="focus">
             <div class="cella-floor">
@@ -94,6 +96,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div style="width: 100%; display: inline-block; margin-top:2rem;">
                     <button style="font-size:1.5rem;" onclick="EnemyTurn()">
                         Turno nemico
@@ -104,10 +107,23 @@
                     <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','sazieta',0)">
                         danneggia 1 punto sazieta nemico
                     </button>
-                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','salute',2)">
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','salute',1)">
                         danneggia 2 punti salute nemico
                     </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','umore',2)">
+                        danneggia 3 punti umore nemico
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('personaggio','sazieta',0)">
+                        danneggia 1 punto sazieta personaggio
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('personaggio','salute',1)">
+                        danneggia 1 punto salute personaggio
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('personaggio','umore',1)">
+                        danneggia 1 punto umore personaggio
+                    </button>
                 </div>
+
                 <hr/>
                 <h4>MODALI</h4>
                 <hr/>
@@ -129,11 +145,27 @@
                         </div>
                     </div>
                 </div>
+
+
+                <hr/>
+                <h4>NEMICO</h4>
+                <hr/>
+                <picture id="enemy">
+                    <img id="enemy-img" src="../personaggi/sgherro1/sgherro_0.png"/>
+                </picture>
+
             </div>
         </div>
     </body>
 </html>
 
-<script src="js/anime.min.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/backpackItems.js"></script>
+<script src="../js/characters.js"></script>
+<script src="../js/floors.js"></script>
+<script src="../js/game.js"></script>
+<script src="../js/intelligence.js"></script>
+<script src="../js/game.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
-<script src="js/main.js"></script>
+<script defer src="js/main.js"></script>
