@@ -99,6 +99,49 @@ let backpackItems=[
         maximumUses: 3,                                   //Puoi mangiarne tre volte
         perform: function(char){},
         icon: ""
+    },
+    {
+        name: "Cerotto",
+        description: "Sana una ferita piccola",
+        abundance: 5,
+        type: OBJECT_TYPE_MEDICAMENT,
+        value: 1,
+        maximumUses: 1,                                   //Puoi mangiarne tre volte
+        perform: function(char){},
+        icon: ""
+    },
+    {
+        name: "Chitarra",
+        description: "Suona per tirarti su di morale",
+        abundance: 2,
+        type: OBJECT_TYPE_MOOD,
+        value: 4,
+        maximumUses: 1,
+        perform: function(char)
+        {
+            alert("Suonando ti sei tirato su di morale, ma le corde si sono cosumate!")
+        },
+        icon: ""
+    },
+    {
+        name: "Bistecca",                           //Nome dell'oggetto
+        description: "Buona carne di manzo",        //Descrizione dell'oggetto
+        abundance: 4,                               //Abbondanza
+        type: OBJECT_TYPE_FOOD,                     //Tipo (se non serve scambiarlo non serve)
+        value: 2,                                   //Valore effetto base
+        maximumUses: 1,                             //Uilizzi massimi (negativo=infinito)
+        perform: function(char){},                  //Funzione aggiuntiva oggetto
+        icon: ""                                    //File dell'icona
+    },
+    {
+        name: "Antibiotico",
+        description: "Molto, molto utile",
+        abundance: 1,
+        type: OBJECT_TYPE_MEDICAMENT,
+        value: 4,
+        maximumUses: 1,                                   //Puoi mangiarne tre volte
+        perform: function(char){},
+        icon: ""
     }
 ];
 

@@ -81,3 +81,22 @@ function makeButton(text, behavior)
     tmpBtn.onclick=behavior;                            //Imposta funzionalità
     return tmpBtn;                                      //Ritorna pulsante creato
 }
+
+/*
+ * Verifica uguaglianza tenendo conto del null
+ * Parmaetri
+ * - Object a;
+ * - Object b;
+ * Ritorna:
+ * - bool
+ */
+function refEquals(a, b)
+{
+    if((a!==null)&&(b!==null)) {
+        return (a === b);
+    }
+    else
+    {
+        return false
+    }
+}

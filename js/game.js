@@ -152,3 +152,4 @@ function exchange(charA, charB)
     charB.bag=tmpObj;                                                       //B ottiene oggetto di A
 }
 
+

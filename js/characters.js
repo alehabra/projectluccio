@@ -169,6 +169,11 @@ function Character(charName, charImage, pastBag)
     {
         return(this.health<=HEALTH_MIN);                                            //Ritorna vero se il personaggio è morto
     };
+
+    /*
+     * Ritorna vero se un personaggio è armato
+     */
+
 }
 
 /*
