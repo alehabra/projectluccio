@@ -19,87 +19,90 @@ function makeCollectFunction(objIndex)
 {
     return function()
     {
-        var floor=game.currentFloor;                            //Ottieni piano
-        floor.pick(floor.player, objIndex); game.play();        //Raccogli oggetto
+        var floor=game.currentFloor;                                //Ottieni piano
+        floor.pick(floor.player, objIndex); game.play();            //Raccogli oggetto
     };
 }
 
 /*
  * Ritorna pulsanti da visualizzare
  * Parametri:
- * - Floor floor;                                               //Piano corrente
+ * - Floor floor;                                                   //Piano corrente
  * Ritorna:
- * - button[]                                                   //Array di pulsanti
+ * - button[]                                                       //Array di pulsanti
  */
 function getButtons(floor)
 {
-    var buttons=[];                                             //Variabile ospite array pulsanti
-    if(floor.turn===TURN_PLAYER)                                //Se è il turno del giocatore
+    var buttons=[];                                                 //Variabile ospite array pulsanti
+    if(floor.turn===TURN_PLAYER)                                    //Se è il turno del giocatore
     {
-        /*
-         * Uso oggetto/arma
-         */
-        var item=floor.player.bag;                              //Ottieni evantuale oggetto nello zaino
-        if(item!==null)                                         //Se hai qualcosa nello zaino
+        if(!floor.player.isDead())                                  //Se non sei morto
         {
-            var itemTxt="Usa "+item.name;                       //Testo del pulsante uso oggetto
-            if(item.type===OBJECT_TYPE_WEAPON)                  //Se l'oggetto nello zaino è un arma
-            {
-                itemTxt="Attacca";                              //cambia il testo in "attacca"
-            }
-            buttons.push(makeButton(itemTxt, function(){        //Aggiungi il pulsante uso oggetto/attacca
-                floor.player.use();game.play();}));             //che causa l'utilizzo dell'oggetto
             /*
-             * Scambio
+             * Uso oggetto/arma
              */
-            buttons.push(makeButton("Scambia",function()        //Aggiungi il pulsante "scambia"
+            var item=floor.player.bag;                              //Ottieni evantuale oggetto nello zaino
+            if(item!==null)                                         //Se hai qualcosa nello zaino
             {
-                if(acceptOrNot(floor.enemy, item))              //Se l'avversario accetta lo scmabio
+                var itemTxt="Usa "+item.name;                       //Testo del pulsante uso oggetto
+                if(item.type===OBJECT_TYPE_WEAPON)                  //Se l'oggetto nello zaino è un arma
                 {
-                    alert("L'avversario accetta lo scambio!");  //Notifca accettazione
-                    exchange(floor.player, floor.enemy);        //Scambio oggetti
+                    itemTxt="Attacca";                              //cambia il testo in "attacca"
                 }
-                else                                            //Altrimenti
+                buttons.push(makeButton(itemTxt, function(){        //Aggiungi il pulsante uso oggetto/attacca
+                    floor.player.use();game.play();}));             //che causa l'utilizzo dell'oggetto
+                /*
+                 * Scambio
+                 */
+                buttons.push(makeButton("Scambia",function()        //Aggiungi il pulsante "scambia"
                 {
-                    alert("L'avversario rifiuta lo scambio!")   //Notifica rifiuto
-                }
-                game.play();                                    //Prosegui
-            }));
-        }
-        /*
-         * Raccolta
-         */
-        let index=0;                                            //Ospite indice oggetto
-        for(let obj of floor.objects)                           //Per ogni oggetto presente sul piano
-        {
-            if(obj!==null)
-            {
-                buttons.push(makeButton(                        //Aggiungi
-                    "Raccolgli " + obj.name,                    //Pulsante "raccogli"
-                    makeCollectFunction(index)));               //che chiama una clousure per la raccolta dell'oggetto
+                    if(acceptOrNot(floor.enemy, item))              //Se l'avversario accetta lo scmabio
+                    {
+                        alert("L'avversario accetta lo scambio!");  //Notifca accettazione
+                        exchange(floor.player, floor.enemy);        //Scambio oggetti
+                    }
+                    else                                            //Altrimenti
+                    {
+                        alert("L'avversario rifiuta lo scambio!")   //Notifica rifiuto
+                    }
+                    game.play();                                    //Prosegui
+                }));
             }
-            index++;
+            /*
+             * Raccolta
+             */
+            let index=0;                                            //Ospite indice oggetto
+            for(let obj of floor.objects)                           //Per ogni oggetto presente sul piano
+            {
+                if(obj!==null)
+                {
+                    buttons.push(makeButton(                        //Aggiungi
+                        "Raccolgli " + obj.name,                    //Pulsante "raccogli"
+                        makeCollectFunction(index)));               //che chiama una clousure per la raccolta dell'oggetto
+                }
+                index++;
+            }
         }
     }
-    else                                                        //Altrimenti
+    else                                                            //Altrimenti
     {
-        if (floor.lastEnemyChoice===CHOICE_EXCHANGE)            //Se l'avversario propone uno scambio
+        if (floor.lastEnemyChoice===CHOICE_EXCHANGE)                //Se l'avversario propone uno scambio
         {
-            buttons.push(makeButton("Si", function () {         //Pulsante "sì"
-                exchange(floor.player, floor.enemy);            //Che accetta lo scambio
+            buttons.push(makeButton("Si", function () {             //Pulsante "sì"
+                exchange(floor.player, floor.enemy);                //Che accetta lo scambio
                 game.play();}));
-            buttons.push(makeButton("No", function () {         //Pulsante "no"
-                floor.refuseExchange();                         //Che rifiuta lo scambio
+            buttons.push(makeButton("No", function () {             //Pulsante "no"
+                floor.refuseExchange();                             //Che rifiuta lo scambio
             game.play();}));
         }
         else
         {
             buttons.push(makeButton("Avanti", function () {           //aggiungi il pulsante "Avanti"
-                game.play();}));                                //che fa solo procedere il gioco
+                game.play();}));                                    //che fa solo procedere il gioco
 
         }
     }
-    return(buttons);                                            //Ritorna pulsanti
+    return(buttons);                                                //Ritorna pulsanti
 }
 
 /*
@@ -127,6 +130,10 @@ function updateUi()
     if(game.currentFloor.lastEnemyChoice===CHOICE_IMMEDIATE_USE)
     {
         info.innerText="L'avversario ha usato il suo oggetto"
+    }
+    if(game.player.isDead())                                //Se sei morto
+    {
+        info.innerText="Sei morto. Game over."
     }
     buttons.innerHTML="";                                   //Svuota area pulsanti
     var btns=getButtons(game.currentFloor);                 //Ottieni pulsanti per lo stato corrente

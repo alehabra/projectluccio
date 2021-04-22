@@ -38,33 +38,43 @@ function choice(char, floor)
     /*
      * Vedi se puoi arrangiarti con il tuo oggetto
      */
-    if (need===char.bag.type)                               //Se hai un oggetto corrispondnete alla tua necessità
+    if(char.bag!==null)                                     //Se hai un oggetto nello zaino
     {
-        return CHOICE_IMMEDIATE_USE;                        //Scegli di usare il tuo oggetto
-    }
-    else
-    {
-        /*
-         * Vedi se un oggetto a terra può esserti utile
-         */
-        var objIndex=0;                                     //Varibile ospite indice oggetto
-        for(obj of floor.objects)                           //Cicla oggetti a terra
+        if(need===char.bag.type)                            //Se hai un oggetto corrispondente alla tua necessità
         {
-            if(need===obj.type)                             //Se l'oggetto in esame soddisfa la necessità
-            {
-                floor.pick(char, objIndex);                 //Raccolta oggetto
-                return CHOICE_COLLECTION;                   //Scegli di raccoglierlo
-            }
-            objIndex++;                                     //Incremente indice oggetto
+            return CHOICE_IMMEDIATE_USE;                    //Scegli di usare il tuo oggetto
         }
-        /*
-         * Vedi se il tuo avversario ha unoggetto che ti interessa
-         */
-        if(need===char.enemy.bag.type)                      //Se l'avversario ha un oggetto che soddisfa la tua necessità
+    }
+    /*
+     * Vedi se un oggetto a terra può esserti utile
+     */
+    var objIndex=0;                                     //Variabile ospite indice oggetto
+    for(obj of floor.objects)                           //Cicla oggetti a terra
+    {
+        if(need===obj.type)                             //Se l'oggetto in esame soddisfa la necessità
         {
-            if(char.bag.type===OBJECT_TYPE_WEAPON)          //Se possiedo un'arma
+            floor.pick(char, objIndex);                 //Raccolta oggetto
+            return CHOICE_COLLECTION;                   //Scegli di raccoglierlo
+        }
+        objIndex++;                                     //Incremente indice oggetto
+    }
+    /*
+     * Vedi se il tuo avversario ha unoggetto che ti interessa (e tu hai qualcosa da dargli o un'arma)
+     */
+    if((char.enemy.bag!==null)&&(char.bag!==null))
+    {
+        if(need===char.enemy.bag.type)                  //Se l'avversario ha un oggetto che soddisfa la tua necessità
+        {
+            if(char.bag.type===OBJECT_TYPE_WEAPON)      //Se possiedo un'arma
             {
-                //TODO: Se uno scambio precedente è stato rifiutato attacca
+                if (floor.exchangeRefused >= 1)         //Se il giocatore ha rifiutato un certo numero di scambi
+                {
+                    return CHOICE_ATTACK;               //Sceglo di attaccare
+                }
+                else                                    //Altrimenti
+                {
+                    return CHOICE_EXCHANGE;             //Provo a proporre uno scambio
+                }
             }
             else
             {
@@ -74,15 +84,14 @@ function choice(char, floor)
                 return CHOICE_EXCHANGE;                     //Scelta di effettuare uno scambio
             }
         }
-        else
-        {
-            /*
-             * Non c'è modo di provvedre alla propria necessità individuata
-             * TODO: Passare alla seconda necessità più importante? Verificare
-             */
+    }
+    else
+    {
+        /*
+         * Non c'è modo di provvedre alla propria necessità individuata
+         * TODO: Passare alla seconda necessità più importante? Verificare
+         */
             return CHOICE_NONE;                             //Non fare nulla
-        }
-
     }
 }
 

@@ -49,11 +49,43 @@ function Game()
             }
             else
             {
-                //TODO: Turno della cpu
-                updateUi();                                                 //Mostra intrefaccia dopo la scelta
+                if(!this.currentFloor.enemy.isDead())                       //Se il personaggio della cpu è vivo
+                {
+                    this.currentFloor.lastEnemyChoice=choice(
+                        this.currentFloor.enemy,this.currentFloor);         //Ottieni scelta cpu
+                    switch(this.currentFloor.lastEnemyChoice)               //In base alla scelta
+                    {
+                        case CHOICE_IMMEDIATE_USE:                          //Uso immediato
+                            this.currentFloor.enemy.use();                  //La cpu usa l'oggetto
+                            break;
+                        case CHOICE_ATTACK:                                 //Attacco
+                            battle(this.player,this.currentFloor.enemy);    //Battaglia
+                            break;
+                    }
+                    /*
+                     * Le altre scelte non richiedono codice qui
+                     */
+                }
+                else                                                        //Altrimenti
+                {
+                    this.currentFloor.actions--;                            //Perdi azione che la cpu non può fare
+                    this.currentFloor.turn=TURN_PLAYER;                     //Passa il turno al giocatore
+                }
+
+                updateUi();                                                 //Mostra intefaccia dopo la scelta
             }
             this.currentFloor.actions--;                                    //Diminuisci azioni rimanenti
-            //TODO: Cambio turno
+            /*
+             * Cambio turno
+             */
+            if(this.currentFloor.turn===TURN_PLAYER)                        //Se era il turno del giocatore
+            {
+                this.currentFloor.turn=TURN_CPU;                            //Il prossimo turno sarà della cpu
+            }
+            else
+            {
+                this.currentFloor.turn=TURN_PLAYER;                         //Il prossimo turno sarà del giocatore
+            }
         }
         else
         {
