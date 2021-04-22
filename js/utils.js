@@ -59,7 +59,7 @@ function randomInt(min, max) {
  */
 function random(arr)
 {
-    var element=null;                                   //Ospite elemento
+    let element=null;                                   //Ospite elemento
     while(element===null)                               //Finchè non viene prelevato un elemento valido
     {
         element=(arr[randomInt(0, arr.length - 1)]);    //Preleva un elemento casuale
@@ -76,27 +76,8 @@ function random(arr)
  */
 function makeButton(text, behavior)
 {
-    var tmpBtn=document.createElement("BUTTON");        //Crea nuovo pulsante
+    let tmpBtn=document.createElement("BUTTON");        //Crea nuovo pulsante
     tmpBtn.innerText=text;                              //Imposta testo pulsante
     tmpBtn.onclick=behavior;                            //Imposta funzionalità
     return tmpBtn;                                      //Ritorna pulsante creato
-}
-
-/*
- * Verifica uguaglianza tenendo conto del null
- * Parmaetri
- * - Object a;
- * - Object b;
- * Ritorna:
- * - bool
- */
-function refEquals(a, b)
-{
-    if((a!==null)&&(b!==null)) {
-        return (a === b);
-    }
-    else
-    {
-        return false
-    }
 }

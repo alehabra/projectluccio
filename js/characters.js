@@ -172,7 +172,20 @@ function Character(charName, charImage, pastBag)
 
     /*
      * Ritorna vero se un personaggio è armato
+     * Ritorna:
+     * - bool
      */
+    this.isArmed=function()
+    {
+        if(this.bag!==null)                                                         //Se si ha un oggetto nello zaino
+        {
+            return(this.bag.type===OBJECT_TYPE_WEAPON);                             //Ritorna vero se arma
+        }
+        else
+        {
+            return false;                                                           //falso in tutti gli altri casi
+        }
+    }
 
 }
 
