@@ -83,9 +83,21 @@ function getButtons(floor)
     }
     else                                                        //Altrimenti
     {
-        //TODO: Verifica se l'avversario ti propone uno scambio...
-        buttons.push(makeButton("Avanti", function(){           //aggiungi il pulsante "Avanti"
+        if (floor.lastEnemyChoice===CHOICE_EXCHANGE)            //Se l'avversario propone uno scambio
+        {
+            buttons.push(makeButton("Si", function () {         //Pulsante "sì"
+                exchange(floor.player, floor.enemy);            //Che accetta lo scambio
+                game.play();}));
+            buttons.push(makeButton("No", function () {         //Pulsante "no"
+                floor.refuseExchange();                         //Che rifiuta lo scambio
+            game.play();}));
+        }
+        else
+        {
+            buttons.push(makeButton("Avanti", function () {           //aggiungi il pulsante "Avanti"
                 game.play();}));                                //che fa solo procedere il gioco
+
+        }
     }
     return(buttons);                                            //Ritorna pulsanti
 }
@@ -96,8 +108,26 @@ function getButtons(floor)
 function updateUi()
 {
     var dump=document.getElementById("dump");               //Ottieni area di dump
-    var buttons=document.getElementById("buttons")          //Ottieni area pulsanti
+    var buttons=document.getElementById("buttons");         //Ottieni area pulsanti
+    var info=document.getElementById("info");               //Ottieni area info
     dump.innerHTML=game.toString();                         //Scrivi dati del gioco
+    info.innerHTML="";                                      //Svuota area info
+    if(game.currentFloor.lastEnemyChoice===CHOICE_EXCHANGE) //Se l'avversario ti propone uno scambio
+    {
+        info.innerText="L'avversario ti propone uno scambio";
+    }
+    if(game.currentFloor.lastEnemyChoice===CHOICE_ATTACK)   //Se l'avversario ti ha attaccato
+    {
+        info.innerText="L'avversario ti ha attaccato";
+    }
+    if(game.currentFloor.lastEnemyChoice===CHOICE_COLLECTION)
+    {
+        info.innerText="L'avversario ha raccolto un oggetto"
+    }
+    if(game.currentFloor.lastEnemyChoice===CHOICE_IMMEDIATE_USE)
+    {
+        info.innerText="L'avversario ha usato il suo oggetto"
+    }
     buttons.innerHTML="";                                   //Svuota area pulsanti
     var btns=getButtons(game.currentFloor);                 //Ottieni pulsanti per lo stato corrente
     for(let btn of btns)                                    //Per ogni pulsante ottenuto

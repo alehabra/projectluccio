@@ -62,17 +62,9 @@ function choice(char, floor)
          */
         if(need===char.enemy.bag.type)                      //Se l'avversario ha un oggetto che soddisfa la tua necessità
         {
-            /*TODO: L'attacco sarà effettuato se un precedente scambio è stato rifiutato e se si ha a dispoasizone un'arma.
-             *      Il possesso dell'arma è banale da verificare, mentre per il precedente scambio sono necessarie delle
-             *      informazioni extra.
-             *      Potrebbe esserci bisogno di tenere traccia delle scelte precedenti.
-             */
             if(char.bag.type===OBJECT_TYPE_WEAPON)          //Se possiedo un'arma
             {
-                /* TODO: Solo in questo caso può essere valutata la possibilità di un attacco.
-                 *       tenendo conto delle considerazioni di cui sopra
-                 */
-
+                //TODO: Se uno scambio precedente è stato rifiutato attacca
             }
             else
             {
@@ -142,47 +134,54 @@ function getNeed(char)
  */
 function acceptOrNot(char, otherObj)
 {
-    if(otherObj!==null)                                         //Se l'oggetto offerto non è nullo
+    if(char.isDead())                                               //Se il personaggio è morto
     {
-        if(char.bag===null)                                     //Se il personaggio non ha nulla
-        {
-            return true;                                        //Accetta tutto
-        }
-        else
-            {
-                if(otherObj.type===getNeed(char))               //Se l'oggetto che otterei può esser usato per la mia necessità
-                {
-                    if(char.bag.type===otherObj.type)           //ma anche quello che ho in mano
-                    {
-                        return(char.bag.value<otherObj.value);  //Scelgo quello con effetto base più ampio, preferendo il mio per diffidenza
-                    }
-                    else                                        //altrimenti
-                    {
-                        return true;                            //mi serve di più, accetto
-                    }
-            }
-            else                                                //Non mi serve nell'immediato
-            {
-                if(char.bag.type===getNeed(char))               //Se il mio oggetto mi serve
-                {
-                    return false;                               //col cavolo che lo cedo
-                }
-                else                                            //Se non mi serve
-                {
-                    if(char.bag.type!==OBJECT_TYPE_WEAPON)      //E se non ho in mano un'arma
-                    {
-                        return(char.bag.value<otherObj.value);  //Indipendentemente dal tipo, sceglo quello col valore più alto preferendo il mio per diffidenza
-                    }
-                    else                                        //Altirmenti se sono armato
-                    {
-                        return false;                           //Non cedo l'arma
-                    }
-                }
-            }
-        }
+        return true;                                                //Scambio "accettato" sempre dal morto
     }
-    else                                                        //Altrimenti, se l'offerta è nulla
+    else
     {
-        return false;                                           //Non accetto
+        if(otherObj!==null)                                         //Se l'oggetto offerto non è nullo
+        {
+            if(char.bag===null)                                     //Se il personaggio non ha nulla
+            {
+                return true;                                        //Accetta tutto
+            }
+            else
+                {
+                    if(otherObj.type===getNeed(char))               //Se l'oggetto che otterei può esser usato per la mia necessità
+                    {
+                        if(char.bag.type===otherObj.type)           //ma anche quello che ho in mano
+                        {
+                            return(char.bag.value<otherObj.value);  //Scelgo quello con effetto base più ampio, preferendo il mio per diffidenza
+                        }
+                        else                                        //altrimenti
+                        {
+                            return true;                            //mi serve di più, accetto
+                        }
+                }
+                else                                                //Non mi serve nell'immediato
+                {
+                    if(char.bag.type===getNeed(char))               //Se il mio oggetto mi serve
+                    {
+                        return false;                               //col cavolo che lo cedo
+                    }
+                    else                                            //Se non mi serve
+                    {
+                        if(char.bag.type!==OBJECT_TYPE_WEAPON)      //E se non ho in mano un'arma
+                        {
+                            return(char.bag.value<otherObj.value);  //Indipendentemente dal tipo, sceglo quello col valore più alto preferendo il mio per diffidenza
+                        }
+                        else                                        //Altirmenti se sono armato
+                        {
+                            return false;                           //Non cedo l'arma
+                        }
+                    }
+                }
+            }
+        }
+        else                                                        //Altrimenti, se l'offerta è nulla
+        {
+            return false;                                           //Non accetto
+        }
     }
 }

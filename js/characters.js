@@ -44,7 +44,7 @@ function Character(charName, charImage, pastBag)
     this.health = INITIAL_HEALTH;                                                   //Inizializza salute
     this.hunger = INITIAL_HUNGER;                                                   //Inizializza fame
     this.mood = INITIAL_MOOD;                                                       //Inizializza umore
-    this.enemy;                                                                     //Puntatore al nemico corrente (se il personaggio è un nemico, il puntatore punta al giocatore)
+    this.enemy=null;                                                                //Puntatore al nemico corrente (se il personaggio è un nemico, il puntatore punta al giocatore)
     /*
      * Imposta il nemico
      * Parametri:
@@ -158,7 +158,17 @@ function Character(charName, charImage, pastBag)
             str+="<br>Zaino vuoto";                                                 //Zaino vuoto
         }
         return str;                                                                 //Ritorna stringa
-    }
+    };
+
+    /*
+     * Ritorna vero se il personaggio è morto
+     * Ritorna:
+     * - bool
+     */
+    this.isDead=function()
+    {
+        return(this.health<=HEALTH_MIN);                                            //Ritorna vero se il personaggio è morto
+    };
 }
 
 /*

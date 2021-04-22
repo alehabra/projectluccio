@@ -37,11 +37,12 @@ function Game()
      */
     this.play=function()
     {
-        updateUi();
+        this.currentFloor.lastEnemyChoice=CHOICE_NONE;                      //Pulisci scelta nemico
         if(this.currentFloor.actions>NO_MORE_ACTIONS)                       //Se sul piano corrente si possono eseguire ancora azioni
         {
             if(this.currentFloor.turn===TURN_PLAYER)                        //Se è il turno del giocatore
             {
+                updateUi();                                                 //Mostra interfaccia prima di scegliere
                 /*
                  * Nulla, attendi azioni del giocatore
                  */
@@ -49,6 +50,7 @@ function Game()
             else
             {
                 //TODO: Turno della cpu
+                updateUi();                                                 //Mostra intrefaccia dopo la scelta
             }
             this.currentFloor.actions--;                                    //Diminuisci azioni rimanenti
             //TODO: Cambio turno

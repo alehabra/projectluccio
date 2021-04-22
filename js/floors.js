@@ -35,6 +35,8 @@ function Floor(player)
     this.enemy=getEnemy(player);                                //Imposta avversario
     this.turn=random([TURN_PLAYER,TURN_CPU]);                   //Scegli casualmente chi inizia
     this.actions=TOTAL_ACTIONS;                                 //Imposta azioni rimanenti
+    this.lastEnemyChoice=CHOICE_NONE;                           //Ulitma azione avversario
+    this.exchangeRefused=0;                                     //Scambi rifiutati dal giocatore
 
     /*
      * Un personaggio scambia il suo oggetto con uno di quelli presenti sul piano
@@ -69,5 +71,14 @@ function Floor(player)
         str+="<br><br>Avversario:"+this.enemy.toString();       //Stampa stato avversario
         str+="<br><br>Turno: "+this.turn;                       //Turno
         return str;                                             //Ritorna stringa
-    }
+    };
+
+    /*
+     * Da chiamare per rifiutare uno scambio
+     */
+    this.refuseExchange=function ()
+    {
+        this.exchangeRefused++;                                 //Incrementa scmabi rifiutati
+    };
+
 }
