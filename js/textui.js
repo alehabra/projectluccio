@@ -77,11 +77,16 @@ function getButtons(floor)
                 if(obj!==null)
                 {
                     buttons.push(makeButton(                        //Aggiungi
-                        "Raccolgli " + obj.name,                    //Pulsante "raccogli"
+                        "Raccolgli " + obj.name,                        //Pulsante "raccogli"
                         makeCollectFunction(index)));               //che chiama una clousure per la raccolta dell'oggetto
                 }
                 index++;
             }
+            /*
+             * Passa
+             */
+            buttons.push(makeButton("Passa", function ()            //Aggiungi il pulsante "passa"
+            {game.play();}));                                       //Che passa il turno
         }
     }
     else                                                            //Altrimenti
@@ -110,36 +115,44 @@ function getButtons(floor)
  */
 function updateUi()
 {
-    var dump=document.getElementById("dump");               //Ottieni area di dump
-    var buttons=document.getElementById("buttons");         //Ottieni area pulsanti
-    var info=document.getElementById("info");               //Ottieni area info
-    dump.innerHTML=game.toString();                         //Scrivi dati del gioco
-    info.innerHTML="";                                      //Svuota area info
-    if(game.currentFloor.lastEnemyChoice===CHOICE_EXCHANGE) //Se l'avversario ti propone uno scambio
+    var dump=document.getElementById("dump");                       //Ottieni area di dump
+    var buttons=document.getElementById("buttons");                 //Ottieni area pulsanti
+    var info=document.getElementById("info");                       //Ottieni area info
+    info.innerHTML="";                                              //Svuota area info
+    buttons.innerHTML="";                                           //Svuota area pulsanti
+    if(game.currentFloor.starting)                                  //Se abbiamo appena inziato un nuovo piano
     {
-        info.innerText="L'avversario ti propone uno scambio";
+        dump.innerText="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
+        buttons.appendChild(makeButton("Inizia",                    //Aggiungi pulsante "inizia"
+            function(){game.play();}));                             //che fa iniziare il piano
     }
-    if(game.currentFloor.lastEnemyChoice===CHOICE_ATTACK)   //Se l'avversario ti ha attaccato
+    else
     {
-        info.innerText="L'avversario ti ha attaccato";
-    }
-    if(game.currentFloor.lastEnemyChoice===CHOICE_COLLECTION)
-    {
-        info.innerText="L'avversario ha raccolto un oggetto"
-    }
-    if(game.currentFloor.lastEnemyChoice===CHOICE_IMMEDIATE_USE)
-    {
-        info.innerText="L'avversario ha usato il suo oggetto"
-    }
-    if(game.player.isDead())                                //Se sei morto
-    {
-        info.innerText="Sei morto. Game over."
-    }
-    buttons.innerHTML="";                                   //Svuota area pulsanti
-    var btns=getButtons(game.currentFloor);                 //Ottieni pulsanti per lo stato corrente
-    for(let btn of btns)                                    //Per ogni pulsante ottenuto
-    {
-        buttons.appendChild(btn);                           //Aggiungi all'Ui
+        dump.innerHTML=game.toString();                             //Scrivi dati del gioco
+        if(game.currentFloor.lastEnemyChoice===CHOICE_EXCHANGE)     //Se l'avversario ti propone uno scambio
+        {
+            info.innerText="L'avversario ti propone uno scambio";   //Notifica la proposta
+        }
+        if(game.currentFloor.lastEnemyChoice===CHOICE_ATTACK)       //Se l'avversario ti ha attaccato
+        {
+            info.innerText="L'avversario ti ha attaccato";          //Notifica l'avvenuto attacco
+        }
+        if(game.currentFloor.lastEnemyChoice===CHOICE_COLLECTION)   //Se l'avversario ha raccolto
+        {
+            info.innerText="L'avversario ha raccolto un oggetto"    //Notifica la raccolta
+        }
+        if(game.currentFloor.lastEnemyChoice===CHOICE_IMMEDIATE_USE)//Se l'aversario ha usato il suo oggetto
+        {
+            info.innerText="L'avversario ha usato il suo oggetto"   //Notifica l'uso
+        }
+        if(game.player.isDead())                                    //Se sei morto
+        {
+            info.innerText="Sei morto. Game over."                  //Notifica game over
+        }
+        var btns=getButtons(game.currentFloor);                     //Ottieni pulsanti per lo stato corrente
+        for(let btn of btns)                                        //Per ogni pulsante ottenuto
+        {
+            buttons.appendChild(btn);                               //Aggiungi all'Ui
+        }
     }
 }
-

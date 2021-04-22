@@ -37,6 +37,7 @@ function Game()
      */
     this.play=function()
     {
+        this.currentFloor.starting=false;                                   //Il piano è inziato
         this.currentFloor.lastEnemyChoice=CHOICE_NONE;                      //Pulisci scelta nemico
         if(this.currentFloor.actions>NO_MORE_ACTIONS)                       //Se sul piano corrente si possono eseguire ancora azioni
         {
@@ -89,8 +90,10 @@ function Game()
         }
         else
         {
-            //TODO: Cambio piano
-            alert("Cambio piano!");
+            this.player.feed(-1);                                           //Subisci fame
+            this.player.enjoy(-1);                                          //Ti rattristi anche
+            this.currentFloor=new Floor(this.player);                       //Crea nuovo piano
+            updateUi();                                                     //Aggiorna interfaccia
         }
     };
 }

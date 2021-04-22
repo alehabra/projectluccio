@@ -51,10 +51,13 @@ function choice(char, floor)
     var objIndex=0;                                     //Variabile ospite indice oggetto
     for(obj of floor.objects)                           //Cicla oggetti a terra
     {
-        if(need===obj.type)                             //Se l'oggetto in esame soddisfa la necessità
+        if(obj!==null)                                  //Se oggetto non nullo
         {
-            floor.pick(char, objIndex);                 //Raccolta oggetto
-            return CHOICE_COLLECTION;                   //Scegli di raccoglierlo
+            if(need===obj.type)                         //Se l'oggetto in esame soddisfa la necessità
+            {
+                floor.pick(char, objIndex);             //Raccolta oggetto
+                return CHOICE_COLLECTION;               //Scegli di raccoglierlo
+            }
         }
         objIndex++;                                     //Incremente indice oggetto
     }

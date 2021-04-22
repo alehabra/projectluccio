@@ -33,10 +33,11 @@ function Floor(player)
     this.objects=getFloorObjects(this.number);                  //Ottieni oggetti presenti nel piano
     this.player=player;                                         //Imposta giocatore
     this.enemy=getEnemy(player);                                //Imposta avversario
-    this.turn=random([TURN_PLAYER,TURN_CPU]);                   //Scegli casualmente chi inizia
+    this.turn=random([TURN_PLAYER,TURN_CPU]);               //Scegli casualmente chi inizia
     this.actions=TOTAL_ACTIONS;                                 //Imposta azioni rimanenti
     this.lastEnemyChoice=CHOICE_NONE;                           //Ulitma azione avversario
     this.exchangeRefused=0;                                     //Scambi rifiutati dal giocatore
+    this.starting=true;                                         //Il piano è appena iniziato
 
     /*
      * Un personaggio scambia il suo oggetto con uno di quelli presenti sul piano
