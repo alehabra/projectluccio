@@ -119,7 +119,10 @@ let backpackItems=[
         maximumUses: 1,
         perform: function(char)
         {
-            alert("Suonando ti sei tirato su di morale, ma le corde si sono cosumate!")
+            if(char===game.player)
+            {
+                alert("Suonando ti sei tirato su di morale, ma le corde si sono cosumate!");
+            }
         },
         icon: ""
     },
