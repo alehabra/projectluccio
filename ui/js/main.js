@@ -208,6 +208,7 @@ const hungrySound = new Audio('music/hungry.ogg');
         let i = 0;
         setInterval(function(){  
             i <= 48 ? i++ : i = 0;
-            document.getElementById("enemy-img").src = '../personaggi/sgherro1/sgherro_'+i+'.png';
+            //document.getElementById("enemy-img").src = '../personaggi/sgherro1/sgherro_'+i+'.png';    //Dalla cartella ui
+            document.getElementById("enemy-img").src = '../projectluccio/personaggi/sgherro1/sgherro_'+i+'.png';      //dalla cartella principale
         }, 50);
     }
