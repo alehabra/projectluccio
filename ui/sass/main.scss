@@ -23,6 +23,27 @@ hr{margin:1.5rem 0rem;}
 .occhio-rimosso{
     top:-200vw !important;
 }
+.startLevel{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    z-index: 101;
+    position: absolute;
+    flex-direction: column;
+    .startLevel-info{
+        color: $lightgrey;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        margin-bottom:2rem;
+    }
+}
+.startLevel-inactive{
+    display: none;
+    visibility: hidden;
+}
 
 #cella{
     position: relative;
@@ -206,6 +227,9 @@ hr{margin:1.5rem 0rem;}
     width:50%;
     height: auto;
     display: inline-block;
+    left:25%;
+    bottom:25%;
+    position: absolute;
     img{
         width: 100%;
     }

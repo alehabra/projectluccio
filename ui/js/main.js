@@ -9,19 +9,25 @@ const modal = document.getElementById("modal");
 let modalInner = document.querySelectorAll(".modal-inner");
 
 //////////////////VARIABILI RISORSE MUSIC/////////////////
-const btnSound = new Audio('music/selection.mp3');
-const ouchSound = new Audio('music/ouch.ogg');
-const hungrySound = new Audio('music/hungry.ogg');
+const btnSound = new Audio('../projectluccio/ui/music/selection.mp3');
+const ouchSound = new Audio('../projectluccio/ui/music/ouch.ogg');
+const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
 
 
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
 
 
-(function() {    
+
     //funzione apertura occhi inizio livello
 
     //aperturaOcchi();
-    function aperturaOcchi(){        
+    function aperturaOcchi(){    
+        /*rimuovo info start level */
+        let startLevel = document.querySelectorAll('.startLevel');
+        setTimeout(function(){
+            startLevel[0].classList.add('startLevel-inactive');
+        }, 300);
+
         /*animazione apertura occhi*/  
         var svg = document.getElementById("occhio-sopra");
         var s = Snap(svg);
@@ -70,7 +76,7 @@ const hungrySound = new Audio('music/hungry.ogg');
 
 
     }
-})()
+
 
 /////////////////////////////////////////////////////BOTTONI////////////////////////////
 
@@ -201,7 +207,7 @@ const hungrySound = new Audio('music/hungry.ogg');
      }
  
     ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
-    animateSgherro();
+    //animateSgherro();
 
     function animateSgherro(){
         let enemySourceImg = document.getElementById("enemy-img").src;
