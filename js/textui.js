@@ -113,7 +113,7 @@ function getButtons(floor)
 /*
  * Aggiorna l'interfaccia BOT
  */
- function updateUi() 
+/*  function updateUi() 
 {
     var dump=document.getElementById("dump");                       //Ottieni area di dump
     var buttons=document.getElementById("buttons");                 //Ottieni area pulsanti
@@ -156,16 +156,16 @@ function getButtons(floor)
         }
     }
 } 
-
+ */
 /*
  * Aggiorna l'interfaccia BASS
  */
 
-/*  function updateUi()
+ function updateUi()
 {
     let startLevelInfo = document.querySelectorAll('.startLevel-info');
     if(game.currentFloor.starting)                                  //Se abbiamo appena inziato un nuovo piano
     {
         startLevelInfo[0].innerHTML="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
     }
-}  */
+} 
