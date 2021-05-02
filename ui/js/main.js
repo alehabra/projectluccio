@@ -207,7 +207,7 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
      }
  
     ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
-    //animateSgherro();
+    animateSgherro();
 
     function animateSgherro(){
         let enemySourceImg = document.getElementById("enemy-img").src;
