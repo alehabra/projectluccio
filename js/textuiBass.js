@@ -113,7 +113,7 @@ function getButtons(floor)
 /*
  * Aggiorna l'interfaccia BOT
  */
-function updateUi() 
+/*  function updateUi() 
 {
     var dump=document.getElementById("dump");                       //Ottieni area di dump
     var buttons=document.getElementById("buttons");                 //Ottieni area pulsanti
@@ -156,12 +156,56 @@ function updateUi()
         }
     }
 } 
-
+ */
+/*
+ * Aggiorna l'interfaccia BASS <-- BOT: Può stare in qualsiasi file, meglio in un altro, così textUi rimane accessible
+ */
 
  function updateUi()
 {
+    //se inizio turno animazione occhi
+    //currentFloor.starting
+
     let startLevelInfo = document.querySelectorAll('.startLevel-info');
-    if(game.currentFloor.starting)                                  //Se abbiamo appena inziato un nuovo piano
+
+    //popolo statistiche personaggio
+    AddPointsDamage('personaggio','salute',game.player.health);
+    AddPointsDamage('personaggio','umore',game.player.mood);
+    AddPointsDamage('personaggio','sazieta',game.player.hunger); 
+
+    //popolo statistiche nemico
+    AddPointsDamage('nemico','salute',game.player.enemy.health);
+    AddPointsDamage('nemico','umore',game.player.enemy.mood);
+    AddPointsDamage('nemico','sazieta',game.player.enemy.hunger); 
+
+    //popolo oggetti dello zaino nemico e personaggio ogni oggetto deve essere ==! NULL  pagina 3
+    //game.player.bag.name
+    //game.player.bag.icon
+
+    //popolo oggetti del piano ogni oggetto deve essere ==! NULL pagina 3
+    //currentFloor.objects[]
+
+    //turno
+    game.currentFloor.turn === TURN_PLAYER ? EnemyTurn() : YourTurn();
+
+    //esempio di cosa ha fatto il nemico pagina 4
+    //in base al risultato chiamo delle funzioni
+    //currentFloor.lastEnemyChoice
+
+    //scambio nemico pagina 6
+    //se accetti o no pagina 6
+    
+
+    //GIOCATORE azioni a pagina 5
+    /*
+    if (currentFloor.objects[0]!==null) {game.currentFloor.pick(0)}
+    //se lo voglio usare
+    game.player.use();
+    game.play
+
+    */
+
+    if(game.currentFloor.starting)                                 
     {
         startLevelInfo[0].innerHTML="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
     }
