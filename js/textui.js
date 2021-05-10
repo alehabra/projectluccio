@@ -158,7 +158,7 @@ function getButtons(floor)
 } 
  */
 /*
- * Aggiorna l'interfaccia BASS
+ * Aggiorna l'interfaccia BASS <-- BOT: Può stare in qualsiasi file, meglio in un altro, così textUi rimane accessible
  */
 
  function updateUi()
@@ -168,4 +168,5 @@ function getButtons(floor)
     {
         startLevelInfo[0].innerHTML="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
     }
+    //BOT: Fin qua ci siamo
 } 
