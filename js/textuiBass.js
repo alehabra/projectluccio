@@ -110,56 +110,7 @@ function getButtons(floor)
     return(buttons);                                                //Ritorna pulsanti
 }
 
-/*
- * Aggiorna l'interfaccia BOT
- */
-/*  function updateUi() 
-{
-    var dump=document.getElementById("dump");                       //Ottieni area di dump
-    var buttons=document.getElementById("buttons");                 //Ottieni area pulsanti
-    var info=document.getElementById("info");                       //Ottieni area info
-    info.innerHTML="";                                              //Svuota area info
-    buttons.innerHTML="";                                           //Svuota area pulsanti
-    if(game.currentFloor.starting)                                  //Se abbiamo appena inziato un nuovo piano
-    {
-        dump.innerText="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
-        buttons.appendChild(makeButton("Inizia",                    //Aggiungi pulsante "inizia"
-            function(){game.play();}));                             //che fa iniziare il piano
-    }
-    else
-    {
-        dump.innerHTML=game.toString();                             //Scrivi dati del gioco
-        if(game.currentFloor.lastEnemyChoice===CHOICE_EXCHANGE)     //Se l'avversario ti propone uno scambio
-        {
-            info.innerText="L'avversario ti propone uno scambio";   //Notifica la proposta
-        }
-        if(game.currentFloor.lastEnemyChoice===CHOICE_ATTACK)       //Se l'avversario ti ha attaccato
-        {
-            info.innerText="L'avversario ti ha attaccato";          //Notifica l'avvenuto attacco
-        }
-        if(game.currentFloor.lastEnemyChoice===CHOICE_COLLECTION)   //Se l'avversario ha raccolto
-        {
-            info.innerText="L'avversario ha raccolto un oggetto"    //Notifica la raccolta
-        }
-        if(game.currentFloor.lastEnemyChoice===CHOICE_IMMEDIATE_USE)//Se l'aversario ha usato il suo oggetto
-        {
-            info.innerText="L'avversario ha usato il suo oggetto"   //Notifica l'uso
-        }
-        if(game.player.isDead())                                    //Se sei morto
-        {
-            info.innerText="Sei morto. Game over."                  //Notifica game over
-        }
-        var btns=getButtons(game.currentFloor);                     //Ottieni pulsanti per lo stato corrente
-        for(let btn of btns)                                        //Per ogni pulsante ottenuto
-        {
-            buttons.appendChild(btn);                               //Aggiungi all'Ui
-        }
-    }
-} 
- */
-/*
- * Aggiorna l'interfaccia BASS <-- BOT: Può stare in qualsiasi file, meglio in un altro, così textUi rimane accessible
- */
+
 
  function updateUi()
 {
@@ -168,15 +119,21 @@ function getButtons(floor)
 
     let startLevelInfo = document.querySelectorAll('.startLevel-info');
 
-    //popolo statistiche personaggio
-    AddPointsDamage('personaggio','salute',game.player.health);
-    AddPointsDamage('personaggio','umore',game.player.mood);
-    AddPointsDamage('personaggio','sazieta',game.player.hunger); 
+     //popolo statistiche personaggio
+    AddPointsDamage('personaggio','salute',game.player.health -1,true);
+    AddPointsDamage('personaggio','umore',game.player.mood -1,true);
+    AddPointsDamage('personaggio','sazieta',game.player.hunger -1,true); 
 
     //popolo statistiche nemico
-    AddPointsDamage('nemico','salute',game.player.enemy.health);
-    AddPointsDamage('nemico','umore',game.player.enemy.mood);
-    AddPointsDamage('nemico','sazieta',game.player.enemy.hunger); 
+    AddPointsDamage('nemico','salute',game.player.enemy.health -1,true);
+    AddPointsDamage('nemico','umore',game.player.enemy.mood -1,true);
+    AddPointsDamage('nemico','sazieta',game.player.enemy.hunger -1,true); 
+
+    //popolo numero piano
+    PopulateFloorName(game.currentFloor.number);
+    
+    //turno
+    game.currentFloor.turn === TURN_PLAYER ? EnemyTurn() : YourTurn();
 
     //popolo oggetti dello zaino nemico e personaggio ogni oggetto deve essere ==! NULL  pagina 3
     //game.player.bag.name
@@ -185,8 +142,7 @@ function getButtons(floor)
     //popolo oggetti del piano ogni oggetto deve essere ==! NULL pagina 3
     //currentFloor.objects[]
 
-    //turno
-    game.currentFloor.turn === TURN_PLAYER ? EnemyTurn() : YourTurn();
+
 
     //esempio di cosa ha fatto il nemico pagina 4
     //in base al risultato chiamo delle funzioni
@@ -194,6 +150,9 @@ function getButtons(floor)
 
     //scambio nemico pagina 6
     //se accetti o no pagina 6
+
+    //se accetta lui
+    //if(acceptOrNot)
     
 
     //GIOCATORE azioni a pagina 5
@@ -209,5 +168,4 @@ function getButtons(floor)
     {
         startLevelInfo[0].innerHTML="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
     }
-    //BOT: Fin qua ci siamo
 } 

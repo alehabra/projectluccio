@@ -1,593 +1,166 @@
+<!DOCTYPE html>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../projectluccio/ui/dist/main.min.css"/>
 
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-<style>
-    .card-header{background: url('https://d15tr8kq3ucssl.cloudfront.net/media/18/82/1987fbbd-221d-40ac-98dc-b38ddf301227/b6cdef1c-6254-482a-88d5-c3a6d2264ead.jpg') center center / cover no-repeat !important;}
-    html{font-family: 'Open Sans', sans-serif;}
-    #room{background: #353535; width: 100%; height: 100%;}
-    #day{font-size: 2.5rem; color: white; font-weight: bolder; position: absolute; left: 10%; top: 15%; font-family: 'Open Sans'; text-transform: uppercase;}
-    
-    #zaino{ position: absolute; right:10%; background:#D9D9D9; color:black; border-radius: 10px; top:15%; padding:1.5rem;}
-    #zaino h1{ font-size:2.5rem;  width:100%; text-align: center; color:black; margin:0rem 1rem;}
-    .zainoStats {
-        text-align: center;
-        width: 100%;
-        display: inherit;
-        font-size: 1.5rem;
-    }
+<html>
+    <body>
+        <!--OCCHI ANIMAZIONE-->
+<!--        <svg id="occhio-sopra" viewBox="0 0 2000 2000">
+            <path id="chiuso-sopra" d="M2000,1000c0,0-340,0-1000,0c-631,0-1000,0-1000,0V0h2000V1000z"/>
+            <path id="aperto-sopra" opacity="0" d="M2000,1000c0,0-340-424-1000-424C369,576,0,1000,0,1000V0h2000V1000z"/>
+            <path id="chiuso-sotto" d="M0,1000c0,0,340,0,1000,0c631,0,1000,0,1000,0v1000H0V1000z"/>
+            <path id="aperto-sotto" opacity="0" d="M0,1000c0,0,340,286,1000,286c631,0,1000-286,1000-286v1000H0V1000z"/>
+        </svg> -->
+        <!--OCCHI ANIMAZIONE-->
 
-    #mainChar{width:50px;  height:150px; background:#D9D9D9; position: absolute; left:25%; top:50%;}
-    #enemyChar{width:50px;  height:150px; background:#3C6E71; position: absolute; right:25%; top:50%;}
-
-    #charStats,#enemyStats{ padding:1.5rem 0.5rem; display:flex; flex-direction:row; justify-content: center; background: #D9D9D9; width: 90%; height:80px; position: absolute; left:5%; top:5%; border-radius: 10px; -webkit-box-shadow: 0px 2px 10px 0px rgba(133,130,133,1); -moz-box-shadow: 0px 2px 10px 0px rgba(133,130,133,1); box-shadow: 0px 2px 10px 0px rgba(133,130,133,1); }
-    #enemyStats{top:90%; background: #3C6E71;}
-
-    #charStats .stat,#enemyStats .stat{ margin:0 2rem; font-size:2rem; color:black; text-align: center; display: flex; flex-direction: column;}
-
-    #floor{position: absolute; display: flex; flex-direction: column; font-weight: 800; left:10%; top:25%; width:80%; text-align:center; color:white; font-size: 4.0rem; text-transform: uppercase; border-radius: 10px;; background: #9D8189;}
-    #floorTitle{font-weight: 800; text-align:center; color:white; font-size: 4.0rem; text-transform: uppercase; margin:1.5rem 0rem;}
-    #floorObjects{display: flex; flex-direction: row; justify-content: center;}
-    #floorObjects div{
-        border-right: 1px solid white;
-        text-align: center;
-        color: white;
-        font-size: 1.8rem;
-        padding: 1rem;
-    }
-
-    h1,h2{color:white; width:100%; text-align: center; font-size:2.0rem;}
-    h2{position: absolute; bottom:10%}
-    .animated{
-        -webkit-transition: all 0.5s ease-in-out;
-        -moz-transition: all 0.5s ease-in-out;
-        -o-transition: all 0.5s ease-in-out;
-        transition: all 0.5s ease-in-out;
-    }
-    #popupNemicoRichiesta{background:#3C6E71 !important; color:white !important;}
-    #popupFinale{font-size:1.5rem;}
-    .popup{position:absolute; z-index:10; background: #D9D9D9; bottom:25%; opacity:0; width:60%; left:15%; padding:4%; font-size: 1.3rem; color:black; border-radius: 10px; display: none;}
-    .popup--show{bottom:15%; opacity: 1; display: block;}
-    .popup h2{position:relative; color:black; font-size:2.5rem; margin:0; margin-bottom:1.5rem;}
-    #oggettoUsare div, #oggettoTenere div, #oggettoNemico div, #popupFinale div{width: 33%; background: black; color: white; font-size: 2rem; margin: 1rem auto; text-align: center; padding: 1rem;}
-
-    .hidden{display: none !important; visibility: hidden;}
-</style>
-
-<div id="room">
-    <div id="floor">
-        <div id="floorTitle"></div>
-        <div id="floorObjects">
-<!--             <div class="floorTile">
+        <div id="cella" class="focus">
+            <div id="cella-floor">
+                <h1>PIANO 50</h1>
             </div>
-            <div class="floorTile">
+            <div id="cella-stats">
+                
             </div>
-            <div class="floorTile">
-            </div> -->
+            <div style="position:relative; padding:15rem 5rem 0rem; overflow-y: scroll; height:100%;">
+                <h4>PULSANTI</h4>
+                <hr/>
+                <div style="width: 100%; display: flex; justify-content: center;">
+                    <button class="btn">
+                        <span>Disattiva pulsante</span>
+                    </button>
+                </div>
+                <div style="width: 100%; display: inline-block; margin-top:1rem;">
+                    <button style="font-size:1.5rem;" onclick="resetBtn()">
+                        Attiva pulsante
+                    </button>
+                </div>
+                <hr/>
+                <h4>STATO PERSONE STANZA</h4>
+                <hr/>
+                <div id="stats">
+                    <div class="stats-element">
+                        <h3>Giocatore</h3>
+                        <div class="stats-stats">
+                            <div class="stats-icon">
+                                <img src="ui/img/fame.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                            </div>
+                            <div class="stats-icon">
+                                <img src="ui/img/salute.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                            </div>
+                            <div class="stats-icon">
+                                <img src="ui/img/umore.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                            </div>
+                        </div>
+                        <div class="stats-bag">
+                            ZAINO: <span>cazzeruola</span>
+                        </div>
+                    </div>
+                    <div class="stats-element stats-element--enemy">
+                        <h3>Avversario</h3>
+                        <div class="stats-stats">
+                            <div class="stats-icon">
+                                <img src="ui/img/fame.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>                                
+                            </div>
+                            <div class="stats-icon">
+                                <img src="ui/img/salute.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>                            
+                            </div>
+                            <div class="stats-icon">
+                                <img src="ui/img/umore.svg"/>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>
+                                <span class="stats-icon-points"></span>                            
+                            </div>
+                        </div>
+                        <div class="stats-bag">
+                            ZAINO: <span>cazzeruola</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="width: 100%; display: inline-block; margin-top:2rem;">
+                    <button style="font-size:1.5rem;" onclick="EnemyTurn()">
+                        Turno nemico
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="YourTurn()">
+                        Turno tuo
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','sazieta',0)">
+                        danneggia 1 punto sazieta nemico
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','salute',1)">
+                        danneggia 2 punti salute nemico
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('nemico','umore',2)">
+                        danneggia 3 punti umore nemico
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('personaggio','sazieta',0)">
+                        danneggia 1 punto sazieta personaggio
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('personaggio','salute',1)">
+                        danneggia 1 punto salute personaggio
+                    </button>
+                    <button style="font-size:1.5rem;" onclick="AddPointsDamage('personaggio','umore',1)">
+                        danneggia 1 punto umore personaggio
+                    </button>
+                </div>
+
+                <hr/>
+                <h4>MODALI</h4>
+                <hr/>
+                <div style="width: 100%; display: inline-block; margin-top:1rem;">
+                    <button style="font-size:1.5rem;" onclick="showModal()">
+                        Attiva modale scelta
+                    </button>
+                </div>
+                <div id="modal">
+                    <div class="modal-inner">
+                        <h1>COSA SCEGLI?</h1>
+                        <div class="modal-inner-content">
+                            <button class="btn" onclick="hideModal()">
+                                <span>Scelta uno</span>
+                            </button>
+                            <button class="btn" onclick="hideModal()">
+                                <span>Scelta due</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <hr/>
+                <h4>NEMICO</h4>
+                <hr/>
+                <picture id="enemy">
+                    <img id="enemy-img" src="../personaggi/sgherro1/sgherro_0.png"/>
+                </picture>
+
+            </div>
         </div>
-    </div>
+    </body>
+</html>
 
-    <div id="day"></div>
-    <div id="zaino">
-        <h1>ZAINO:</h1>
-        <span class="zainoStats"></span>
-    </div>
 
-    <h1>Le tue condizioni:</h1>
-    <div id="charStats">
-        <div class="stat">
-            <i class="fas fa-heart"></i>
-            <span class="charStat"></span>
-        </div>
-        <div class="stat">
-            <i class="fas fa-utensils"></i>
-            <span class="charStat"></span>
-        </div>
-        <div class="stat">
-            <i class="fas fa-cut"></i>
-            <span class="charStat"></span>
-        </div>
-    </div>
 
-    <h2>Le sue condizioni:</h2>
-    <div id="enemyStats">
-        <div class="stat">
-            <i class="fas fa-heart"></i>
-            <span class="enemStat"></span>
-        </div>
-        <div class="stat">
-            <i class="fas fa-utensils"></i>
-            <span class="enemStat"></span>
-        </div>
-        <div class="stat">
-            <i class="fas fa-cut"></i>
-            <span class="enemStat"></span>
-        </div>
-    </div>
-
-    <!--PERSONAGGIO E ASCENSORE-->
-    <div id="mainChar" class="animated"></div>
-    <div id="enemyChar" class="animated"></div>
-
-    <div class="elevator1 animated"></div>
-    <div class="elevator2 animated"></div>
-
-
-    <div id="popupUsare" class="popup animated">
-        <h2>che oggetto vuoi usare subito?</h2>
-        <div id="oggettoUsare">
-
-        </div>
-    </div>
-
-    <div id="popupUsare" class="popup animated">
-        <h2>che oggetto vuoi tenere?</h2>
-        <div id="oggettoTenere">
-
-        </div>
-    </div>
-
-    <div id="popupNemicoRichiesta" class="popup animated">
-        <h3>NEMICO:</h3>
-        <h2>Ho bisogno di <span class="tipoRichiestaNemico"></span></h2>
-        <div id="oggettoNemico">
-
-        </div>
-    </div>
-
-    <div id="popupFinale" class="popup animated">
-        <div id="oggettoAvanti">
-
-        </div>
-    </div>
-
-</div>
-
-<script>
-
-    (function() {
-    
-        //PERSONAGGIO
-        //statistiche personaggio
-        let userStats = {life:3, hungry: 4, armor:0};
-        let zaino = [];
-        var zainoScreen = document.querySelectorAll('.zainoStats');
-        let charStatsScreen = document.querySelectorAll('.charStat');
-        charStatsScreen[0].innerHTML = userStats.life + '/4';
-        charStatsScreen[1].innerHTML = userStats.hungry+ '/4';
-        charStatsScreen[2].innerHTML = userStats.armor+ '/4';
-
-        //NEMICO
-        let enemStatsScreen = document.querySelectorAll('.enemStat');
-        let enemStats = {life:0, hungry: 0, armor:0};
-
-        //OGGETTI   
-        //classi di oggetti
-        let cibo = [
-            {nome:'crackers',valore:2,tipo:'cibo'},
-            {nome:'pollo',valore:3,tipo:'cibo'},
-            {nome:'bistecca',valore:4,tipo:'cibo'},
-            {nome:'mela',valore:1,tipo:'cibo'},
-            {nome:'arancia',valore:1,tipo:'cibo'},
-            {nome:'limone',valore:1,tipo:'cibo'},
-        ];
-        let life = [
-            {nome:'cerotto',valore:1,tipo:'vita'},
-            {nome:'benda',valore:2,tipo:'vita'},
-            {nome:'disinfettante',valore:2,tipo:'vita'},
-            {nome:'oki',valore:3,tipo:'vita'},
-            {nome:'antibiotico',valore:2,tipo:'vita'},
-            {nome:'antidolor.',valore:4,tipo:'vita'},
-        ];
-        let armi = [
-            {nome:'coltello',valore:2,tipo:'arma'},
-            {nome:'bastone',valore:1,tipo:'arma'},
-            {nome:'accetta',valore:3,tipo:'arma'},
-            {nome:'mazza',valore:3,tipo:'arma'},
-            {nome:'scheggia',valore:2,tipo:'arma'},
-            {nome:'pistola',valore:4,tipo:'arma'},
-        ];
-    
-        //GIORNO
-        let day = 0;
-
-        let popupAzione = document.querySelectorAll('.popup');
-
-
-        //OGGETTI SUL PIANO
-        let objectScene = [];
-        let floorStatsScreen = document.querySelectorAll('#floorObjects > div');
-        //objectScene.push(cibo[1]);
-
-
-        //funzione utility
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        function popEnemyStats(){
-            enemStatsScreen[0].innerHTML = enemStats.life + '/4';
-            enemStatsScreen[1].innerHTML = enemStats.hungry+ '/4';
-            enemStatsScreen[2].innerHTML = enemStats.armor+ '/4';  
-        }
-        function popFloorStats(){
-            var floorobjectsScreen = document.getElementById('floorObjects');
-            console.log(objectScene);
-            for (let i = 0; i < objectScene.length; i++) {
-                let parent = document.createElement("div");
-                parent.append(objectScene[i].nome +' '+objectScene[i].valore)
-                floorobjectsScreen.append(parent);            
-            }
-           
-        }
-
-        //inizializzo scena
-        continua();
-
-    function continua(){
-        var finale = document.getElementById('popupFinale');
-        finale.innerHTML = '';
-
-        //aggingo giorno
-        day++;
-        var dayScreen = document.getElementById('day');
-        dayScreen.innerHTML='giorno: '+ day;
-
-        if (day>1){
-            console.log('entrato');
-            //diminuisco 1 punto cibo per il turno successivo
-            userStats.hungry = userStats.hungry-1
-            //se il cibo Ã¨ a 0 la vita va a -1
-            userStats.hungry < 1 ? userStats.life = userStats.life-1 : userStats.life = userStats.life;
-            let charStatsScreen = document.querySelectorAll('.charStat');
-            charStatsScreen[0].innerHTML = userStats.life + '/4';
-            charStatsScreen[1].innerHTML = userStats.hungry+ '/4';
-            charStatsScreen[2].innerHTML = userStats.armor+ '/4';
-        }
-
-        //NUMERO PIANO
-        var piano = Math.floor(Math.random() * 100);
-        var pianoScreen = document.getElementById('floorTitle');
-        pianoScreen.innerHTML='piano '+ piano;
-       
-        //PIANO
-        //decido che cosa c'Ã¨ nel piano in base al livello
-        if(piano>80 && piano<=100){
-            console.log('nemico messo benissimo');
-            //genero nemico
-            enemStats.hungry = getRandomInt(3,4);
-            enemStats.life = getRandomInt(3,4);
-            enemStats.armor = getRandomInt(1,2);
-            popEnemyStats();
-
-            //genero oggetti piano
-            objectScene = [];
-            objectScene.push(life[getRandomInt(0,4)]);
-            objectScene.push(cibo[getRandomInt(0,4)]);
-            objectScene.push(armi[getRandomInt(0,4)]);
-            popFloorStats();
-        }
-        if(piano>50 && piano<80){
-            console.log('nemico messo bene');
-            //genero nemico
-            enemStats.life = getRandomInt(2,4);
-            enemStats.hungry = getRandomInt(2,4);
-            enemStats.armor = getRandomInt(1,3);
-            popEnemyStats();
-
-            //genero oggetti piano
-            objectScene = [];
-            objectScene.push(life[getRandomInt(0,4)]);
-            objectScene.push(cibo[getRandomInt(0,4)]);
-            objectScene.push(armi[getRandomInt(0,4)]);
-            popFloorStats();
-        }
-        if(piano>30 && piano<50){
-            console.log('nemico messo medio');
-            //genero nemico
-            enemStats.life = getRandomInt(2,3);
-            enemStats.hungry = getRandomInt(1,3);
-            enemStats.armor = getRandomInt(1,3);
-            popEnemyStats();
-
-            //genero oggetti piano
-            objectScene = [];
-            objectScene.push(life[getRandomInt(0,4)]);
-            objectScene.push(cibo[getRandomInt(0,4)]);
-            objectScene.push(armi[getRandomInt(0,4)]);
-            popFloorStats();
-        }
-        if(piano>9 && piano<30){
-            console.log('nemico messo male');
-            //genero nemico
-            enemStats.life = getRandomInt(1,2);
-            enemStats.hungry = getRandomInt(1,2);
-            enemStats.armor = getRandomInt(2,3);
-            popEnemyStats();
-
-            //genero oggetti piano
-            objectScene = [];
-            objectScene.push(life[getRandomInt(0,4)]);
-            objectScene.push(cibo[getRandomInt(0,4)]);
-            objectScene.push(armi[getRandomInt(0,4)]);
-            popFloorStats();
-        }
-        if(piano>0 && piano<10){
-            console.log('nemico messo malissimo');
-            //genero nemico
-            enemStats.life = getRandomInt(1,2);
-            enemStats.hungry = getRandomInt(0,1);
-            enemStats.armor = getRandomInt(3,4);
-            popEnemyStats();
-
-            //genero oggetti piano
-            objectScene = [];
-            objectScene.push(life[getRandomInt(3,4)]);
-            objectScene.push(cibo[getRandomInt(3,4)]);
-            objectScene.push(armi[getRandomInt(0,1)]);
-            popFloorStats();            
-        }
-
-        //se ho un oggetto nello zaino decido se usarlo o tenerlo
-
-        popupAzione[3].classList.remove("popup--show");
-        
-        //mostro prima azione oggett
-        popupAzione[0].classList.add("popup--show");
-
-    }
-    //continua
-
-
-
-
-
-        //OGGETTO USARE SUBITO
-
-        function diff (n) {
-            if (n <= 4)
-            return n - 4;
-            else
-            return (n - 4) * 2;
-        }
-
-        var oggettoUs = document.getElementById('oggettoUsare');
-        console.log('objectScene '+objectScene);
-
-        for (let i = 0; i < objectScene.length; i++) {
-            let parent = document.createElement("div");
-            parent.append(objectScene[i].nome)
-            oggettoUs.append(parent);            
-        }
-
-        //click su elementi
-        var oggUsareClicked = document.querySelectorAll('#oggettoUsare div');
-        oggUsareClicked[0].addEventListener('click', clickHandlerLife);        
-        oggUsareClicked[1].addEventListener('click', clickHandlerCibo);
-        oggUsareClicked[2].addEventListener('click', clickHandlerArmor);
-
-        //click su elemento vita
-        function clickHandlerLife(){ 
-            var difference = diff(objectScene[0].valore);
-            var risultato;
-            userStats.life + objectScene[0].valore >= 4 ? risultato = 4 : risultato = userStats.life+objectScene[0].valore;
-            userStats.life = risultato;
-            charStatsScreen[0].innerHTML = userStats.life + '/4';
-
-            //rimuovo primo popup
-            var element = document.getElementById("popupUsare");
-            element.classList.remove("popup--show");
-
-            //rimuovo l'oggetto da quelli disponibili
-            objectScene.splice(0,1);
-            console.log(objectScene);
-
-            managePopupTenere();
-        }
-
-        //click su elemento cibo
-        function clickHandlerCibo(){ 
-            var difference = diff(objectScene[1].valore);
-            var risultato;
-            userStats.hungry + objectScene[1].valore >= 4 ? risultato = 4 : risultato = userStats.hungry+objectScene[1].valore;
-            userStats.hungry = risultato;
-            charStatsScreen[1].innerHTML = userStats.hungry + '/4';
-            
-            //rimuovo primo popup
-            var element = document.getElementById("popupUsare");
-            element.classList.remove("popup--show");
-
-            //rimuovo l'oggetto da quelli disponibili
-            objectScene.splice(1,1);
-
-            managePopupTenere();
-        }
-
-        //click su elemento armi
-        function clickHandlerArmor(){ 
-            var difference = diff(objectScene[2].valore);
-            var risultato;
-            userStats.armor + objectScene[2].valore >= 4 ? risultato = 4 : risultato = userStats.armor+objectScene[2].valore;
-            userStats.armor = risultato;
-            charStatsScreen[2].innerHTML = userStats.armor + '/4';
-
-            //rimuovo primo popup
-            var element = document.getElementById("popupUsare");
-            element.classList.remove("popup--show");   
-            //rimuovo l'oggetto da quelli disponibili
-            objectScene.splice(2,1);
-            
-            managePopupTenere();  
-            
-        }
-
-        
-
-        //AZIONE OGGETTO TENERE
-        function managePopupTenere(){
-            console.log(objectScene);            
-
-            //svuoto pannello statistiche e mostro popup
-            let floorStatsScreen = document.querySelectorAll('#floorObjects > div');
-
-            floorStatsScreen[0].innerHTML = '';
-            floorStatsScreen[1].innerHTML = '';
-            floorStatsScreen[2].innerHTML = '';
-            floorStatsScreen[0].innerHTML = objectScene[0].nome +' '+objectScene[0].valore;
-            floorStatsScreen[1].innerHTML = objectScene[1].nome +' '+objectScene[1].valore;
-            popupAzione[1].classList.add("popup--show");
-
-            var oggettoUs = document.getElementById('oggettoTenere');
-            for (let i = 0; i < objectScene.length; i++) {
-                let parent = document.createElement("div");
-                parent.append(objectScene[i].nome);
-                parent.onclick = function(){ clickTenere(i) };
-                oggettoUs.append(parent);            
-            }     
-        }
-
-        function clickTenere(i){
-            var oggettoUs = document.getElementById('oggettoTenere');
-            oggettoUs.innerHTML = '';
-            zaino.splice(0,1);
-            zaino.push(objectScene[i]);
-            console.log('zaino nome'+zaino[0].nome);
-
-            //inserisco oggetto zaino
-            zainoScreen[0].innerHTML = zaino[0].nome;
-
-            //rimuovo oggetti piano
-            var floorobjectsScreen = document.getElementById('floorObjects');
-            floorobjectsScreen.classList.add('hidden');
-            popupAzione[1].classList.remove("popup--show");
-
-
-            richiestaNemico();
-        }
-
-            //variabile richiesta nemico
-            let EnemyRequest;
-
-        
-        
-            //AZIONE NEMICO
-        function richiestaNemico(){
-            var floorobjectsScreen = document.getElementById('floorObjects');
-            floorobjectsScreen.innerHTML = '';
-
-            popupAzione[2].classList.add("popup--show");
-     
-            //prendo il parametro piÃ¹ basso del nemico per decidere la sua richiesta
-            let minParamEnemy = Math.min(enemStats.life, enemStats.hungry);
-            if (minParamEnemy == enemStats.life){
-                EnemyRequest = {nome:'medicazioni',tipo:'vita'};
-            }   
-            if (minParamEnemy == enemStats.hungry){
-                EnemyRequest = {nome:'cibo',tipo:'cibo'};
-            }
-
-            //popolo il campo richiesta nemico
-            var richiestaNeicoScreen = document.querySelectorAll('.tipoRichiestaNemico');
-            richiestaNeicoScreen[0].innerHTML = EnemyRequest.nome;
-
-
-            //mostro i pulsanti azione in base a cosa 
-            var opzioneNemico = document.getElementById('oggettoNemico');
-            let parentDare = document.createElement("div");
-            let parentRifiutare = document.createElement("div");
-
-            //controllo se nello zaino hai la richiesta
-            if(zaino[0].tipo == EnemyRequest.tipo){
-                console.log('puoi soddisfare la richiesta');
-                //pulsante dare
-                parentDare.append('dai '+zaino[0].nome);            
-                opzioneNemico.append(parentDare);
-                parentDare.onclick = function(){ dareNemico() };
-                //pulsante rifiutare  
-                parentRifiutare.append('rifiuta');  
-                opzioneNemico.append(parentRifiutare);   
-                parentRifiutare.onclick = function(){ rifiutareNemico() };
-     
-            } else {
-                console.log('non puoi soddisfare la richiesta');
-                //pulsante non puoi soddisfare  
-                parentRifiutare.append('non posso');  
-                opzioneNemico.append(parentRifiutare);   
-                parentRifiutare.onclick = function(){ rifiutareNemico() };
-            }
-
-        }
-
-        function dareNemico(){
-            var opzioneNemico = document.getElementById('oggettoNemico');
-            opzioneNemico.innerHTML = '';
-
-            //decido se il nemico Ã¨ una minaccia
-            let EnemyDanger;
-            enemStats.armor > userStats.armor ?  EnemyDanger = true :  EnemyDanger = false; 
-            var fin;
-            if(EnemyRequest.tipo == 'vita'){
-                enemStats.life = enemStats.life+zaino[0].valore;
-                zainoScreen[0].innerHTML = '';
-                console.log(enemStats.life);
-                enemStatsScreen[0].innerHTML = enemStats.life + '/4';
-                fin = 'hai dato '+zaino[0].nome+' aumentando di '+zaino[0].valore+' la sua salute, il nemico ti ringrazia e non ti attacca';
-                finale(fin);
-            }
-            if(EnemyRequest.tipo == 'cibo'){
-                enemStats.hungry = enemStats.hungry+zaino[0].valore;
-                zainoScreen[0].innerHTML = '';
-                console.log(enemStats.hungry);
-                enemStatsScreen[1].innerHTML = enemStats.hungry+ '/4';
-                fin = 'hai dato '+zaino[0].nome+' aumentando di '+zaino[0].valore+' la sua non fame, il nemico ti ringrazia e non ti attacca';
-                finale(fin);
-            }
-        }
-
-        function rifiutareNemico(){
-            var opzioneNemico = document.getElementById('oggettoNemico');
-            opzioneNemico.innerHTML = '';
-
-            var fin;
-            //decido se il nemico Ã¨ una minaccia
-            let EnemyDanger;
-            enemStats.armor > userStats.armor ?  EnemyDanger = true :  EnemyDanger = false; 
-            if (EnemyDanger == true){
-                console.log('nemico attacca');
-                userStats.life = userStats.life - enemStats.armor;
-                userStats.armor = userStats.armor - enemStats.armor;
-                if(userStats.armor<0){userStats.armor=0;}
-                if(userStats.life<0){
-                    userStats.life=0;
-                    //game over
-                }
-                charStatsScreen[0].innerHTML = userStats.life + '/4';
-                charStatsScreen[2].innerHTML = userStats.armor+ '/4';
-                fin = 'non hai dato niente al nemico, quindi ti attacca, ti diminuisce la vita a '+userStats.life+' la tua arma si danneggia e il tuo danno sarÃ  di '+userStats.armor;
-                finale(fin);
-            } else{
-                console.log('nemico non attacca');
-                fin = 'non hai dato niente al nemico, ma avendo paura ti lascia stare';
-                finale(fin);
-            }
-        }
-
-        function finale(ris){
-            popupAzione[2].classList.remove("popup--show");
-            popupAzione[3].classList.add("popup--show");
-
-            var finale = document.getElementById('popupFinale');
-            finale.innerHTML = ris;
-
-            let parentContinua = document.createElement("div");
-            parentContinua.append('continua');
-            finale.append(parentContinua);
-            parentContinua.onclick = function(){ continua() };
-        }
-
-    })()
-
-
-
-
-
-</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+<script src="../projectluccio/ui/js/main.js"></script>

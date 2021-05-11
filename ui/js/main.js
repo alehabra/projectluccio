@@ -15,9 +15,6 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
 
 
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
-
-
-
     //funzione apertura occhi inizio livello
 
     //aperturaOcchi();
@@ -73,8 +70,6 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
 
         //inizializzazione funzione
         occhioChiusoAnim();
-
-
     }
 
 
@@ -99,6 +94,12 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
 
     //////////////////////////////////////INTERFACCIA STATISTICHE /////////////////////////////////////
 
+    function PopulateFloorName(floor){
+        var floorHolder = document.querySelectorAll('#cella-floor h1');
+        floorHolder[0].innerHTML = '';
+        floorHolder[0].innerHTML = 'PIANO NR. '+floor; 
+    }
+
     function YourTurn(){
         statsChars[0].classList.remove('stats-element--disabled');
         statsChars[1].classList.add('stats-element--disabled');
@@ -109,7 +110,7 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
         statsChars[0].classList.add('stats-element--disabled');
     }
 
-    function AddPointsDamage(char,statsType,points){
+    function AddPointsDamage(char,statsType,points,init){
         let pointsToAdd;
         if(char == "nemico"){
             if(statsType == "sazieta"){
@@ -122,7 +123,9 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
                     }
                     i++;
                 }
-                hungrySound.play();
+                if(!init){
+                    hungrySound.play();
+                } 
             }
             if(statsType == "salute"){
                 let i = 16; 
@@ -134,11 +137,13 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
                     }
                     i++;
                 }
-                ouchSound.play();
+                if(!init){
+                    ouchSound.play();
+                }
             }
             if(statsType == "umore"){
-                let i = 21; 
-                let damage = 21 + points; 
+                let i = 20; 
+                let damage = 20 + points; 
                 while (i<=damage) {
                     //aggiungo se trova
                     if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
@@ -160,7 +165,9 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
                     }
                     i++;
                 }
-                hungrySound.play();
+                if(!init){
+                    hungrySound.play();
+                }
             }
             if(statsType == "salute"){
                 let i = 4; 
@@ -172,7 +179,9 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
                     }
                     i++;
                 }
-                ouchSound.play();
+                if(!init){
+                    ouchSound.play();
+                }
             }
             if(statsType == "umore"){
                 let i = 8; 
@@ -210,11 +219,9 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
     animateSgherro();
 
     function animateSgherro(){
-        let enemySourceImg = document.getElementById("enemy-img").src;
         let i = 0;
         setInterval(function(){  
             i <= 48 ? i++ : i = 0;
-            //document.getElementById("enemy-img").src = '../personaggi/sgherro1/sgherro_'+i+'.png';    //Dalla cartella ui
-            document.getElementById("enemy-img").src = '../projectluccio/personaggi/sgherro1/sgherro_'+i+'.png';      //dalla cartella principale
+            document.getElementById("enemy-img").src = '../projectluccio/personaggi/sgherro1/sgherro_'+i+'.png'; 
         }, 50);
     }
