@@ -114,9 +114,6 @@ function getButtons(floor)
 
  function updateUi()
 {
-    //se inizio turno animazione occhi
-    //currentFloor.starting
-
     let startLevelInfo = document.querySelectorAll('.startLevel-info');
 
      //popolo statistiche personaggio
@@ -132,12 +129,39 @@ function getButtons(floor)
     //popolo numero piano
     PopulateFloorName(game.currentFloor.number);
     
-    //turno
+    //visualizzo graficamente se turno nemico o personaggio
     game.currentFloor.turn === TURN_PLAYER ? EnemyTurn() : YourTurn();
 
-    //popolo oggetti dello zaino nemico e personaggio ogni oggetto deve essere ==! NULL  pagina 3
-    //game.player.bag.name
-    //game.player.bag.icon
+    //popolo oggetti dello zaino nemico e personaggio
+    //NEMICO
+    if(game.player.enemy.bag!==null){
+        PopulateEnemyBag(game.player.enemy.bag.name)
+    } else {
+        PopulateEnemyBag('vuoto')
+    }
+    //PERSONAGGIO
+    if(game.player.bag!==null){
+        PopulateCharBag(game.player.bag.name)
+    } else {
+        PopulateCharBag('vuoto')
+    }
+
+    //USARE MUTATION OBSERVER PER VEDERE SE ANIMAZIONE OCCHIO è FINITA
+    let occhio = document.getElementById('occhio-sopra');
+    observer = new MutationObserver(mCallback);
+    
+    function mCallback(mutations){
+        for (let mutation of mutations) {
+            if (mutation.type === 'attributes') {
+                console.log(mutations.length+' mutation detected')
+                showModal();
+            }
+            }  
+    }
+
+    observer.observe(occhio,{attributes:true});
+ 
+
 
     //popolo oggetti del piano ogni oggetto deve essere ==! NULL pagina 3
     //currentFloor.objects[]

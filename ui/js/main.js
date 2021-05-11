@@ -99,6 +99,17 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
         floorHolder[0].innerHTML = '';
         floorHolder[0].innerHTML = 'PIANO NR. '+floor; 
     }
+    
+    function PopulateEnemyBag(objName){
+        var enemyBagObjName = document.querySelectorAll('.enemy-stats-bag span');
+        enemyBagObjName[0].innerHTML = '';
+        enemyBagObjName[0].innerHTML = objName; 
+    }
+    function PopulateCharBag(objName){
+        var charBagObjName = document.querySelectorAll('.character-stats-bag span');
+        charBagObjName[0].innerHTML = '';
+        charBagObjName[0].innerHTML = objName; 
+    }
 
     function YourTurn(){
         statsChars[0].classList.remove('stats-element--disabled');
@@ -200,10 +211,10 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
     //////////////////////////////////////INTERFACCIA MODAL /////////////////////////////////////
 
     function showModal(){
-       !modal.classList.contains('modal--active') ? modal.classList.add('modal--active') : modal.classList.remove('modal--active')
+       !modal.classList.contains('modal--active') ? setTimeout(function(){modal.classList.add('modal--active')}, 600) : setTimeout(function(){modal.classList.remove('modal--active')}, 600)
        setTimeout(function(){
         modalInner[0].classList.add('modal-inner--active');
-       }, 300);
+       }, 400);
     }
     function hideModal(){
         setTimeout(function(){
@@ -216,12 +227,14 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
      }
  
     ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
-    animateSgherro();
+    animateSgherro(1);
 
-    function animateSgherro(){
+    function animateSgherro(num){
         let i = 0;
         setInterval(function(){  
             i <= 48 ? i++ : i = 0;
-            document.getElementById("enemy-img").src = '../projectluccio/personaggi/sgherro1/sgherro_'+i+'.png'; 
+            document.getElementById("enemy-img").src = '../projectluccio/personaggi/sgherro'+num+'/sgherro_'+i+'.png'; 
         }, 50);
     }
+
+
