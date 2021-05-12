@@ -130,7 +130,8 @@ function getButtons(floor)
     PopulateFloorName(game.currentFloor.number);
     
     //visualizzo graficamente se turno nemico o personaggio
-    game.currentFloor.turn === TURN_PLAYER ? EnemyTurn() : YourTurn();
+    console.log(TURN_PLAYER);
+    game.currentFloor.turn === TURN_PLAYER ? EnemyTurn()  : YourTurn();
 
     //popolo oggetti dello zaino nemico e personaggio
     //NEMICO
@@ -146,27 +147,32 @@ function getButtons(floor)
         PopulateCharBag('vuoto')
     }
 
-    //USARE MUTATION OBSERVER PER VEDERE SE ANIMAZIONE OCCHIO è FINITA
+    //popolo oggetti del piano ogni oggetto deve essere ==! NULL pagina 3
+    if(game.currentFloor.objects[0]!==null){
+        console.log(game.currentFloor.objects);
+        //game.currentFloor.pick(0); //Raccogli oggetto
+    } 
+
+
+    //USARE MUTATION OBSERVER PER VEDERE SE ANIMAZIONE OCCHIO è FINITA DA QUI SI CHIAMA L'AZIONE NEMICO O PERSONAGGIO
     let occhio = document.getElementById('occhio-sopra');
     observerStartEye = new MutationObserver(eyeopenCallBack);
     
     function eyeopenCallBack(mutations){
         for (let mutation of mutations) {
             if (mutation.type === 'attributes') {
-                console.log(mutations.length+' mutation detected')
-                //showModal();
-                showModalChoice();
+                console.log('mutation detected')
+                //se è il turno del giocatore mostra il modale di scelta giocatore, altrimenti notifica turno nemico
+                game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
             }
         }  
         observerStartEye.disconnect()
     }
-
     observerStartEye.observe(occhio,{attributes:true});
  
 
 
-    //popolo oggetti del piano ogni oggetto deve essere ==! NULL pagina 3
-    //currentFloor.objects[]
+
 
 
 

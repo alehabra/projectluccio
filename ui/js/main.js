@@ -9,11 +9,15 @@ const modal = document.getElementById("modal");
 let modalInner = document.querySelectorAll(".modal-inner");
 
 const modalPlayer = document.getElementById("modal-yourchioiche");
+const modalObjRoom = document.getElementById("modal-floorObjects");
+const modalObjRoomElenco = document.getElementById("modal-floorObjects-inner-objects");
+const boxfloor = document.getElementById("box-objectsFloor-image");
 
 //////////////////VARIABILI RISORSE MUSIC/////////////////
 const btnSound = new Audio('../projectluccio/ui/music/selection.mp3');
 const ouchSound = new Audio('../projectluccio/ui/music/ouch.ogg');
 const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
+const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
 
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
@@ -228,11 +232,29 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
         }, 600);
      }
 
-     //scelta giocatore
-     function showModalChoice(){
+     //modale scelta giocatore
+     function showHideModalChoice(){
         !modalPlayer.classList.contains('modal-yourchioiche--active') ? setTimeout(function(){modalPlayer.classList.add('modal-yourchioiche--active')}, 600) : setTimeout(function(){modalPlayer.classList.remove('modal-yourchioiche--active')}, 600)
      }
+
+    //modale oggetti stanza 
+    function showHideModalObjRoom(){
+        //TODO: ricordarsi di mettere l'immagine scatola come prima
+        for (let i = 0; i < game.currentFloor.objects.length; i++) {
+            var node = document.createElement("div"); 
+            node.innerHTML =  game.currentFloor.objects[i].name          
+            modalObjRoomElenco.appendChild(node);
+        }
+        setTimeout(function(){
+            boxfloor.src = '../projectluccio/ui/img/open-box.png';
+            cardboxSound.play();
+        }, 1000);
+        setTimeout(function(){
+            !modalObjRoom.classList.contains('modal-floorObjects--active') ? setTimeout(function(){modalObjRoom.classList.add('modal-floorObjects--active')}, 600) : setTimeout(function(){modalObjRoom.classList.remove('modal-floorObjects--active')}, 600)
+        }, 1500);
+    }
  
+
     ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
     animateSgherro(1);
 

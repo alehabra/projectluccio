@@ -103,21 +103,18 @@
             </div>
 
             <picture id="box-objectsFloor">
-                <img src="../projectluccio/ui/img/closed-box.png"/>
+                <img id="box-objectsFloor-image" src="../projectluccio/ui/img/closed-box.png"/>
             </picture>
 
             <picture id="enemy">
                 <img id="enemy-img" src="../projectluccio/personaggi/sgherro1/sgherro_0.png"/>
             </picture>
 
-
+            <!--MODALE GENERICO-->
             <div id="modal">
                 <div class="modal-inner">
                     <h1>COSA SCEGLI?</h1>
                     <div class="modal-inner-content">
-                        <button class="btn" onclick="hideModal()">
-                            <span>Scelta uno</span>
-                        </button>
                         <button class="btn" onclick="hideModal()">
                             <span>Scelta due</span>
                         </button>
@@ -125,16 +122,33 @@
                 </div>
             </div>
 
+            <!--MODALE SCELTE GIOCATORE-->
             <div id="modal-yourchioiche">
                 <div class="modal-yourchioiche-inner">
                     <h1 style="text-transform: uppercase;">è il tuo turno!</h1>
                     <div class="modal-yourchioiche-buttons">
-                        <button class="btn" onclick="hideModal()">
-                            <span>Scelta uno</span>
+                        <button class="btn" onclick="showHideModalChoice()">
+                            <span>Usa oggetto</span>
+                        </button>
+                        <button class="btn" onclick="showHideModalChoice(); showHideModalObjRoom();">
+                            <span>Guarda nella scatola</span>
                         </button>
                         <button class="btn" onclick="hideModal()">
-                            <span>Scelta due</span>
+                            <span>Proponi scambio</span>
                         </button>
+                        <button class="btn" onclick="hideModal()">
+                            <span>Passa</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--MODALE OGGETTI PIANO-->
+            <div id="modal-floorObjects">
+                <div class="modal-floorObjects-inner">
+                    <h1>OGGETTI DISPONIBILI</h1>
+                    <div id="modal-floorObjects-inner-objects">
+                        
                     </div>
                 </div>
             </div>
