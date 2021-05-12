@@ -148,18 +148,20 @@ function getButtons(floor)
 
     //USARE MUTATION OBSERVER PER VEDERE SE ANIMAZIONE OCCHIO è FINITA
     let occhio = document.getElementById('occhio-sopra');
-    observer = new MutationObserver(mCallback);
+    observerStartEye = new MutationObserver(eyeopenCallBack);
     
-    function mCallback(mutations){
+    function eyeopenCallBack(mutations){
         for (let mutation of mutations) {
             if (mutation.type === 'attributes') {
                 console.log(mutations.length+' mutation detected')
-                showModal();
+                //showModal();
+                showModalChoice();
             }
-            }  
+        }  
+        observerStartEye.disconnect()
     }
 
-    observer.observe(occhio,{attributes:true});
+    observerStartEye.observe(occhio,{attributes:true});
  
 
 

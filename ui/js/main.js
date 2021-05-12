@@ -8,6 +8,8 @@ let statsCharsParts = document.querySelectorAll(".stats-element .stats-stats .st
 const modal = document.getElementById("modal");
 let modalInner = document.querySelectorAll(".modal-inner");
 
+const modalPlayer = document.getElementById("modal-yourchioiche");
+
 //////////////////VARIABILI RISORSE MUSIC/////////////////
 const btnSound = new Audio('../projectluccio/ui/music/selection.mp3');
 const ouchSound = new Audio('../projectluccio/ui/music/ouch.ogg');
@@ -209,7 +211,7 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
     }
 
     //////////////////////////////////////INTERFACCIA MODAL /////////////////////////////////////
-
+    //generico
     function showModal(){
        !modal.classList.contains('modal--active') ? setTimeout(function(){modal.classList.add('modal--active')}, 600) : setTimeout(function(){modal.classList.remove('modal--active')}, 600)
        setTimeout(function(){
@@ -224,6 +226,11 @@ const hungrySound = new Audio('../projectluccio/ui/music/hungry.ogg');
             !modal.classList.contains('modal--active') ? modal.classList.add('modal--active') : modal.classList.remove('modal--active')
             resetBtn();
         }, 600);
+     }
+
+     //scelta giocatore
+     function showModalChoice(){
+        !modalPlayer.classList.contains('modal-yourchioiche--active') ? setTimeout(function(){modalPlayer.classList.add('modal-yourchioiche--active')}, 600) : setTimeout(function(){modalPlayer.classList.remove('modal-yourchioiche--active')}, 600)
      }
  
     ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
