@@ -89,8 +89,8 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
                 btns[i].disabled=true;
             }
         });
-
     } 
+
     //funzione riattiva BOTTONI
     function resetBtn(){
         for (let i = 0; i < btns.length; i++) {
@@ -287,9 +287,9 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
             //aggingo pulsante prendi
             floorObjectBTN = document.createElement("button");
-            floorObjectBTN.className = "btn";
+            floorObjectBTN.className = "btn btn-take";
             floorObjectBTN.innerHTML = "prendi";
-
+            
             //inserisco gli elementi sul box
             floorObject.appendChild(floorObjectName);
             floorObject.appendChild(floorObjectLeft);
@@ -298,8 +298,6 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
             //aggiungi elementi al box oggetti interno
             modalObjRoomElenco.appendChild(floorObject);
-
-            
         }
         setTimeout(function(){
             boxfloor.src = '../projectluccio/ui/img/open-box.png';
@@ -309,8 +307,28 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             !modalObjRoom.classList.contains('modal-floorObjects--active') ? setTimeout(function(){modalObjRoom.classList.add('modal-floorObjects--active')}, 600) : setTimeout(function(){modalObjRoom.classList.remove('modal-floorObjects--active')}, 600)
         }, 1500);
     }
- 
 
+    //OBSERVER PER PULSANTI BOTTONI PRENDI
+    observerStartTakeBtn = new MutationObserver(takeBtninteractive);
+    //evento oggetto prendi
+    //TODO: aggiungere oggetto a zaino e game.play
+    function takeBtninteractive(mutations){
+        console.log('mutation pulsante prendi')
+        let btnTake = document.querySelectorAll(".btn-take");
+        for (let i = 0; i < btnTake.length; i++) {
+            btnTake[i].addEventListener('click', e => {
+                btnSound.play();
+                if(!btnTake[i].disabled){
+                    PopulateCharBag(game.currentFloor.objects[i].name);
+                    showHideModalObjRoom();
+                    btnTake[i].disabled=true;
+                }
+            });
+        } 
+    }
+
+    observerStartTakeBtn.observe(modalObjRoom,{attributes:true});
+    
     ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
     animateSgherro(1);
 

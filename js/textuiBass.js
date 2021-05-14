@@ -161,7 +161,7 @@ function getButtons(floor)
     function eyeopenCallBack(mutations){
         for (let mutation of mutations) {
             if (mutation.type === 'attributes') {
-                console.log('mutation detected')
+                console.log('mutation OCCHIO detected')
                 //se è il turno del giocatore mostra il modale di scelta giocatore, altrimenti notifica turno nemico
                 game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
             }
