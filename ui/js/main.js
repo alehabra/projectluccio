@@ -322,11 +322,12 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
                     PopulateCharBag(game.currentFloor.objects[i].name);
                     showHideModalObjRoom();
                     btnTake[i].disabled=true;
+                    game.currentFloor.pick(i);
+                    game.play();
                 }
             });
         } 
     }
-
     observerStartTakeBtn.observe(modalObjRoom,{attributes:true});
     
     ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
