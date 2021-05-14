@@ -241,9 +241,49 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
     function showHideModalObjRoom(){
         //TODO: ricordarsi di mettere l'immagine scatola come prima
         for (let i = 0; i < game.currentFloor.objects.length; i++) {
-            var node = document.createElement("div"); 
-            node.innerHTML =  game.currentFloor.objects[i].name          
-            modalObjRoomElenco.appendChild(node);
+            //div singolo oggetto contenitore
+            var floorObject = document.createElement("div"); 
+            floorObject.className = "floorObjects-inner-object";
+
+            //h2 nome singolo oggetto
+            var floorObjectName = document.createElement("h2"); 
+            floorObjectName.innerHTML =  game.currentFloor.objects[i].name;
+            
+            //div left
+            var floorObjectLeft = document.createElement("div");
+            floorObjectLeft.className = "floorObjects-inner-object-left";
+            floorObjectLeft.innerHTML =  game.currentFloor.objects[i].description;
+
+            //div right
+            var floorObjectRight = document.createElement("div");
+            floorObjectRight.className = "floorObjects-inner-object-right";
+
+            var floorObjectTypeImg = document.createElement("div");
+            floorObjectTypeImg.className = "floorObjects-inner-object-type";
+
+            if(game.currentFloor.objects[i].type ==='medicament'){
+                floorObjectTypeImg.className = "object-type-health"  
+            }
+            if(game.currentFloor.objects[i].type ==='mood'){
+                floorObjectTypeImg.className = "object-type-mood"  
+            }
+            if(game.currentFloor.objects[i].type ==='food'){
+                floorObjectTypeImg.className = "object-type-food" 
+            }
+            if(game.currentFloor.objects[i].type ==='weapon'){
+                floorObjectTypeImg.className = "object-type-weapon" 
+            }
+
+            //aggiungo icona alla parte destra
+            floorObjectRight.appendChild(floorObjectTypeImg);
+
+            //inserisco gli elementi sul box
+            floorObject.appendChild(floorObjectName);
+            floorObject.appendChild(floorObjectLeft);
+            floorObject.appendChild(floorObjectRight);
+
+            //aggiungi elementi al box oggetti interno
+            modalObjRoomElenco.appendChild(floorObject);
         }
         setTimeout(function(){
             boxfloor.src = '../projectluccio/ui/img/open-box.png';

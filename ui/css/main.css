@@ -169,13 +169,49 @@ h4 {
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
   #modal-floorObjects .modal-floorObjects-inner {
-    width: 90%;
-    margin-left: 5%; }
+    width: 90%; }
     #modal-floorObjects .modal-floorObjects-inner h1 {
       color: #DAD2D8;
       text-align: center;
       font-size: 4rem;
       margin-bottom: 5rem; }
+    #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects {
+      width: 70%;
+      margin: 0px 15%; }
+      #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects h2 {
+        font-size: 2.5rem;
+        width: 100%;
+        margin-top: 0rem; }
+      #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects .floorObjects-inner-object {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 2rem; }
+        #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects .floorObjects-inner-object .floorObjects-inner-object-left {
+          width: 50%;
+          float: left; }
+        #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects .floorObjects-inner-object .floorObjects-inner-object-right {
+          width: 50%;
+          float: left; }
+          #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects .floorObjects-inner-object .floorObjects-inner-object-right .object-type-food {
+            width: 30px;
+            height: 30px;
+            background: url("../img/fame.svg");
+            background-size: 100%; }
+          #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects .floorObjects-inner-object .floorObjects-inner-object-right .object-type-health {
+            width: 30px;
+            height: 30px;
+            background: url("../img/salute.svg");
+            background-size: 100%; }
+          #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects .floorObjects-inner-object .floorObjects-inner-object-right .object-type-weapon {
+            width: 30px;
+            height: 30px;
+            background: url("../img/arma.svg");
+            background-size: 100%; }
+          #modal-floorObjects .modal-floorObjects-inner #modal-floorObjects-inner-objects .floorObjects-inner-object .floorObjects-inner-object-right .object-type-mood {
+            width: 30px;
+            height: 30px;
+            background: url("../img/umore.svg");
+            background-size: 100%; }
 
 .modal-floorObjects--active {
   transform: translate(0%, 0%) !important; }
