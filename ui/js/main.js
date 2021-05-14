@@ -260,7 +260,14 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
             var floorObjectTypeImg = document.createElement("div");
             floorObjectTypeImg.className = "floorObjects-inner-object-type";
+            
 
+            //Valore statistiche oggetto
+            var floorObjectTypeStats = document.createElement("div");
+            floorObjectTypeStats.className = "floorObjects-inner-object-stats";
+            floorObjectTypeStats.innerHTML = '+'+game.currentFloor.objects[i].value;
+
+            //visualizzo il tipo di statistica nella scatola
             if(game.currentFloor.objects[i].type ==='medicament'){
                 floorObjectTypeImg.className = "object-type-health"  
             }
@@ -275,15 +282,24 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             }
 
             //aggiungo icona alla parte destra
+            floorObjectRight.appendChild(floorObjectTypeStats);
             floorObjectRight.appendChild(floorObjectTypeImg);
+
+            //aggingo pulsante prendi
+            floorObjectBTN = document.createElement("button");
+            floorObjectBTN.className = "btn";
+            floorObjectBTN.innerHTML = "prendi";
 
             //inserisco gli elementi sul box
             floorObject.appendChild(floorObjectName);
             floorObject.appendChild(floorObjectLeft);
             floorObject.appendChild(floorObjectRight);
+            floorObject.appendChild(floorObjectBTN);
 
             //aggiungi elementi al box oggetti interno
             modalObjRoomElenco.appendChild(floorObject);
+
+            
         }
         setTimeout(function(){
             boxfloor.src = '../projectluccio/ui/img/open-box.png';

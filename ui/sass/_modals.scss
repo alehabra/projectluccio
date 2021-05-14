@@ -107,7 +107,7 @@
     justify-content: center;
     z-index: 40;
     width:80%;
-    height:55%;
+    height:58%;
     background: url('../img/cardboard.jpg');
     background-size: cover;
     transform:translate(0%, 150%);
@@ -123,49 +123,73 @@
             margin-bottom: 5rem;
         }
         #modal-floorObjects-inner-objects{
-            width:90%;
-            margin:0px 10%;
+            margin:0px 5%;
             h2{
                 font-size:2.5rem;
                 width:100%;
                 margin-top:0rem;
+                padding-bottom: 1.5rem;
+                text-align: center;
+                border-bottom: 1px solid $lightgrey;
             }
             .floorObjects-inner-object{
                 display: inline-block;
                 width:100%;
                 margin-bottom: 2rem;
+                border: 1px solid $lightgrey;
+                padding: 1rem;
+
                 .floorObjects-inner-object-left{
                     width:50%;
                     float:left;
+                    font-size:1.5rem;
                 }
                 .floorObjects-inner-object-right{
                     width:50%;
                     float:left;
+                    display: flex;
+                    justify-content: center;
                     .object-type-food{
-                        width:50px;
-                        height:50px;
+                        width:80px;
+                        height:80px;
                         background: url('../img/fame.svg');
                         background-size: 100%;
                     }
                     .object-type-health{
-                        width:50px;
-                        height:50px;
+                        width:80px;
+                        height:80px;
                         background: url('../img/salute.svg');
                         background-size: 100%;
                     }
                     .object-type-weapon{
-                        width:50px;
-                        height:50px;
+                        width:80px;
+                        height:80px;
                         background: url('../img/arma.svg');
                         background-size: 100%;
                     }
                     .object-type-mood{
-                        width:30px;
-                        height:30px;
+                        width:80px;
+                        height:80px;
                         background: url('../img/umore.svg');
                         background-size: 100%;
                     }
+                    .floorObjects-inner-object-stats{
+                        position: absolute;
+                        font-size: 1.8rem;
+                        background: #000;
+                        padding: .5em;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        text-align: center;
+                        margin-right: -109px;
+                        margin-top: -10px;
+                    }
                 }
+            }
+            .btn{
+                margin: 2rem 0rem 1rem;
+                margin-left: 15%;                   
             }
         }    
     }
