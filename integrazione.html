@@ -113,10 +113,10 @@
             <!--MODALE GENERICO-->
             <div id="modal">
                 <div class="modal-inner">
-                    <h1>COSA SCEGLI?</h1>
+                    <h1>IL NEMICO HA FATTO QUALCOSA</h1>
                     <div class="modal-inner-content">
-                        <button class="btn" onclick="hideModal()">
-                            <span>Scelta due</span>
+                        <button class="btn" onclick="hideModal();  game.play();">
+                            <span>sticazzi</span>
                         </button>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                 <div class="modal-yourchioiche-inner">
                     <h1 style="text-transform: uppercase;">è il tuo turno!</h1>
                     <div class="modal-yourchioiche-buttons">
-                        <button class="btn" onclick="showHideModalChoice()">
+                        <button class="btn" onclick="showHideModalChoice(); game.player.use();  game.play();">
                             <span>Usa oggetto</span>
                         </button>
                         <button class="btn" onclick="showHideModalChoice(); showHideModalObjRoom();">

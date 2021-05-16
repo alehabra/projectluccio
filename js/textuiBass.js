@@ -110,16 +110,20 @@ function getButtons(floor)
     return(buttons);                                                //Ritorna pulsanti
 }
 
-
+let turn = 0;
 
  function updateUi()
 {
     let startLevelInfo = document.querySelectorAll('.startLevel-info');
+  
+    console.log(turn);
+    //ripristino i pulsanti
+    resetBtn();
 
      //popolo statistiche personaggio
+    AddPointsDamage('personaggio','sazieta',game.player.hunger -1,true); 
     AddPointsDamage('personaggio','salute',game.player.health -1,true);
     AddPointsDamage('personaggio','umore',game.player.mood -1,true);
-    AddPointsDamage('personaggio','sazieta',game.player.hunger -1,true); 
 
     //popolo statistiche nemico
     AddPointsDamage('nemico','salute',game.player.enemy.health -1,true);
@@ -159,23 +163,25 @@ function getButtons(floor)
     observerStartEye = new MutationObserver(eyeopenCallBack);
     
     function eyeopenCallBack(mutations){
+        if (turn<1){
         for (let mutation of mutations) {
             if (mutation.type === 'attributes') {
                 console.log('mutation OCCHIO detected')
                 //se è il turno del giocatore mostra il modale di scelta giocatore, altrimenti notifica turno nemico
                 game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
+                turn = 1;
             }
         }  
-        observerStartEye.disconnect()
+            observerStartEye.disconnect()
+        }
     }
     observerStartEye.observe(occhio,{attributes:true});
+
+    //se il turno non è quello iniziale
+    if (turn>0){
+        game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
+    }
  
-
-
-
-
-
-
     //esempio di cosa ha fatto il nemico pagina 4
     //in base al risultato chiamo delle funzioni
     //currentFloor.lastEnemyChoice

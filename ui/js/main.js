@@ -128,48 +128,6 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
     }
 
     function AddPointsDamage(char,statsType,points,init){
-        let pointsToAdd;
-        if(char == "nemico"){
-            if(statsType == "sazieta"){
-                let i = 12; 
-                let damage = 12 + points; 
-                while (i<=damage) {
-                    //aggiungo se trova
-                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
-                        statsCharsParts[i].classList.add('stats-icon-points--active');
-                    }
-                    i++;
-                }
-                if(!init){
-                    hungrySound.play();
-                } 
-            }
-            if(statsType == "salute"){
-                let i = 16; 
-                let damage = 16 + points; 
-                while (i<=damage) {
-                    //aggiungo se trova
-                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
-                        statsCharsParts[i].classList.add('stats-icon-points--active');
-                    }
-                    i++;
-                }
-                if(!init){
-                    ouchSound.play();
-                }
-            }
-            if(statsType == "umore"){
-                let i = 20; 
-                let damage = 20 + points; 
-                while (i<=damage) {
-                    //aggiungo se trova
-                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
-                        statsCharsParts[i].classList.add('stats-icon-points--active');
-                    }
-                    i++;
-                }
-            }
-        }
         //aggiungo danni personaggio
         if(char == "personaggio"){
             if(statsType == "sazieta"){
@@ -211,7 +169,48 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
                     i++;
                 }
             }
-        }        
+        }   
+        if(char == "nemico"){
+            if(statsType == "sazieta"){
+                let i = 12; 
+                let damage = 12 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+                if(!init){
+                    hungrySound.play();
+                } 
+            }
+            if(statsType == "salute"){
+                let i = 16; 
+                let damage = 16 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+                if(!init){
+                    ouchSound.play();
+                }
+            }
+            if(statsType == "umore"){
+                let i = 20; 
+                let damage = 20 + points; 
+                while (i<=damage) {
+                    //aggiungo se trova
+                    if(!statsCharsParts[i].classList.contains('stats-icon-points--active')){
+                        statsCharsParts[i].classList.add('stats-icon-points--active');
+                    }
+                    i++;
+                }
+            }
+        }     
     }
 
     //////////////////////////////////////INTERFACCIA MODAL /////////////////////////////////////
@@ -304,7 +303,7 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             cardboxSound.play();
         }, 1000);
         setTimeout(function(){
-            !modalObjRoom.classList.contains('modal-floorObjects--active') ? setTimeout(function(){modalObjRoom.classList.add('modal-floorObjects--active')}, 600) : setTimeout(function(){modalObjRoom.classList.remove('modal-floorObjects--active')}, 600)
+            !modalObjRoom.classList.contains('modal-floorObjects--active') ? setTimeout(function(){modalObjRoom.classList.add('modal-floorObjects--active')}, 600) : setTimeout(function(){modalObjRoom.classList.remove('modal-floorObjects--active')}, 0)
         }, 1500);
     }
 
@@ -319,14 +318,17 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             btnTake[i].addEventListener('click', e => {
                 btnSound.play();
                 if(!btnTake[i].disabled){
-                    PopulateCharBag(game.currentFloor.objects[i].name);
-                    showHideModalObjRoom();
                     btnTake[i].disabled=true;
                     game.currentFloor.pick(i);
-                    game.play();
+                    PopulateCharBag(game.currentFloor.objects[i].name);
+                    showHideModalObjRoom();
+                    setTimeout(function(){ 
+                        game.play();
+                    }, 2000);
                 }
             });
         } 
+        
     }
     observerStartTakeBtn.observe(modalObjRoom,{attributes:true});
     
