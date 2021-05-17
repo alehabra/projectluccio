@@ -163,13 +163,12 @@ let turn = 0;
     observerStartEye = new MutationObserver(eyeopenCallBack);
     
     function eyeopenCallBack(mutations){
-        if (turn<1){
+        if (game.currentFloor.starting){
         for (let mutation of mutations) {
             if (mutation.type === 'attributes') {
                 console.log('mutation OCCHIO detected')
                 //se è il turno del giocatore mostra il modale di scelta giocatore, altrimenti notifica turno nemico
                 game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
-                turn = 1;
             }
         }  
             observerStartEye.disconnect()
@@ -178,7 +177,7 @@ let turn = 0;
     observerStartEye.observe(occhio,{attributes:true});
 
     //se il turno non è quello iniziale
-    if (turn>0){
+    if (!game.currentFloor.starting){
         game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
     }
  

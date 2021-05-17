@@ -72,6 +72,7 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
         var removeEyes = function(){
             cella.classList.add("focus");
             svg.classList.add("occhio-rimosso");
+            game.play();
         }
 
         //inizializzazione funzione
