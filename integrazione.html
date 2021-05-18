@@ -115,7 +115,7 @@
                 <div class="modal-inner">
                     <h1>IL NEMICO HA FATTO QUALCOSA</h1>
                     <div class="modal-inner-content">
-                        <button class="btn" onclick="hideModal();  game.play();">
+                        <button class="btn" onclick="hideModal();">
                             <span>sticazzi</span>
                         </button>
                     </div>
@@ -127,7 +127,7 @@
                 <div class="modal-yourchioiche-inner">
                     <h1 style="text-transform: uppercase;">è il tuo turno!</h1>
                     <div class="modal-yourchioiche-buttons">
-                        <button class="btn" onclick="showHideModalChoice(); game.player.use();  game.play();">
+                        <button class="btn" onclick="showHideModalChoice(); game.player.use();">
                             <span>Usa oggetto</span>
                         </button>
                         <button class="btn" onclick="showHideModalChoice(); showHideModalObjRoom();">
@@ -136,7 +136,7 @@
                         <button class="btn" onclick="hideModal()">
                             <span>Proponi scambio</span>
                         </button>
-                        <button class="btn" onclick="showHideModalChoice(); game.play();">
+                        <button class="btn" onclick="showHideModalChoice();">
                             <span>Passa</span>
                         </button>
                     </div>
@@ -148,7 +148,6 @@
                 <div class="modal-floorObjects-inner">
                     <h1>OGGETTI DISPONIBILI</h1>
                     <div id="modal-floorObjects-inner-objects">
-                        
                     </div>
                 </div>
             </div>

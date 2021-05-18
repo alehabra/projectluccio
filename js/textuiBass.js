@@ -115,8 +115,7 @@ let turn = 0;
  function updateUi()
 {
     let startLevelInfo = document.querySelectorAll('.startLevel-info');
-  
-    console.log(turn);
+
     //ripristino i pulsanti
     resetBtn();
 
@@ -134,8 +133,8 @@ let turn = 0;
     PopulateFloorName(game.currentFloor.number);
     
     //visualizzo graficamente se turno nemico o personaggio
-    console.log(TURN_PLAYER);
-    game.currentFloor.turn === TURN_PLAYER ? EnemyTurn()  : YourTurn();
+    console.log(game.currentFloor.turn);
+    game.currentFloor.turn === TURN_PLAYER ? YourTurn()  : EnemyTurn();
 
     //popolo oggetti dello zaino nemico e personaggio
     //NEMICO
@@ -159,7 +158,7 @@ let turn = 0;
 
 
     //USARE MUTATION OBSERVER PER VEDERE SE ANIMAZIONE OCCHIO è FINITA DA QUI SI CHIAMA L'AZIONE NEMICO O PERSONAGGIO
-    let occhio = document.getElementById('occhio-sopra');
+/*     let occhio = document.getElementById('occhio-sopra');
     observerStartEye = new MutationObserver(eyeopenCallBack);
     
     function eyeopenCallBack(mutations){
@@ -174,12 +173,9 @@ let turn = 0;
             observerStartEye.disconnect()
         }
     }
-    observerStartEye.observe(occhio,{attributes:true});
+    observerStartEye.observe(occhio,{attributes:true}); */
 
-    //se il turno non è quello iniziale
-    if (!game.currentFloor.starting){
-        game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
-    }
+
  
     //esempio di cosa ha fatto il nemico pagina 4
     //in base al risultato chiamo delle funzioni
@@ -200,9 +196,11 @@ let turn = 0;
     game.play
 
     */
-
-    if(game.currentFloor.starting)                                 
-    {
+    //se il turno non è quello iniziale
+    if (!game.currentFloor.starting){
+        game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
+    }else{
         startLevelInfo[0].innerHTML="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
     }
+
 } 

@@ -72,7 +72,10 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
         var removeEyes = function(){
             cella.classList.add("focus");
             svg.classList.add("occhio-rimosso");
-            game.play();
+            if (game.currentFloor.starting){
+                game.play();
+                //game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
+            }    
         }
 
         //inizializzazione funzione
@@ -229,12 +232,13 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
         setTimeout(function(){
             !modal.classList.contains('modal--active') ? modal.classList.add('modal--active') : modal.classList.remove('modal--active')
             resetBtn();
+            game.play();
         }, 600);
      }
 
      //modale scelta giocatore
      function showHideModalChoice(){
-        !modalPlayer.classList.contains('modal-yourchioiche--active') ? setTimeout(function(){modalPlayer.classList.add('modal-yourchioiche--active')}, 600) : setTimeout(function(){modalPlayer.classList.remove('modal-yourchioiche--active')}, 600)
+        !modalPlayer.classList.contains('modal-yourchioiche--active') ? setTimeout(function(){modalPlayer.classList.add('modal-yourchioiche--active')}, 600) : setTimeout(function(){modalPlayer.classList.remove('modal-yourchioiche--active');  game.play();}, 600)
      }
 
     //modale oggetti stanza 
