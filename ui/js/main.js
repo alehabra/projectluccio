@@ -250,9 +250,23 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             yourExchange.innerHTML = game.player.enemy.bag.name;
             hisExchange.innerHTML = game.player.bag.name;
         }
-
         //mostro il modale
         !modalExchange.classList.contains('modal-exchange--active') ? setTimeout(function(){modalExchange.classList.add('modal-exchange--active')}, 600) : setTimeout(function(){modalExchange.classList.remove('modal-exchange--active'); }, 600)
+    }
+
+    //risposta scambio avversario
+    function showResponseExchange(){
+
+        if(acceptOrNot(game.currentFloor.enemy,  game.player.bag))              //Se l'avversario accetta lo scmabio
+        {
+            alert("L'avversario accetta lo scambio!");  //Notifca accettazione
+            exchange(game.player, game.currentFloor.enemy);        //Scambio oggetti
+        }
+        else                                            //Altrimenti
+        {
+            alert("L'avversario rifiuta lo scambio!")   //Notifica rifiuto
+        }
+        game.play(); 
     }
 
      //funzione usa oggetto
