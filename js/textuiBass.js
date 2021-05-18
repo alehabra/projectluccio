@@ -20,7 +20,8 @@ function makeCollectFunction(objIndex)
     return function()
     {
         var floor=game.currentFloor;                                //Ottieni piano
-        floor.pick(floor.player, objIndex); game.play();            //Raccogli oggetto
+        floor.pick(floor.player, objIndex);                         //Raccogli oggetto
+        game.play();
     };
 }
 
@@ -120,14 +121,14 @@ let turn = 0;
     resetBtn();
 
      //popolo statistiche personaggio
-    AddPointsDamage('personaggio','sazieta',game.player.hunger -1,true); 
-    AddPointsDamage('personaggio','salute',game.player.health -1,true);
-    AddPointsDamage('personaggio','umore',game.player.mood -1,true);
+     RemovePointsDamage('personaggio','sazieta',game.player.hunger -1,true); 
+     RemovePointsDamage('personaggio','salute',game.player.health -1,true);
+     RemovePointsDamage('personaggio','umore',game.player.mood -1,true);
 
     //popolo statistiche nemico
-    AddPointsDamage('nemico','salute',game.player.enemy.health -1,true);
-    AddPointsDamage('nemico','umore',game.player.enemy.mood -1,true);
-    AddPointsDamage('nemico','sazieta',game.player.enemy.hunger -1,true); 
+    RemovePointsDamage('nemico','salute',game.player.enemy.health -1,true);
+    RemovePointsDamage('nemico','umore',game.player.enemy.mood -1,true);
+    RemovePointsDamage('nemico','sazieta',game.player.enemy.hunger -1,true); 
 
     //popolo numero piano
     PopulateFloorName(game.currentFloor.number);
@@ -145,6 +146,7 @@ let turn = 0;
     }
     //PERSONAGGIO
     if(game.player.bag!==null){
+        console.log('oggetto player: '+game.player.bag.name);
         PopulateCharBag(game.player.bag.name)
     } else {
         PopulateCharBag('vuoto')
@@ -153,7 +155,6 @@ let turn = 0;
     //popolo oggetti del piano ogni oggetto deve essere ==! NULL pagina 3
     if(game.currentFloor.objects[0]!==null){
         console.log(game.currentFloor.objects);
-        //game.currentFloor.pick(0); //Raccogli oggetto
     } 
 
 

@@ -12,6 +12,7 @@ const modalPlayer = document.getElementById("modal-yourchioiche");
 const modalObjRoom = document.getElementById("modal-floorObjects");
 const modalObjRoomElenco = document.getElementById("modal-floorObjects-inner-objects");
 const boxfloor = document.getElementById("box-objectsFloor-image");
+const modalExchange = document.getElementById("modal-exchange");
 
 //////////////////VARIABILI RISORSE MUSIC/////////////////
 const btnSound = new Audio('../projectluccio/ui/music/selection.mp3');
@@ -74,7 +75,6 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             svg.classList.add("occhio-rimosso");
             if (game.currentFloor.starting){
                 game.play();
-                //game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
             }    
         }
 
@@ -131,7 +131,7 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
         statsChars[0].classList.add('stats-element--disabled');
     }
 
-    function AddPointsDamage(char,statsType,points,init){
+    function RemovePointsDamage(char,statsType,points,init){
         //aggiungo danni personaggio
         if(char == "personaggio"){
             if(statsType == "sazieta"){
@@ -238,7 +238,36 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
      //modale scelta giocatore
      function showHideModalChoice(){
-        !modalPlayer.classList.contains('modal-yourchioiche--active') ? setTimeout(function(){modalPlayer.classList.add('modal-yourchioiche--active')}, 600) : setTimeout(function(){modalPlayer.classList.remove('modal-yourchioiche--active');  game.play();}, 600)
+        !modalPlayer.classList.contains('modal-yourchioiche--active') ? setTimeout(function(){modalPlayer.classList.add('modal-yourchioiche--active')}, 600) : setTimeout(function(){modalPlayer.classList.remove('modal-yourchioiche--active'); }, 600)
+     }
+
+    //modale proposta scambio
+    function showHideModalExchange(){
+        //popolo quello che vuoi scambiare
+        var yourExchange = document.getElementById('modal-exchange-inner-yourobj');
+        var hisExchange = document.getElementById('modal-exchange-inner-himobj');
+        if(game.player.bag!==null && game.player.enemy.bag!==null){
+            yourExchange.innerHTML = game.player.enemy.bag.name;
+            hisExchange.innerHTML = game.player.bag.name;
+        }
+
+        //mostro il modale
+        !modalExchange.classList.contains('modal-exchange--active') ? setTimeout(function(){modalExchange.classList.add('modal-exchange--active')}, 600) : setTimeout(function(){modalExchange.classList.remove('modal-exchange--active'); }, 600)
+    }
+
+     //funzione usa oggetto
+     function objectCharUsed(){
+        game.player.use();
+        setTimeout(function(){
+         game.play();
+        }, 700);
+     }
+
+     //funzione passa turno
+     function charTurnPass(){
+        setTimeout(function(){
+            game.play();
+           }, 700);     
      }
 
     //modale oggetti stanza 
@@ -315,7 +344,6 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
     //OBSERVER PER PULSANTI BOTTONI PRENDI
     observerStartTakeBtn = new MutationObserver(takeBtninteractive);
     //evento oggetto prendi
-    //TODO: aggiungere oggetto a zaino e game.play
     function takeBtninteractive(mutations){
         console.log('mutation pulsante prendi')
         let btnTake = document.querySelectorAll(".btn-take");
@@ -328,8 +356,11 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
                     PopulateCharBag(game.currentFloor.objects[i].name);
                     showHideModalObjRoom();
                     setTimeout(function(){ 
-                        game.play();
+                        //TODO sistemare la closure
+                        makeCollectFunction(i);
+                        //game.play();
                     }, 2000);
+                    return;
                 }
             });
         } 

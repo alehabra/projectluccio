@@ -237,6 +237,42 @@ h4 {
 .modal-floorObjects--active {
   transform: translate(0%, 0%) !important; }
 
+/* MODALE SCAMBIO */
+#modal-exchange {
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  display: flex;
+  justify-content: center;
+  z-index: 40;
+  width: 100%;
+  min-height: 35%;
+  background: url("../img/ep_naturalblack.png");
+  background-repeat: repeat;
+  transform: translate(0%, 150%);
+  overflow: hidden;
+  color: #DAD2D8;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+  #modal-exchange .modal-exchange-inner {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+    #modal-exchange .modal-exchange-inner h2 {
+      font-size: 3.5rem;
+      width: 100%;
+      margin-top: 2.5rem;
+      padding-bottom: 1.5rem;
+      text-align: center; }
+    #modal-exchange .modal-exchange-inner .btn {
+      margin-bottom: 1.5rem; }
+
+.modal-exchange--active {
+  transform: translate(0%, 0%) !important; }
+
 html, body {
   width: 100%;
   height: 100%;

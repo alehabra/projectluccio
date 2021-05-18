@@ -194,7 +194,43 @@
         }    
     }
 }
-
 .modal-floorObjects--active{
+    transform:translate(0%, 0%) !important;
+}
+
+/* MODALE SCAMBIO */
+#modal-exchange{
+    position: absolute;
+    left:0%;
+    bottom: 0%;
+    display: flex;
+    justify-content: center;
+    z-index: 40;
+    width:100%;
+    min-height:35%;
+    background: url('../img/ep_naturalblack.png');
+    background-repeat: repeat;
+    transform:translate(0%, 150%);
+    overflow: hidden;
+    color:$lightgrey;
+    @include transition(0.3s);
+    .modal-exchange-inner{
+        width:80%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h2{
+            font-size:3.5rem;
+            width:100%;
+            margin-top:2.5rem;
+            padding-bottom: 1.5rem;
+            text-align: center;
+        }
+        .btn{
+           margin-bottom: 1.5rem; 
+        }
+    }
+}
+.modal-exchange--active{
     transform:translate(0%, 0%) !important;
 }

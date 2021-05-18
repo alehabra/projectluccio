@@ -127,16 +127,16 @@
                 <div class="modal-yourchioiche-inner">
                     <h1 style="text-transform: uppercase;">è il tuo turno!</h1>
                     <div class="modal-yourchioiche-buttons">
-                        <button class="btn" onclick="showHideModalChoice(); game.player.use();">
+                        <button class="btn" onclick="showHideModalChoice(); objectCharUsed();">
                             <span>Usa oggetto</span>
                         </button>
                         <button class="btn" onclick="showHideModalChoice(); showHideModalObjRoom();">
                             <span>Guarda nella scatola</span>
                         </button>
-                        <button class="btn" onclick="hideModal()">
+                        <button class="btn" onclick="showHideModalChoice(); showHideModalExchange();">
                             <span>Proponi scambio</span>
                         </button>
-                        <button class="btn" onclick="showHideModalChoice();">
+                        <button class="btn" onclick="showHideModalChoice(); charTurnPass();">
                             <span>Passa</span>
                         </button>
                     </div>
@@ -149,6 +149,19 @@
                     <h1>OGGETTI DISPONIBILI</h1>
                     <div id="modal-floorObjects-inner-objects">
                     </div>
+                </div>
+            </div>
+
+            <!--MODALE SCAMBIO-->
+            <div id="modal-exchange">
+                <div class="modal-exchange-inner">
+                    <h2>Vuoi scambiare<br/><span id="modal-exchange-inner-yourobj"></span> con <span id="modal-exchange-inner-himobj"></span> ?</h2>
+                    <button class="btn" onclick="showHideModalExchange()">
+                        <span>SI</span>
+                    </button>
+                    <button class="btn" onclick="showHideModalExchange()">
+                        <span>NO</span>
+                    </button>
                 </div>
             </div>
 
