@@ -120,19 +120,35 @@ let turn = 0;
     //ripristino i pulsanti
     resetBtn();
 
+    //reset statistiche personaggio e nemico
+    for (let index = 0; index < statsCharsParts.length; index++) {
+        if(statsCharsParts[index].classList.contains('stats-icon-points--active')){
+            statsCharsParts[index].classList.remove('stats-icon-points--active');
+        }
+    }
+
      //popolo statistiche personaggio
      RemovePointsDamage('personaggio','sazieta',game.player.hunger -1,true); 
      RemovePointsDamage('personaggio','salute',game.player.health -1,true);
      RemovePointsDamage('personaggio','umore',game.player.mood -1,true);
 
     //popolo statistiche nemico
+    RemovePointsDamage('nemico','sazieta',game.player.enemy.hunger -1,true); 
     RemovePointsDamage('nemico','salute',game.player.enemy.health -1,true);
     RemovePointsDamage('nemico','umore',game.player.enemy.mood -1,true);
-    RemovePointsDamage('nemico','sazieta',game.player.enemy.hunger -1,true); 
+    
 
     //popolo numero piano
     PopulateFloorName(game.currentFloor.number);
     
+     //funzione rimuovi pulsante "scambio" se non ho oggetti
+     var btnTurn = document.querySelectorAll('.modal-yourchioiche-buttons .btn');
+     if(game.player.bag!==null && game.player.enemy.bag!==null){
+        btnTurn[2].style.display = 'block';
+     } else {
+        btnTurn[2].style.display = 'none';
+     }
+
     //visualizzo graficamente se turno nemico o personaggio
     console.log(game.currentFloor.turn);
     game.currentFloor.turn === TURN_PLAYER ? YourTurn()  : EnemyTurn();
@@ -158,26 +174,13 @@ let turn = 0;
     } 
 
 
-    //USARE MUTATION OBSERVER PER VEDERE SE ANIMAZIONE OCCHIO è FINITA DA QUI SI CHIAMA L'AZIONE NEMICO O PERSONAGGIO
-/*     let occhio = document.getElementById('occhio-sopra');
-    observerStartEye = new MutationObserver(eyeopenCallBack);
-    
-    function eyeopenCallBack(mutations){
-        if (game.currentFloor.starting){
-        for (let mutation of mutations) {
-            if (mutation.type === 'attributes') {
-                console.log('mutation OCCHIO detected')
-                //se è il turno del giocatore mostra il modale di scelta giocatore, altrimenti notifica turno nemico
-                game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
-            }
-        }  
-            observerStartEye.disconnect()
-        }
-    }
-    observerStartEye.observe(occhio,{attributes:true}); */
-
-
  
+    //NEMICO
+    var enemyModal = document.querySelectorAll('#modal .modal-inner-content');
+    var node = document.createElement("p");
+    node.innerHTML =  game.currentFloor.lastEnemyChoice
+    enemyModal[0].appendChild(node);
+    
     //esempio di cosa ha fatto il nemico pagina 4
     //in base al risultato chiamo delle funzioni
     //currentFloor.lastEnemyChoice

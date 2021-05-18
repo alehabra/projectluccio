@@ -1,0 +1,2 @@
+-main.js funzione takeBtninteractive, la callback closure makeCollectFunction non fa proseguire il turno
+-se USO un oggetto nel turno precedente tipo cracker, mi aspetto che all'updateui game.player.hunger cambi valore, ma non è così

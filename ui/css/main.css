@@ -102,6 +102,9 @@ h4 {
       margin: 5% 20%; }
       #modal .modal-inner .modal-inner-content .btn {
         margin-bottom: 2.5rem; }
+    #modal .modal-inner p {
+      color: #FCAB64;
+      font-size: 1.5rem; }
 
 .modal--active {
   display: block !important; }

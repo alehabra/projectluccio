@@ -284,6 +284,8 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
            }, 700);     
      }
 
+
+
     //modale oggetti stanza 
     function showHideModalObjRoom(){
         //TODO: ricordarsi di mettere l'immagine scatola come prima
