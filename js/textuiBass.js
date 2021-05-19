@@ -227,6 +227,8 @@ let turn = 0;
     }else{
         endTurn();
         startLevelInfo[0].innerHTML="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
+        let boxfloor = document.getElementById("box-objectsFloor-image");
+        boxfloor.src = '../projectluccio/ui/img/closed-box.png';
     }
 
 } 

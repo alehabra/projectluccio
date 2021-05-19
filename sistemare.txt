@@ -11,4 +11,4 @@ DA FARE ui
 -migliorare il feedback dei tuoi danni/danni nemico dopo aver utilizzato un oggetto
 -feedback negativo/positivo di accettazione
 -game over
--rendere i modali com 
+-modali come scambio? si vede meglio il floor

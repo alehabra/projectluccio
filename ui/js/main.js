@@ -14,7 +14,7 @@ let startLevel = document.querySelectorAll('.startLevel');
 const modalPlayer = document.getElementById("modal-yourchioiche");
 const modalObjRoom = document.getElementById("modal-floorObjects");
 const modalObjRoomElenco = document.getElementById("modal-floorObjects-inner-objects");
-const boxfloor = document.getElementById("box-objectsFloor-image");
+let boxfloor = document.getElementById("box-objectsFloor-image");
 const modalExchange = document.getElementById("modal-exchange");
 
 //////////////////VARIABILI RISORSE MUSIC/////////////////
