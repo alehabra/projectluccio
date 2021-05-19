@@ -271,6 +271,7 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
      //funzione usa oggetto
      function objectCharUsed(){
+        if (game.currentFloor.objects[0]!==null) {game.currentFloor.pick(0)}
         game.player.use();
         setTimeout(function(){
          game.play();
@@ -352,9 +353,13 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             boxfloor.src = '../projectluccio/ui/img/open-box.png';
             cardboxSound.play();
         }, 1000);
-        setTimeout(function(){
-            !modalObjRoom.classList.contains('modal-floorObjects--active') ? setTimeout(function(){modalObjRoom.classList.add('modal-floorObjects--active')}, 600) : setTimeout(function(){modalObjRoom.classList.remove('modal-floorObjects--active')}, 0)
-        }, 1500);
+        if(!modalObjRoom.classList.contains('modal-floorObjects--active')){
+            setTimeout(function(){
+                modalObjRoom.classList.add('modal-floorObjects--active') 
+            }, 1500);
+        } else {
+            modalObjRoom.classList.remove('modal-floorObjects--active')
+        }
     }
 
     //OBSERVER PER PULSANTI BOTTONI PRENDI
@@ -364,21 +369,7 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
         console.log('mutation pulsante prendi')
         let btnTake = document.querySelectorAll(".btn-take");
         for (let i = 0; i < btnTake.length; i++) {
-            btnTake[i].addEventListener('click', e => {
-                btnSound.play();
-                if(!btnTake[i].disabled){
-                    btnTake[i].disabled=true;
-                    game.currentFloor.pick(i);
-                    PopulateCharBag(game.currentFloor.objects[i].name);
-                    showHideModalObjRoom();
-                    setTimeout(function(){ 
-                        //TODO sistemare la closure
-                        makeCollectFunction(i);
-                        //game.play();
-                    }, 2000);
-                    return;
-                }
-            });
+            btnTake[i].addEventListener('click', makeCollectFunction.bind(null,i)) 
         } 
         
     }

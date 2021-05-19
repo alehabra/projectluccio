@@ -17,12 +17,17 @@
  */
 function makeCollectFunction(objIndex)
 {
-    return function()
-    {
+    let btnTake = document.querySelectorAll(".btn-take");
+    btnSound.play();
+    if(!btnTake[objIndex].disabled){
+        btnTake[objIndex].disabled=true;
+        game.currentFloor.pick(objIndex);
+        PopulateCharBag(game.currentFloor.objects[objIndex].name);
+        showHideModalObjRoom();
+    }
         var floor=game.currentFloor;                                //Ottieni piano
         floor.pick(floor.player, objIndex);                         //Raccogli oggetto
         game.play();
-    };
 }
 
 /*
@@ -145,7 +150,13 @@ let turn = 0;
      var btnTurn = document.querySelectorAll('.modal-yourchioiche-buttons .btn');
      if(game.player.bag!==null && game.player.enemy.bag!==null){
         btnTurn[2].style.display = 'block';
-     } else {
+     } 
+     if(game.player.bag===null && game.player.enemy.bag===null){
+        btnTurn[2].style.display = 'none';
+     }
+      //rimuovo "usa oggetto" se non ho oggetti
+     if(game.player.bag===null){
+        btnTurn[0].style.display = 'none';
         btnTurn[2].style.display = 'none';
      }
 
@@ -185,12 +196,7 @@ let turn = 0;
     //in base al risultato chiamo delle funzioni
     //currentFloor.lastEnemyChoice
 
-    //scambio nemico pagina 6
-    //se accetti o no pagina 6
-
-    //se accetta lui
-    //if(acceptOrNot)
-    
+ 
 
     //GIOCATORE azioni a pagina 5
     /*
