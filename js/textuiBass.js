@@ -22,7 +22,9 @@ function makeCollectFunction(objIndex)
     if(!btnTake[objIndex].disabled){
         btnTake[objIndex].disabled=true;
         game.currentFloor.pick(objIndex);
-        PopulateCharBag(game.currentFloor.objects[objIndex].name);
+        if(game.currentFloor.objects[objIndex] !== null){
+            PopulateCharBag(game.currentFloor.objects[objIndex].name);
+        }
         showHideModalObjRoom();
     }
         var floor=game.currentFloor;                                //Ottieni piano
@@ -149,7 +151,9 @@ let turn = 0;
      //funzione rimuovi pulsante "scambio" se non ho oggetti
      var btnTurn = document.querySelectorAll('.modal-yourchioiche-buttons .btn');
      var btnTurnText = document.querySelectorAll('.modal-yourchioiche-buttons .btn span');
-
+     if(game.player.bag!==null){
+         console.log('oggetto player '+game.player.bag);
+     }
      if(game.player.bag!==null && game.player.enemy.bag!==null){
         btnTurn[2].style.display = 'block';
      } 
@@ -166,9 +170,13 @@ let turn = 0;
       }
 
      //rimuovo "usa oggetto" se non ho oggetti
+     
      if(game.player.bag===null){
         btnTurn[0].style.display = 'none';
         btnTurn[2].style.display = 'none';
+     } else {
+        btnTurn[0].style.display = 'block';
+        btnTurn[2].style.display = 'block';       
      }
 
     //visualizzo graficamente se turno nemico o personaggio
@@ -189,6 +197,7 @@ let turn = 0;
     } else {
         PopulateCharBag('vuoto')
     }
+
 
     //popolo oggetti del piano ogni oggetto deve essere ==! NULL pagina 3
     if(game.currentFloor.objects[0]!==null){
