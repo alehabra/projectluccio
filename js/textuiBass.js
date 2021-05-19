@@ -157,10 +157,12 @@ let turn = 0;
         btnTurn[2].style.display = 'none';
      }
       //inserisco "ATTACCA" se ho arma
-      if(game.player.bag.type === 'weapon'){
-        btnTurnText[0].innerHTML = 'attacca';
-      } else {
-        btnTurnText[0].innerHTML = 'usa oggetto';   
+      if(game.player.bag!==null){
+        if(game.player.bag.type === 'weapon'){
+            btnTurnText[0].innerHTML = 'attacca';
+        } else {
+            btnTurnText[0].innerHTML = 'usa oggetto';   
+        }
       }
 
      //rimuovo "usa oggetto" se non ho oggetti
@@ -193,32 +195,28 @@ let turn = 0;
         console.log(game.currentFloor.objects);
     } 
 
-
- 
     //NEMICO
-    var enemyModal = document.querySelectorAll('#modal .modal-inner-content');
-    var node = document.createElement("p");
-    node.innerHTML =  game.currentFloor.lastEnemyChoice
-    enemyModal[0].appendChild(node);
+    var enemyModal = document.querySelectorAll('#modal .modal-inner-content p');
+    enemyModal[0].innerHTML = '';
+
+    if(game.currentFloor.lastEnemyChoice===CHOICE_COLLECTION){}
+    if(game.currentFloor.lastEnemyChoice===CHOICE_ATTACK){}
+    if(game.currentFloor.lastEnemyChoice===CHOICE_IMMEDIATE_USE){}
+    if(game.currentFloor.lastEnemyChoice===CHOICE_EXCHANGE){}
+
+    enemyModal[0].innerHTML = game.currentFloor.lastEnemyChoice
+    
     
     //esempio di cosa ha fatto il nemico pagina 4
     //in base al risultato chiamo delle funzioni
     //currentFloor.lastEnemyChoice
 
- 
-
-    //GIOCATORE azioni a pagina 5
-    /*
-    if (currentFloor.objects[0]!==null) {game.currentFloor.pick(0)}
-    //se lo voglio usare
-    game.player.use();
-    game.play
-
-    */
     //se il turno non è quello iniziale
+    console.log('turno piano '+game.currentFloor.starting)
     if (!game.currentFloor.starting){
         game.currentFloor.turn === TURN_PLAYER ?  showHideModalChoice() : showModal();
     }else{
+        endTurn();
         startLevelInfo[0].innerHTML="Nuovo piano: "+game.currentFloor.number;    //Notifica inizio piano
     }
 

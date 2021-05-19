@@ -8,6 +8,9 @@ let statsCharsParts = document.querySelectorAll(".stats-element .stats-stats .st
 const modal = document.getElementById("modal");
 let modalInner = document.querySelectorAll(".modal-inner");
 
+var svg = document.getElementById("occhio-sopra");
+let startLevel = document.querySelectorAll('.startLevel');
+
 const modalPlayer = document.getElementById("modal-yourchioiche");
 const modalObjRoom = document.getElementById("modal-floorObjects");
 const modalObjRoomElenco = document.getElementById("modal-floorObjects-inner-objects");
@@ -27,13 +30,12 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
     //aperturaOcchi();
     function aperturaOcchi(){    
         /*rimuovo info start level */
-        let startLevel = document.querySelectorAll('.startLevel');
         setTimeout(function(){
             startLevel[0].classList.add('startLevel-inactive');
         }, 300);
 
         /*animazione apertura occhi*/  
-        var svg = document.getElementById("occhio-sopra");
+        
         var s = Snap(svg);
         /*variabili occhio sopra*/
         var occhioAperto = Snap.select('#aperto-sopra');
@@ -80,6 +82,13 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
         //inizializzazione funzione
         occhioChiusoAnim();
+    }
+
+    function endTurn(){
+        svg.classList.remove("occhio-rimosso");
+        setTimeout(function(){
+            startLevel[0].classList.remove('startLevel-inactive');
+        }, 300);
     }
 
 
