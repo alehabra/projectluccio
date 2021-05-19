@@ -115,7 +115,7 @@
     background: url('../img/cardboard.jpg');
     background-size: cover;
     transform:translate(0%, 150%);
-    overflow: hidden;
+    overflow-y: scroll;
     color:$lightgrey;
     @include transition(0.3s);
     .modal-floorObjects-inner{

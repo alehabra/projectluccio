@@ -148,13 +148,22 @@ let turn = 0;
     
      //funzione rimuovi pulsante "scambio" se non ho oggetti
      var btnTurn = document.querySelectorAll('.modal-yourchioiche-buttons .btn');
+     var btnTurnText = document.querySelectorAll('.modal-yourchioiche-buttons .btn span');
+
      if(game.player.bag!==null && game.player.enemy.bag!==null){
         btnTurn[2].style.display = 'block';
      } 
      if(game.player.bag===null && game.player.enemy.bag===null){
         btnTurn[2].style.display = 'none';
      }
-      //rimuovo "usa oggetto" se non ho oggetti
+      //inserisco "ATTACCA" se ho arma
+      if(game.player.bag.type === 'weapon'){
+        btnTurnText[0].innerHTML = 'attacca';
+      } else {
+        btnTurnText[0].innerHTML = 'usa oggetto';   
+      }
+
+     //rimuovo "usa oggetto" se non ho oggetti
      if(game.player.bag===null){
         btnTurn[0].style.display = 'none';
         btnTurn[2].style.display = 'none';

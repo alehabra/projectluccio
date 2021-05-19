@@ -1,2 +1,3 @@
 -se USO un oggetto nel turno precedente tipo cracker, mi aspetto che all'updateui game.player.hunger cambi valore, ma non è così
 -se l'ultima mossa dell'avversario è quella di raccogliere un oggetto dalla scatola, mi aspetto che se la apro trovo un oggetto in meno, stessa cosa se lo raccolgo io
+-update ui linea 158: se uso un oggetto e ho lo zaino vuoto, poi ne raccolgo un altro dalla stanza game.player.bag viene riconosciuto come null

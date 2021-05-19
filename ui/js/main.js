@@ -289,6 +289,7 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
     //modale oggetti stanza 
     function showHideModalObjRoom(){
+        modalObjRoomElenco.innerHTML = '';
         //TODO: ricordarsi di mettere l'immagine scatola come prima
         for (let i = 0; i < game.currentFloor.objects.length; i++) {
             //div singolo oggetto contenitore
