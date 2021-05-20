@@ -186,7 +186,15 @@ function Character(charName, charImage, pastBag)
             return false;                                                           //falso in tutti gli altri casi
         }
     }
-
+    /*
+     * Ritorna valore di sazietà
+     * Ritorna:
+     * - int
+     */
+    this.getSatiety=function()
+    {
+        return(GENERIC_STATS_MAX-this.hunger);                                      //Ritorna valore di sazietà
+    }
 }
 
 /*
