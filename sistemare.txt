@@ -3,7 +3,7 @@
 -come riconoscere se l'avversario è morto? e se è morto come faccio a terminare i turni?
 
 
-
+-FEEDBACK NEMICO FEEDBACK TUO
 
 
 DA FARE ui

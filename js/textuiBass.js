@@ -135,12 +135,12 @@ let turn = 0;
     }
 
      //popolo statistiche personaggio
-     RemovePointsDamage('personaggio','sazieta',game.player.hunger -1,true); 
+     RemovePointsDamage('personaggio','sazieta',game.player.getSatiety() -1,true); 
      RemovePointsDamage('personaggio','salute',game.player.health -1,true);
      RemovePointsDamage('personaggio','umore',game.player.mood -1,true);
 
     //popolo statistiche nemico
-    RemovePointsDamage('nemico','sazieta',game.player.enemy.hunger -1,true); 
+    RemovePointsDamage('nemico','sazieta',game.player.enemy.getSatiety() -1,true); 
     RemovePointsDamage('nemico','salute',game.player.enemy.health -1,true);
     RemovePointsDamage('nemico','umore',game.player.enemy.mood -1,true);
     
