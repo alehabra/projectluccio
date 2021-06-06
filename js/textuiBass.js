@@ -215,6 +215,10 @@ let turn = 0;
 
     enemyModal[0].innerHTML = game.currentFloor.lastEnemyChoice
     
+    //GESTIONE GAME OVER
+    if(game.player.isDead()){
+        alert('qui dovresti essere morto');
+    }
     
     //esempio di cosa ha fatto il nemico pagina 4
     //in base al risultato chiamo delle funzioni
