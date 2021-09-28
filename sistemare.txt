@@ -2,8 +2,22 @@
 -se l'ultima mossa dell'avversario è quella di raccogliere un oggetto dalla scatola, mi aspetto che se la apro trovo un oggetto in meno, stessa cosa se lo raccolgo io
 -come riconoscere se l'avversario è morto? e se è morto come faccio a terminare i turni?
 
+-TURNO TUO + PAUSA ANIMAZIONE CAMBIO STATISTICA
 
--FEEDBACK NEMICO FEEDBACK TUO
+-FEEDBACK NEMICO 
+
+
+
+-FEEDBACK DANNI TUO 
+--salute vince --> palpitazione  o rosso
+-fame --> sfocatura + barcolaggio
+-psiche --> desaturazione 
+
+QUANDO USI OGGETTO +1 su tipologia
+animazione + icona si rimpiciolisce su statistica
+
+GAME OVER.
+tutto nero game over
 
 
 DA FARE ui
@@ -11,5 +25,4 @@ DA FARE ui
 -modale morte nemico
 -feedback negativo/positivo di accettazione
 -game over
--modali come scambio? si vede meglio il floor
 -animazione di attacco?

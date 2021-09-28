@@ -10,6 +10,37 @@ h4 {
     display: block;
     visibility: visible; } }
 
+@keyframes healthDamaged {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 0.3; }
+  50% {
+    opacity: 0; }
+  75% {
+    opacity: 0.3; }
+  100% {
+    opacity: 0; } }
+
+@keyframes psycheDamaged {
+  0% {
+    filter: grayscale(50%); }
+  50% {
+    filter: grayscale(100%); }
+  100% {
+    filter: grayscale(50%); } }
+
+@keyframes hungryDamaged {
+  0% {
+    filter: blur(5px);
+    -webkit-filter: blur(5px); }
+  50% {
+    filter: blur(0px);
+    -webkit-filter: blur(0px); }
+  100% {
+    filter: blur(5px);
+    -webkit-filter: blur(5px); } }
+
 .btn {
   position: relative;
   border: 1px solid #143642;
@@ -119,23 +150,26 @@ h4 {
 
 /* MODALE SCELTA PERSONAGGIO */
 #modal-yourchioiche {
-  width: 100%;
-  height: 80%;
   position: absolute;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0, #000 63%);
-  z-index: 40;
-  transform: translate(0%, 100%);
+  left: 0%;
+  bottom: 0%;
   display: flex;
   justify-content: center;
+  z-index: 40;
+  width: 100%;
+  min-height: 35%;
+  background: url("../img/ep_naturalblack.png");
+  background-repeat: repeat;
+  transform: translate(0%, 150%);
+  overflow: hidden;
+  color: #DAD2D8;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
   #modal-yourchioiche .modal-yourchioiche-inner {
     position: absolute;
-    bottom: 15%;
+    bottom: 14%;
     display: flex;
     flex-direction: column; }
     #modal-yourchioiche .modal-yourchioiche-inner h1 {
@@ -145,9 +179,13 @@ h4 {
       margin-bottom: 5rem; }
     #modal-yourchioiche .modal-yourchioiche-inner .modal-yourchioiche-buttons {
       display: flex;
-      flex-direction: column; }
+      flex-direction: row; }
+      #modal-yourchioiche .modal-yourchioiche-inner .modal-yourchioiche-buttons .modal-yourchioiche-btnrow {
+        display: flex;
+        flex-direction: column; }
       #modal-yourchioiche .modal-yourchioiche-inner .modal-yourchioiche-buttons .btn {
-        margin-bottom: 2rem; }
+        margin: 1rem;
+        min-width: 350px; }
 
 .modal-yourchioiche--active {
   transform: translate(0%, 0%) !important; }
@@ -275,6 +313,30 @@ h4 {
 
 .modal-exchange--active {
   transform: translate(0%, 0%) !important; }
+
+#damages {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%; }
+  #damages .damages-health {
+    width: 100%;
+    height: 100%;
+    background: #8c201b;
+    animation-name: healthDamaged;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    visibility: hidden; }
+  #damages .damages-health--active {
+    visibility: visible !important; }
+
+.damages-psyche {
+  width: 100%;
+  height: 100%;
+  animation-name: psycheDamaged;
+  animation-duration: 2s;
+  animation-iteration-count: infinite; }
 
 html, body {
   width: 100%;

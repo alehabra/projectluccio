@@ -110,7 +110,7 @@
                 <img id="enemy-img" src="../projectluccio/personaggi/sgherro1/sgherro_0.png"/>
             </picture>
 
-            <!--MODALE GENERICO-->
+            <!--MODALE GENERICO (TURNO NEMICO)-->
             <div id="modal">
                 <div class="modal-inner">
                     <h1>TURNO NEMICO</h1>
@@ -123,23 +123,32 @@
                 </div>
             </div>
 
+            <!--FEEDBACK DANNI PLAYER-->
+            <div id="damages">
+                <div class="damages-health"></div>
+            </div>
+
             <!--MODALE SCELTE GIOCATORE-->
             <div id="modal-yourchioiche">
                 <div class="modal-yourchioiche-inner">
                     <h1 style="text-transform: uppercase;">è il tuo turno!</h1>
                     <div class="modal-yourchioiche-buttons">
-                        <button class="btn" onclick="showHideModalChoice(); objectCharUsed();">
-                            <span>Usa oggetto</span>
-                        </button>
-                        <button class="btn" onclick="showHideModalChoice(); showHideModalObjRoom();">
-                            <span>Guarda nella scatola</span>
-                        </button>
-                        <button class="btn" onclick="showHideModalChoice(); showHideModalExchange();">
-                            <span>Proponi scambio</span>
-                        </button>
-                        <button class="btn" onclick="showHideModalChoice(); charTurnPass();">
-                            <span>Passa</span>
-                        </button>
+                        <div class="modal-yourchioiche-btnrow">
+                            <button class="btn" onclick="showHideModalChoice(); objectCharUsed();">
+                                <span>Usa oggetto</span>
+                            </button>
+                            <button class="btn" onclick="showHideModalChoice(); showHideModalObjRoom();">
+                                <span>ricerca</span>
+                            </button>
+                        </div>
+                        <div class="modal-yourchioiche-btnrow">
+                            <button class="btn" onclick="showHideModalChoice(); showHideModalExchange();">
+                                <span>scambio</span>
+                            </button>
+                            <button class="btn" onclick="showHideModalChoice(); charTurnPass();">
+                                <span>Passa turno</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

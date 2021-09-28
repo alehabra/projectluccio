@@ -21,7 +21,6 @@ gulp.task('minify-css', () => {
     return gulp.src('css/*.css')
       .pipe(cleanCSS({debug: true}, (details) => {
         console.log(`${details.name}: ${details.stats.originalSize}`);
-        console.log(`${details.name}: ${details.stats.minifiedSize}`);
       }))
     .pipe(rename('main.min.css'))  
     .pipe(gulp.dest('dist'));

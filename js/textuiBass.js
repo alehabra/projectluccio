@@ -160,6 +160,11 @@ let turn = 0;
      if(game.player.bag===null && game.player.enemy.bag===null){
         btnTurn[2].style.display = 'none';
      }
+
+     //MOSTRO DANNI PERSONAGGIO
+     game.player.health<2 ? damageHealth() : damageHealthRemove();
+     game.player.mood<2 ? damagePsycheAdd() : damagePsycheRemove();
+
       //inserisco "ATTACCA" se ho arma
       if(game.player.bag!==null){
         if(game.player.bag.type === 'weapon'){
@@ -170,7 +175,6 @@ let turn = 0;
       }
 
      //rimuovo "usa oggetto" se non ho oggetti
-     
      if(game.player.bag===null){
         btnTurn[0].style.display = 'none';
         btnTurn[2].style.display = 'none';
@@ -180,7 +184,6 @@ let turn = 0;
      }
 
     //visualizzo graficamente se turno nemico o personaggio
-    console.log(game.currentFloor.turn);
     game.currentFloor.turn === TURN_PLAYER ? YourTurn()  : EnemyTurn();
 
     //popolo oggetti dello zaino nemico e personaggio

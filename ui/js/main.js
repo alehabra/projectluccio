@@ -17,6 +17,8 @@ const modalObjRoomElenco = document.getElementById("modal-floorObjects-inner-obj
 let boxfloor = document.getElementById("box-objectsFloor-image");
 const modalExchange = document.getElementById("modal-exchange");
 
+const damageUI = document.querySelectorAll(".damages-health");
+
 //////////////////VARIABILI RISORSE MUSIC/////////////////
 const btnSound = new Audio('../projectluccio/ui/music/selection.mp3');
 const ouchSound = new Audio('../projectluccio/ui/music/ouch.ogg');
@@ -26,8 +28,6 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
 
 //////INIZIALIZZAZIONE IMMEDIATA////////////////////////////////////////////
     //funzione apertura occhi inizio livello
-
-    //aperturaOcchi();
     function aperturaOcchi(){    
         /*rimuovo info start level */
         setTimeout(function(){
@@ -129,17 +129,14 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
         charBagObjName[0].innerHTML = '';
         charBagObjName[0].innerHTML = objName; 
     }
-
     function YourTurn(){
         statsChars[0].classList.remove('stats-element--disabled');
         statsChars[1].classList.add('stats-element--disabled');
     }
-
     function EnemyTurn(){
         statsChars[1].classList.remove('stats-element--disabled');
         statsChars[0].classList.add('stats-element--disabled');
     }
-
     function RemovePointsDamage(char,statsType,points,init){
         //aggiungo danni personaggio
         if(char == "personaggio"){
@@ -244,12 +241,10 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             game.play();
         }, 600);
      }
-
      //modale scelta giocatore
      function showHideModalChoice(){
         !modalPlayer.classList.contains('modal-yourchioiche--active') ? setTimeout(function(){modalPlayer.classList.add('modal-yourchioiche--active')}, 600) : setTimeout(function(){modalPlayer.classList.remove('modal-yourchioiche--active'); }, 600)
      }
-
     //modale proposta scambio
     function showHideModalExchange(){
         //popolo quello che vuoi scambiare
@@ -262,7 +257,6 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
         //mostro il modale
         !modalExchange.classList.contains('modal-exchange--active') ? setTimeout(function(){modalExchange.classList.add('modal-exchange--active')}, 600) : setTimeout(function(){modalExchange.classList.remove('modal-exchange--active'); }, 600)
     }
-
     //risposta scambio avversario
     function showResponseExchange(){
 
@@ -277,7 +271,6 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
         }
         game.play(); 
     }
-
      //funzione usa oggetto
      function objectCharUsed(){
         if (game.currentFloor.objects[0]!==null) {game.currentFloor.pick(0)}
@@ -286,16 +279,12 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
          game.play();
         }, 700);
      }
-
      //funzione passa turno
      function charTurnPass(){
         setTimeout(function(){
             game.play();
            }, 700);     
      }
-
-
-
     //modale oggetti stanza 
     function showHideModalObjRoom(){
         modalObjRoomElenco.innerHTML = '';
@@ -375,7 +364,6 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
             modalObjRoom.classList.remove('modal-floorObjects--active')
         }
     }
-
     //OBSERVER PER PULSANTI BOTTONI PRENDI
     observerStartTakeBtn = new MutationObserver(takeBtninteractive);
     //evento oggetto prendi
@@ -389,9 +377,23 @@ const cardboxSound = new Audio('../projectluccio/ui/music/cardbox.mp3');
     }
     observerStartTakeBtn.observe(modalObjRoom,{attributes:true});
     
+    ////////////////////////////////////// FEEDBACK DANNI PERSONAGGIO /////////////////////////////////////
+    function damageHealthAdd(){
+        damageUI[0].classList.add('damages-health--active')
+    }
+    function damageHealthRemove(){
+        damageUI[0].classList.remove('damages-health--active')
+    }
+    function damagePsycheAdd(){
+        cella.classList.add('damages-psyche');
+    }
+    function damagePsycheRemove(){
+        cella.classList.remove('damages-psyche');
+    }
+
+
     ////////////////////////////////////// ANIMAZIONE NEMICO /////////////////////////////////////
     animateSgherro(1);
-
     function animateSgherro(num){
         let i = 0;
         setInterval(function(){  
