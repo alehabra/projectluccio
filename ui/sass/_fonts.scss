@@ -1,7 +1,4 @@
-$font:'Karla', sans-serif;
-h4{
-    color:white;
-    font-family: $font;
-    text-transform: uppercase;
-    letter-spacing: 0.4rem;
+@font-face {
+    font-family: 'bahnschrift';
+    src: url('../bahnschrift.ttf');
 }
