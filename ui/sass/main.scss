@@ -2,18 +2,19 @@
 @import "_fonts";
 @import "_animations";
 @import "_buttons";
-@import "_modals";
-@import "_damages";
+@import "_char-stats";
 
 html,body{
     width:100%;
     height: 100%;
     overflow: hidden;
     position: relative;
-    background: black;
     font-family: bahnschrift;
     color:$maingrey;
     font-size: 1.3vh;
+    background-image:url('https://cdnb.artstation.com/p/assets/images/images/027/409/621/large/hong-tam-dang-asset.jpg?1591455902');
+    background-size: cover;
+    background-position: center;
 }
 
 
