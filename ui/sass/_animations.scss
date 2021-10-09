@@ -1,29 +1,11 @@
-@mixin transition($duration){
-    -webkit-transition: all $duration ease-out;
-    -moz-transition: all $duration ease-out;
-    -o-transition: all $duration ease-out;
-    transition: all $duration ease-out;
+@keyframes activeDialog {
+    0%  {transform: translateX(0px); transform: translateY(0px);} 
+    70%  {transform: translateX(0px); transform: translateY(0px);} 
+    75%  {transform: translateX(-10px); transform: translateY(-10px);}
+    80%  {transform: translateX(0px); transform: translateY(0px);}
+    85%  {transform: translateX(-10px); transform: translateY(-10px);}
+    90%  {transform: translateX(0px); transform: translateY(0px);}
+    100%  {transform: translateX(0px); transform: translateY(0px);}
 }
 
-@keyframes visibleSpanBtn {
-    100%  {opacity: 1; display: block; visibility: visible;} 
-}
-
-@keyframes healthDamaged {
-    0%  {opacity: 0;} 
-    25%  {opacity: 0.3;}
-    50%  {opacity: 0;} 
-    75%  {opacity: 0.3;}
-    100%  {opacity: 0;}
-}
-@keyframes psycheDamaged {
-    0%  {filter: grayscale(50%);} 
-    50%  {filter: grayscale(100%);} 
-    100%  {filter: grayscale(50%);}
-}
-@keyframes hungryDamaged {
-    0%  {filter: blur(5px); -webkit-filter: blur(5px);} 
-    50%  {filter: blur(0px); -webkit-filter: blur(0px);} 
-    100%  {filter: blur(5px); -webkit-filter: blur(5px);}
-}
 

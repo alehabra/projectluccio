@@ -2,42 +2,73 @@
   font-family: 'bahnschrift';
   src: url("../bahnschrift.ttf"); }
 
-@keyframes visibleSpanBtn {
-  100% {
-    opacity: 1;
-    display: block;
-    visibility: visible; } }
-
-@keyframes healthDamaged {
+@keyframes activeDialog {
   0% {
-    opacity: 0; }
-  25% {
-    opacity: 0.3; }
-  50% {
-    opacity: 0; }
+    transform: translateX(0px);
+    transform: translateY(0px); }
+  70% {
+    transform: translateX(0px);
+    transform: translateY(0px); }
   75% {
-    opacity: 0.3; }
+    transform: translateX(-10px);
+    transform: translateY(-10px); }
+  80% {
+    transform: translateX(0px);
+    transform: translateY(0px); }
+  85% {
+    transform: translateX(-10px);
+    transform: translateY(-10px); }
+  90% {
+    transform: translateX(0px);
+    transform: translateY(0px); }
   100% {
-    opacity: 0; } }
+    transform: translateX(0px);
+    transform: translateY(0px); } }
 
-@keyframes psycheDamaged {
-  0% {
-    filter: grayscale(50%); }
-  50% {
-    filter: grayscale(100%); }
-  100% {
-    filter: grayscale(50%); } }
-
-@keyframes hungryDamaged {
-  0% {
-    filter: blur(5px);
-    -webkit-filter: blur(5px); }
-  50% {
-    filter: blur(0px);
-    -webkit-filter: blur(0px); }
-  100% {
-    filter: blur(5px);
-    -webkit-filter: blur(5px); } }
+#dialogs {
+  width: 55%;
+  position: absolute;
+  height: 70vh;
+  right: 0;
+  padding-top: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; }
+  #dialogs .dialog-npc {
+    border-image: url("../img/border_dialog_npc.png") 10 round !important; }
+  #dialogs .dialog-npc-back {
+    background-color: #474747 !important;
+    border: 1px solid #474747 !important; }
+  #dialogs .dialog-char, #dialogs .dialog-npc {
+    position: relative;
+    color: white;
+    padding: 2vh;
+    font-size: 2vh;
+    max-width: 60%;
+    border: 10px solid transparent;
+    border-image: url("../img/border_dialog_char.png") 10 round;
+    margin-bottom: 3vh;
+    margin-right: 3vh;
+    z-index: 2;
+    transition: all 0.2s;
+    align-self: start;
+    opacity: 0.5; }
+    #dialogs .dialog-char .dialog-char-back, #dialogs .dialog-char .dialog-npc-back, #dialogs .dialog-npc .dialog-char-back, #dialogs .dialog-npc .dialog-npc-back {
+      background-color: #e47708;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border: 1px solid #e47708;
+      top: -1px;
+      left: 0;
+      z-index: -1; }
+  #dialogs .dialog--active {
+    animation-name: activeDialog;
+    animation-duration: 4s;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    opacity: 1;
+    align-self: end; }
 
 #charStats {
   width: 85%;
