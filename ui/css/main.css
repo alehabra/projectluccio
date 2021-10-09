@@ -25,6 +25,9 @@
     transform: translateX(0px);
     transform: translateY(0px); } }
 
+.dialogs--active {
+  transform: translateX(0px) !important; }
+
 #dialogs {
   width: 55%;
   position: absolute;
@@ -33,9 +36,14 @@
   padding-top: 4vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  transition: all 0.5s;
+  transform: translateX(100%); }
   #dialogs .dialog-npc {
-    border-image: url("../img/border_dialog_npc.png") 10 round !important; }
+    border-image: url("../img/border_dialog_npc.png") 10 round !important;
+    -moz-border-image: url("../img/border_dialog_npc.png") 10 round !important;
+    -webkit-border-image: url("../img/border_dialog_npc.png") 10 round !important;
+    -o-border-image: url("../img/border_dialog_npc.png") 10 round !important; }
   #dialogs .dialog-npc-back {
     background-color: #474747 !important;
     border: 1px solid #474747 !important; }
@@ -47,6 +55,9 @@
     max-width: 60%;
     border: 10px solid transparent;
     border-image: url("../img/border_dialog_char.png") 10 round;
+    -moz-border-image: url("../img/border_dialog_char.png") 10 round;
+    -webkit-border-image: url("../img/border_dialog_char.png") 10 round;
+    -o-border-image: url("../img/border_dialog_char.png") 10 round;
     margin-bottom: 3vh;
     margin-right: 2vh;
     z-index: 2;
