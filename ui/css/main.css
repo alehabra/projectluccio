@@ -44,7 +44,8 @@
   position: absolute;
   bottom: 2vh;
   min-height: 20vh;
-  margin: 0 7%; }
+  margin: 0 7%;
+  color: #a8a3a3; }
   #charStats .charStats-char1 {
     background-image: url("../img/char-placeholder.png");
     width: 30%;
@@ -58,13 +59,13 @@
     right: 0;
     width: 60%;
     display: flex;
-    flex-direction: column;
-    padding-bottom: 2vh;
-    border-bottom: 8px solid #a8a3a3; }
+    flex-direction: column; }
     #charStats .charStats-stats .charStats-stats-icons {
       display: flex;
       flex-direction: row;
-      justify-content: space-between; }
+      justify-content: space-between;
+      border-bottom: 8px solid #a8a3a3;
+      padding-bottom: 2vh; }
       #charStats .charStats-stats .charStats-stats-icons #charStats-heart-base {
         width: 9vh;
         height: 8vh;
@@ -123,6 +124,24 @@
         #charStats .charStats-stats .charStats-stats-icons #charStats-hungry-base .charStats-heart-point-4, #charStats .charStats-stats .charStats-stats-icons #charStats-hungry-base .charStats-hungry-point-4, #charStats .charStats-stats .charStats-stats-icons #charStats-hungry-base .charStats-mood-point-4, #charStats .charStats-stats .charStats-stats-icons #charStats-mood-base .charStats-heart-point-4, #charStats .charStats-stats .charStats-stats-icons #charStats-mood-base .charStats-hungry-point-4, #charStats .charStats-stats .charStats-stats-icons #charStats-mood-base .charStats-mood-point-4 {
           right: 0;
           bottom: 0; }
+    #charStats .charStats-stats .charStats-backpack {
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      right: 0;
+      padding-top: 2vh; }
+      #charStats .charStats-stats .charStats-backpack .charStats-backpack-desc h2 {
+        font-size: 3.5vh;
+        color: #e47708;
+        margin: 0px; }
+      #charStats .charStats-stats .charStats-backpack .charStats-backpack-desc h5 {
+        font-size: 2vh;
+        color: #a8a3a3;
+        margin: 0px; }
+      #charStats .charStats-stats .charStats-backpack .charStats-backpack-obj {
+        width: 6.5vh; }
+        #charStats .charStats-stats .charStats-backpack .charStats-backpack-obj img {
+          width: 100%; }
 
 html, body {
   width: 100%;

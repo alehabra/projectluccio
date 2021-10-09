@@ -4,8 +4,7 @@
     bottom:2vh;
     min-height: 20vh;
     margin:0 7%;
-
-
+    color: $maingrey;
     .charStats-char1{
         background-image: url('../img/char-placeholder.png');
         width: 30%;
@@ -21,12 +20,12 @@
         width: 60%;
         display: flex;
         flex-direction: column;
-        padding-bottom: 2vh;
-        border-bottom: 8px solid $maingrey;
         .charStats-stats-icons{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            border-bottom: 8px solid $maingrey;
+            padding-bottom: 2vh;
             #charStats-heart-base{
                 width: 9vh;
                 height: 8vh;
@@ -102,6 +101,30 @@
                 }  
             }
         }
+        .charStats-backpack{
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            right: 0;
+            padding-top: 2vh;
+            .charStats-backpack-desc{
+                h2{
+                    font-size: 3.5vh;
+                    color:$orange;
+                    margin:0px;
+                }
+                h5{
+                    font-size: 2vh;
+                    color:$maingrey;
+                    margin:0px;
+                }
+            }
+            .charStats-backpack-obj{
+                width: 6.5vh;
+                img{
+                    width: 100%;
+                }
+            }
+        }
     }
-    
 }
