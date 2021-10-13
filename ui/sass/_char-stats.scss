@@ -34,6 +34,10 @@
                 align-items: center;
                 margin:0 1vh;
                 position: relative;
+                @media screen and (min-height:800px) {
+                    width: 11vh;
+                    height: 6vh;             
+                 }
                 img{
                     width: 50%;
                     margin:0 auto;
@@ -71,6 +75,10 @@
                 align-items: center;
                 margin:0 1vh;
                 position: relative;
+                @media screen and (min-height:800px) {
+                    width: 11vh;
+                    height: 6vh;             
+                 }
                 img{
                     width: 60%;
                     margin:0 auto;

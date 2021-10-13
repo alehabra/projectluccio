@@ -116,6 +116,10 @@
         align-items: center;
         margin: 0 1vh;
         position: relative; }
+        @media screen and (min-height: 800px) {
+          #charStats .charStats-stats .charStats-stats-icons #charStats-heart-base {
+            width: 11vh;
+            height: 6vh; } }
         #charStats .charStats-stats .charStats-stats-icons #charStats-heart-base img {
           width: 50%;
           margin: 0 auto; }
@@ -145,6 +149,10 @@
         align-items: center;
         margin: 0 1vh;
         position: relative; }
+        @media screen and (min-height: 800px) {
+          #charStats .charStats-stats .charStats-stats-icons #charStats-hungry-base, #charStats .charStats-stats .charStats-stats-icons #charStats-mood-base {
+            width: 11vh;
+            height: 6vh; } }
         #charStats .charStats-stats .charStats-stats-icons #charStats-hungry-base img, #charStats .charStats-stats .charStats-stats-icons #charStats-mood-base img {
           width: 60%;
           margin: 0 auto; }
