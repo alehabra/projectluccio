@@ -116,7 +116,7 @@
         align-items: center;
         margin: 0 1vh;
         position: relative; }
-        @media screen and (min-height: 800px) {
+        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
           #charStats .charStats-stats .charStats-stats-icons #charStats-heart-base {
             width: 11vh;
             height: 6vh; } }
@@ -149,7 +149,7 @@
         align-items: center;
         margin: 0 1vh;
         position: relative; }
-        @media screen and (min-height: 800px) {
+        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
           #charStats .charStats-stats .charStats-stats-icons #charStats-hungry-base, #charStats .charStats-stats .charStats-stats-icons #charStats-mood-base {
             width: 11vh;
             height: 6vh; } }
