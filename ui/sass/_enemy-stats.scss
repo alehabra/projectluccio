@@ -1,9 +1,9 @@
 #enemyStats{
-    width: 40%;
+    width: 36%;
     position: absolute;
     top:2vh;
     min-height: 20vh;
-    margin:0 7%;
+    margin:0 5%;
     color: $maingrey;
     .enemyStats-backpack{
         display: flex;
@@ -73,7 +73,7 @@
             border-radius: 50%;
             display: flex;
             align-items: center;
-            margin:0 1vh;
+            margin:0vh;
             position: relative;
             img{
                 width: 60%;

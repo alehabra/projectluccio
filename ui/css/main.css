@@ -82,11 +82,11 @@
     align-self: end; }
 
 #enemyStats {
-  width: 40%;
+  width: 36%;
   position: absolute;
   top: 2vh;
   min-height: 20vh;
-  margin: 0 7%;
+  margin: 0 5%;
   color: #a8a3a3; }
   #enemyStats .enemyStats-backpack {
     display: flex;
@@ -142,7 +142,7 @@
       border-radius: 50%;
       display: flex;
       align-items: center;
-      margin: 0 1vh;
+      margin: 0vh;
       position: relative; }
       #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base img {
         width: 60%;
