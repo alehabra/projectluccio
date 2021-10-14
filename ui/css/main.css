@@ -278,6 +278,86 @@
         #charStats .charStats-stats .charStats-backpack .charStats-backpack-obj img {
           width: 100%; }
 
+#objSelector {
+  background: url("../img/objselector.svg");
+  width: 90%;
+  height: 51vh;
+  margin: 20vh 5%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: all 0.3s;
+  color: #a8a3a3;
+  overflow: hidden;
+  position: relative; }
+  #objSelector h2 {
+    color: #e47708;
+    font-size: 2.0vh;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    width: 100%;
+    margin: 5vh 0; }
+  #objSelector #objSelector-container {
+    width: 60%;
+    min-height: 50vh;
+    margin: 0 auto;
+    overflow-y: scroll; }
+    #objSelector #objSelector-container .objSelector-object {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 3vh 0;
+      border-bottom: 4px solid #a8a3a3; }
+      #objSelector #objSelector-container .objSelector-object .objSelector-object-image {
+        width: 40%;
+        position: relative; }
+        #objSelector #objSelector-container .objSelector-object .objSelector-object-image img {
+          width: 100%; }
+      #objSelector #objSelector-container .objSelector-object .objSelector-object-image--mood {
+        width: 60px;
+        height: 60px;
+        background: url("../img/mood-statistic.svg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: -30px;
+        top: -30px; }
+      #objSelector #objSelector-container .objSelector-object .objSelector-object-image--hungry {
+        width: 60px;
+        height: 60px;
+        background: url("../img/hungry-statistic.svg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: -30px;
+        top: -30px; }
+      #objSelector #objSelector-container .objSelector-object .objSelector-object-image--heart {
+        width: 60px;
+        height: 60px;
+        background: url("../img/heart-statistic.svg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: -30px;
+        top: -30px; }
+      #objSelector #objSelector-container .objSelector-object .objSelector-object-description {
+        font-size: 1.6vh;
+        width: 50%; }
+        #objSelector #objSelector-container .objSelector-object .objSelector-object-description h3 {
+          font-size: 1.8vh;
+          margin-top: 0;
+          color: #e47708;
+          text-transform: uppercase; }
+  #objSelector #objSelector-gradient {
+    position: absolute;
+    bottom: 2vh;
+    width: 90%;
+    left: 5%;
+    height: 5vh;
+    z-index: 5;
+    background: black;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.888393) 100%); }
+
 html, body {
   width: 100%;
   height: 100%;
