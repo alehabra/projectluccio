@@ -81,6 +81,91 @@
     opacity: 1;
     align-self: end; }
 
+#enemyStats {
+  width: 40%;
+  position: absolute;
+  top: 2vh;
+  min-height: 20vh;
+  margin: 0 7%;
+  color: #a8a3a3; }
+  #enemyStats .enemyStats-backpack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 2vh;
+    border-bottom: 8px solid #a8a3a3; }
+    #enemyStats .enemyStats-backpack .enemyStats-backpack-desc h2 {
+      font-size: 2.8vh;
+      color: #e47708;
+      margin: 0px; }
+    #enemyStats .enemyStats-backpack .enemyStats-backpack-desc h5 {
+      font-size: 2vh;
+      color: #a8a3a3;
+      margin: 0px; }
+  #enemyStats .enemyStats-backpack-obj {
+    width: 5.5vh; }
+  #enemyStats .enemyStats-stats-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 2vh; }
+    #enemyStats .enemyStats-stats-icons #enemyStats-heart-base {
+      display: flex;
+      align-items: center;
+      width: 6vh;
+      height: 6vh;
+      position: relative; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-heart-base img {
+        width: 50%;
+        margin: 0 auto; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-4 {
+        position: absolute;
+        width: 48%;
+        height: 48%; }
+        #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-4 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-4 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-4 img {
+          width: 100%; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-1 {
+        left: 0;
+        top: 0; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-2 {
+        right: 0;
+        top: 0; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-3 {
+        left: 0;
+        bottom: 0; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-heart-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-hungry-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-heart-base .enemyStats-mood-point-4 {
+        right: 0;
+        bottom: 0; }
+    #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base {
+      width: 6vh;
+      height: 6vh;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      margin: 0 1vh;
+      position: relative; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base img {
+        width: 60%;
+        margin: 0 auto; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-4 {
+        position: absolute;
+        width: 48%;
+        height: 48%; }
+        #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-4 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-4 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-4 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-4 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-4 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-1 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-2 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-3 img, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-4 img {
+          width: 100%; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-1, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-1 {
+        left: 0;
+        top: 0; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-2, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-2 {
+        right: 0;
+        top: 0; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-3, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-3 {
+        left: 0;
+        bottom: 0; }
+      #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-heart-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-hungry-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-hungry-base .enemyStats-mood-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-heart-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-hungry-point-4, #enemyStats .enemyStats-stats-icons #enemyStats-mood-base .enemyStats-mood-point-4 {
+        right: 0;
+        bottom: 0; }
+
 #charStats {
   width: 85%;
   position: absolute;

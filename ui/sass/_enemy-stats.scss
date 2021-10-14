@@ -1,0 +1,108 @@
+#enemyStats{
+    width: 40%;
+    position: absolute;
+    top:2vh;
+    min-height: 20vh;
+    margin:0 7%;
+    color: $maingrey;
+    .enemyStats-backpack{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 2vh;
+        border-bottom: 8px solid $maingrey;
+        .enemyStats-backpack-desc{
+            h2{
+                font-size: 2.8vh;
+                color:$orange;
+                margin:0px;
+            }
+            h5{
+                font-size: 2vh;
+                color:$maingrey;
+                margin:0px;
+            }
+        }
+    }
+    .enemyStats-backpack-obj{
+        width:5.5vh;
+    }
+    .enemyStats-stats-icons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top:2vh;
+        #enemyStats-heart-base{
+            display: flex;
+            align-items: center;
+            width:6vh;
+            height:6vh;
+            position: relative;
+            img{
+                width: 50%;
+                margin:0 auto;
+            }
+            .enemyStats-heart-point-1,.enemyStats-heart-point-2,.enemyStats-heart-point-3,.enemyStats-heart-point-4,.enemyStats-hungry-point-1,.enemyStats-hungry-point-2,.enemyStats-hungry-point-3,.enemyStats-hungry-point-4,.enemyStats-mood-point-1,.enemyStats-mood-point-2,.enemyStats-mood-point-3,.enemyStats-mood-point-4{
+                position: absolute;
+                width: 48%;
+                height:48%;
+                img{
+                    width: 100%;
+                } 
+            }
+            .enemyStats-heart-point-1,.enemyStats-hungry-point-1,.enemyStats-mood-point-1{
+                left:0;
+                top:0;
+            }
+            .enemyStats-heart-point-2,.enemyStats-hungry-point-2,.enemyStats-mood-point-2{
+                right:0;
+                top:0;
+            }  
+            .enemyStats-heart-point-3,.enemyStats-hungry-point-3,.enemyStats-mood-point-3{
+                left:0;
+                bottom:0;
+            }  
+            .enemyStats-heart-point-4,.enemyStats-hungry-point-4,.enemyStats-mood-point-4{
+                right:0;
+                bottom:0;
+            }  
+        }
+        #enemyStats-hungry-base,#enemyStats-mood-base{
+            width: 6vh;
+            height: 6vh;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            margin:0 1vh;
+            position: relative;
+            img{
+                width: 60%;
+                margin:0 auto;
+            }
+            .enemyStats-heart-point-1,.enemyStats-heart-point-2,.enemyStats-heart-point-3,.enemyStats-heart-point-4,.enemyStats-hungry-point-1,.enemyStats-hungry-point-2,.enemyStats-hungry-point-3,.enemyStats-hungry-point-4,.enemyStats-mood-point-1,.enemyStats-mood-point-2,.enemyStats-mood-point-3,.enemyStats-mood-point-4{
+                position: absolute;
+                width: 48%;
+                height:48%;
+                img{
+                    width: 100%;
+                } 
+            }
+            .enemyStats-heart-point-1,.enemyStats-hungry-point-1,.enemyStats-mood-point-1{
+                left:0;
+                top:0;
+            }
+            .enemyStats-heart-point-2,.enemyStats-hungry-point-2,.enemyStats-mood-point-2{
+                right:0;
+                top:0;
+            }  
+            .enemyStats-heart-point-3,.enemyStats-hungry-point-3,.enemyStats-mood-point-3{
+                left:0;
+                bottom:0;
+            }  
+            .enemyStats-heart-point-4,.enemyStats-hungry-point-4,.enemyStats-mood-point-4{
+                right:0;
+                bottom:0;
+            }  
+        }
+    }
+}
