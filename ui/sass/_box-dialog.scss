@@ -2,7 +2,7 @@
     transform: translateX(0px) !important;
 }
 #dialogs{
-    width:55%;
+    width:50%;
     position: absolute;
     height:60vh;
     right:0;
@@ -34,7 +34,7 @@
         -webkit-border-image: url('../img/border_dialog_char.png') 10 round;
         -o-border-image: url('../img/border_dialog_char.png') 10 round;
         margin-bottom: 3vh;
-        margin-right:2vh;
+        margin-right:1vh;
         z-index: 2;
         transition: all 0.2s;
         align-self: start;
