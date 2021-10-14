@@ -296,10 +296,10 @@
     text-transform: uppercase;
     display: inline-block;
     width: 100%;
-    margin: 5vh 0; }
+    margin: 5vh 0 2vh; }
   #objSelector #objSelector-container {
     width: 60%;
-    min-height: 50vh;
+    height: 35vh;
     margin: 0 auto;
     overflow-y: scroll; }
     #objSelector #objSelector-container .objSelector-object {
@@ -320,7 +320,7 @@
         background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
-        left: -30px;
+        right: -30px;
         top: -30px; }
       #objSelector #objSelector-container .objSelector-object .objSelector-object-image--hungry {
         width: 60px;
@@ -329,7 +329,7 @@
         background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
-        left: -30px;
+        right: -30px;
         top: -30px; }
       #objSelector #objSelector-container .objSelector-object .objSelector-object-image--heart {
         width: 60px;
@@ -338,7 +338,7 @@
         background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
-        left: -30px;
+        right: -30px;
         top: -30px; }
       #objSelector #objSelector-container .objSelector-object .objSelector-object-description {
         font-size: 1.6vh;
