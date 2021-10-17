@@ -278,6 +278,13 @@
         #charStats .charStats-stats .charStats-backpack .charStats-backpack-obj img {
           width: 100%; }
 
+.objSelector--active {
+  transform: translateY(0vh) !important; }
+  .objSelector--active .objSelector-object {
+    opacity: 1 !important;
+    transition: all 1s !important;
+    visibility: visible !important; }
+
 #objSelector {
   background: url("../img/objselector.svg");
   width: 90%;
@@ -287,7 +294,10 @@
   background-size: 100%;
   transition: all 0.3s;
   color: #a8a3a3;
-  position: relative; }
+  position: relative;
+  transition: all 0.6s;
+  z-index: 10;
+  transform: translateY(-90vh); }
   #objSelector h2 {
     color: #e47708;
     font-size: 2.0vh;
@@ -302,7 +312,8 @@
     margin: 0 auto;
     overflow-y: scroll; }
     #objSelector #objSelector-container .objSelector-object {
-      transition: all 0.3s;
+      transition: all 1s;
+      opacity: 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -362,6 +373,7 @@
     background: black;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.888393) 100%); }
   #objSelector #objSelector-close {
+    transition: all 0.3s;
     width: 9vh;
     height: 8vh;
     position: absolute;
@@ -370,6 +382,8 @@
     background: transparent;
     border: 0px; }
   #objSelector #objSelector-close:active {
+    transition: all 0.3s;
+    opacity: 0.6;
     transform: translateY(4px); }
 
 html, body {
