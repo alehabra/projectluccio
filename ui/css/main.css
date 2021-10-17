@@ -287,7 +287,6 @@
   background-size: 100%;
   transition: all 0.3s;
   color: #a8a3a3;
-  overflow: hidden;
   position: relative; }
   #objSelector h2 {
     color: #e47708;
@@ -298,11 +297,12 @@
     width: 100%;
     margin: 5vh 0 2vh; }
   #objSelector #objSelector-container {
-    width: 60%;
+    width: 65%;
     height: 35vh;
     margin: 0 auto;
     overflow-y: scroll; }
     #objSelector #objSelector-container .objSelector-object {
+      transition: all 0.3s;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -348,6 +348,10 @@
           margin-top: 0;
           color: #e47708;
           text-transform: uppercase; }
+    #objSelector #objSelector-container .objSelector-object:active {
+      transition: all 0.3s;
+      opacity: 0.6;
+      padding: 3vh 1vh; }
   #objSelector #objSelector-gradient {
     position: absolute;
     bottom: 2vh;
@@ -357,6 +361,16 @@
     z-index: 5;
     background: black;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.888393) 100%); }
+  #objSelector #objSelector-close {
+    width: 9vh;
+    height: 8vh;
+    position: absolute;
+    left: 50%;
+    margin-left: -4vh;
+    background: transparent;
+    border: 0px; }
+  #objSelector #objSelector-close:active {
+    transform: translateY(4px); }
 
 html, body {
   width: 100%;
