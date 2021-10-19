@@ -25,6 +25,53 @@
     transform: translateX(0px);
     transform: translateY(0px); } }
 
+@keyframes lineobject {
+  0% {
+    stroke-dashoffset: 100; }
+  25% {
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dashoffset: -100; }
+  75% {
+    stroke-dashoffset: 0; }
+  100% {
+    stroke-dashoffset: 100; } }
+
+@keyframes lineobject2 {
+  0% {
+    stroke-dashoffset: 0; }
+  25% {
+    stroke-dashoffset: 100; }
+  50% {
+    stroke-dashoffset: -100; }
+  75% {
+    stroke-dashoffset: 100; }
+  100% {
+    stroke-dashoffset: 100; } }
+
+@keyframes animobj {
+  0% {
+    width: 33%;
+    opacity: 0; }
+  50% {
+    width: 36%;
+    opacity: 0.5; }
+  100% {
+    width: 38%;
+    opacity: 1; } }
+
+@keyframes animconf {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 0.5; }
+  50% {
+    opacity: 1; }
+  80% {
+    opacity: 0.5; }
+  100% {
+    opacity: 0; } }
+
 .dialogs--active {
   transform: translateX(0px) !important; }
 
@@ -385,6 +432,107 @@
     transition: all 0.3s;
     opacity: 0.6;
     transform: translateY(4px); }
+
+#objSelected {
+  background: url("../img/objselector.svg");
+  width: 90%;
+  height: 51vh;
+  margin: 20vh 5%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  transition: all 0.3s;
+  color: #a8a3a3;
+  position: relative;
+  transition: all 0.6s;
+  z-index: 10; }
+  #objSelected #objSelected-image {
+    width: 100%;
+    position: relative;
+    height: 30vh;
+    display: inline-block;
+    overflow: hidden; }
+    #objSelected #objSelected-image #line-2-sx {
+      position: absolute;
+      left: 4%;
+      top: 32%;
+      width: 22%; }
+    #objSelected #objSelected-image #line-3-sx {
+      position: absolute;
+      left: 8%;
+      top: 48%;
+      width: 18%; }
+    #objSelected #objSelected-image #line-4-sx {
+      position: absolute;
+      left: 4%;
+      top: 57%;
+      width: 22%; }
+    #objSelected #objSelected-image #line-1-dx {
+      position: absolute;
+      right: 4%;
+      top: 32%;
+      width: 22%; }
+    #objSelected #objSelected-image #line-2-dx {
+      position: absolute;
+      right: 8%;
+      top: 48%;
+      width: 18%; }
+    #objSelected #objSelected-image #line-3-dx {
+      position: absolute;
+      right: 4%;
+      top: 57%;
+      width: 22%; }
+    #objSelected #objSelected-image #objSelected-in {
+      width: 38%;
+      margin: 6vh auto 4vh auto;
+      display: block;
+      transition: all 1s;
+      animation: animobj 1s; }
+    #objSelected #objSelected-image #objSelected-image--confetti {
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      animation: animconf 1s; }
+  #objSelected #objSelected-description {
+    color: #e47708; }
+    #objSelected #objSelected-description h2 {
+      text-align: center;
+      font-size: 2.5vh;
+      margin: 0; }
+    #objSelected #objSelected-description #objSelected-description-icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 3vh auto;
+      width: 23%;
+      align-items: center; }
+      #objSelected #objSelected-description #objSelected-description-icon img {
+        width: 55%; }
+      #objSelected #objSelected-description #objSelected-description-icon h4 {
+        font-size: 3rem;
+        margin: 0; }
+
+.line-2-sx, .line-4-sx, .line-1-dx, .line-4-dx {
+  fill: none;
+  stroke: #A8A3A3;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: lineobject 1s; }
+
+.line-2-dx, .line-3-sx {
+  fill: none;
+  stroke: #A8A3A3;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  left: 2vh;
+  top: 2vh;
+  width: 10vh;
+  animation: lineobject2 1s; }
 
 html, body {
   width: 100%;

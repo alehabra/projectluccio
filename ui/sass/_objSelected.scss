@@ -1,0 +1,93 @@
+#objSelected{
+    background: url('../img/objselector.svg');
+    width: 90%;
+    height: 51vh;
+    margin:20vh 5%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transition: all 0.3s;
+    color:$maingrey;
+    position: relative;
+    transition:all 0.6s;
+    z-index:10;
+    #objSelected-image{
+        width:100%;
+        position: relative;
+        height: 30vh;
+        display: inline-block;
+        overflow: hidden;
+        #line-2-sx{
+            position: absolute;
+            left: 4%;
+            top: 32%;
+            width: 22%;       
+        }
+        #line-3-sx{
+            position: absolute;
+            left: 8%;
+            top: 48%;
+            width: 18%;       
+        }
+        #line-4-sx{
+            position: absolute;
+            left: 4%;
+            top: 57%;
+            width: 22%;       
+        }
+        #line-1-dx{
+            position: absolute;
+            right: 4%;
+            top: 32%;
+            width: 22%;       
+        }
+        #line-2-dx{
+            position: absolute;
+            right: 8%;
+            top: 48%;
+            width: 18%;       
+        }
+        #line-3-dx{
+            position: absolute;
+            right: 4%;
+            top: 57%;
+            width: 22%;       
+        }
+        #objSelected-in{
+            width:38%;
+            margin:6vh auto 4vh auto;
+            display: block;
+            transition:all 1s;
+            animation: animobj 1s;
+        }
+        #objSelected-image--confetti{
+            position: absolute;
+            top:0;
+            opacity: 0;
+            animation: animconf 1s;
+        }
+    }
+    #objSelected-description{
+        color:$orange;
+        h2{
+            text-align: center;
+            font-size: 2.5vh;
+            margin:0;
+        }
+        #objSelected-description-icon{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin:3vh auto;
+            width: 23%;
+            align-items: center;
+            img{
+                width:55%;
+            }
+            h4{font-size:3rem; margin:0;}
+        }
+    }
+}
+.line-2-sx,.line-4-sx,.line-1-dx,.line-4-dx{fill:none;stroke:#A8A3A3;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10; stroke-dasharray: 100; stroke-dashoffset: 100; animation: lineobject 1s;  }    
+.line-2-dx,.line-3-sx{fill:none;stroke:#A8A3A3;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10; stroke-dasharray: 100; stroke-dashoffset: 100; left:2vh; top:2vh; width:10vh; animation: lineobject2 1s; }
+
+

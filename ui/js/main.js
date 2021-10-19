@@ -42,3 +42,8 @@ function showBoxObjects(){
 function hideBoxObjects(){
     boxOggetto.classList.remove('objSelector--active');
 }
+
+////////////OGGETTO SELEZIONATO//////////////
+var confettiSettings = { target: 'objSelected-image--confetti' };
+var confetti = new ConfettiGenerator(confettiSettings);
+confetti.render();
