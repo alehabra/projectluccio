@@ -336,10 +336,9 @@
   background: url("../img/objselector.svg");
   width: 90%;
   height: 51vh;
-  margin: 20vh 5%;
+  margin: 16vh 5%;
   background-repeat: no-repeat;
   background-size: 100%;
-  transition: all 0.3s;
   color: #a8a3a3;
   position: relative;
   transition: all 0.6s;
@@ -433,18 +432,21 @@
     opacity: 0.6;
     transform: translateY(4px); }
 
+.objSelected--active {
+  transform: translateY(0vh) !important; }
+
 #objSelected {
   background: url("../img/objselector.svg");
   width: 90%;
   height: 51vh;
-  margin: 20vh 5%;
+  margin: 16vh 5%;
   background-repeat: no-repeat;
   background-size: 100%;
-  transition: all 0.3s;
   color: #a8a3a3;
   position: relative;
   transition: all 0.6s;
-  z-index: 10; }
+  z-index: 10;
+  transform: translateY(-90vh); }
   #objSelected #objSelected-image {
     width: 100%;
     position: relative;
@@ -485,13 +487,11 @@
       width: 38%;
       margin: 6vh auto 4vh auto;
       display: block;
-      transition: all 1s;
-      animation: animobj 1s; }
+      transition: all 1s; }
     #objSelected #objSelected-image #objSelected-image--confetti {
       position: absolute;
       top: 0;
-      opacity: 0;
-      animation: animconf 1s; }
+      opacity: 0; }
   #objSelected #objSelected-description {
     color: #e47708; }
     #objSelected #objSelected-description h2 {
@@ -504,12 +504,18 @@
       justify-content: space-between;
       margin: 3vh auto;
       width: 23%;
-      align-items: center; }
+      align-items: center;
+      opacity: 0;
+      transform: translateY(-2vh);
+      transition: all 1s; }
       #objSelected #objSelected-description #objSelected-description-icon img {
         width: 55%; }
       #objSelected #objSelected-description #objSelected-description-icon h4 {
         font-size: 3rem;
         margin: 0; }
+    #objSelected #objSelected-description .objSelected-description-icon--active {
+      opacity: 1 !important;
+      transform: translateY(0vh) !important; }
 
 .line-2-sx, .line-4-sx, .line-1-dx, .line-4-dx {
   fill: none;
@@ -519,7 +525,7 @@
   stroke-miterlimit: 10;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
-  animation: lineobject 1s; }
+  /*animation: lineobject 1s;*/ }
 
 .line-2-dx, .line-3-sx {
   fill: none;
@@ -532,7 +538,19 @@
   left: 2vh;
   top: 2vh;
   width: 10vh;
-  animation: lineobject2 1s; }
+  /*animation: lineobject2 1s;*/ }
+
+.animation-line {
+  animation: lineobject 1.2s; }
+
+.animation-line2 {
+  animation: lineobject2 1.2s; }
+
+.animation-obj {
+  animation: animobj 1.2s; }
+
+.animation-confetti {
+  animation: animconf 1.2s; }
 
 html, body {
   width: 100%;

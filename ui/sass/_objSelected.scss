@@ -1,15 +1,19 @@
+.objSelected--active{
+    transform: translateY(0vh) !important;
+}
+
 #objSelected{
     background: url('../img/objselector.svg');
     width: 90%;
     height: 51vh;
-    margin:20vh 5%;
+    margin:16vh 5%;
     background-repeat: no-repeat;
     background-size: 100%;
-    transition: all 0.3s;
     color:$maingrey;
     position: relative;
     transition:all 0.6s;
     z-index:10;
+    transform: translateY(-90vh);
     #objSelected-image{
         width:100%;
         position: relative;
@@ -57,13 +61,13 @@
             margin:6vh auto 4vh auto;
             display: block;
             transition:all 1s;
-            animation: animobj 1s;
+            //animation: animobj 1s;
         }
         #objSelected-image--confetti{
             position: absolute;
             top:0;
             opacity: 0;
-            animation: animconf 1s;
+            //animation: animconf 1s;
         }
     }
     #objSelected-description{
@@ -80,14 +84,32 @@
             margin:3vh auto;
             width: 23%;
             align-items: center;
+            opacity: 0;
+            transform: translateY(-2vh);
             img{
                 width:55%;
             }
             h4{font-size:3rem; margin:0;}
+            transition:all 1s;
+        }
+        .objSelected-description-icon--active{
+            opacity: 1 !important;
+            transform: translateY(0vh) !important;
         }
     }
 }
-.line-2-sx,.line-4-sx,.line-1-dx,.line-4-dx{fill:none;stroke:#A8A3A3;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10; stroke-dasharray: 100; stroke-dashoffset: 100; animation: lineobject 1s;  }    
-.line-2-dx,.line-3-sx{fill:none;stroke:#A8A3A3;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10; stroke-dasharray: 100; stroke-dashoffset: 100; left:2vh; top:2vh; width:10vh; animation: lineobject2 1s; }
+.line-2-sx,.line-4-sx,.line-1-dx,.line-4-dx{fill:none;stroke:#A8A3A3;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10; stroke-dasharray: 100; stroke-dashoffset: 100; /*animation: lineobject 1s;*/  }    
+.line-2-dx,.line-3-sx{fill:none;stroke:#A8A3A3;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10; stroke-dasharray: 100; stroke-dashoffset: 100; left:2vh; top:2vh; width:10vh; /*animation: lineobject2 1s;*/ }
 
-
+.animation-line{
+    animation: lineobject 1.2s;
+}
+.animation-line2{
+    animation: lineobject2 1.2s;
+}
+.animation-obj{
+    animation: animobj 1.2s;
+}
+.animation-confetti{
+    animation: animconf 1.2s;
+}

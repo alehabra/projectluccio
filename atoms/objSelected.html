@@ -5,6 +5,8 @@
 
 <html>
     <body>
+        <button style="font-size: 2vh; padding:2vh; position: absolute;" onclick="showBoxObjSelected()">Mostra oggetto selezionato</button>
+
         <div id="objSelected">
             <div id="objSelected-image">
                 <svg id="line-2-sx" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -50,7 +52,7 @@
                 </h2>
                 <div id="objSelected-description-icon">
                     <img src="../ui/img/hungry-statistic.svg"/>
-                    <h4>+2</h4>
+                    <h4 id="objSelected-description-stat">+2</h4>
                 </div>
             </div>
         </div>
@@ -58,5 +60,4 @@
 </html>
     
 <script src="../ui/js/confetti.min.js"></script>
-
 <script src="../ui/js/main.js"></script>
