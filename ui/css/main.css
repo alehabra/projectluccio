@@ -505,8 +505,8 @@
       margin: 3vh auto;
       width: 23%;
       align-items: center;
-      opacity: 0;
-      transform: translateY(-2vh);
+      opacity: 1;
+      transform: translateY(0vh);
       transition: all 1s; }
       #objSelected #objSelected-description #objSelected-description-icon img {
         width: 55%; }
@@ -514,8 +514,8 @@
         font-size: 3rem;
         margin: 0; }
     #objSelected #objSelected-description .objSelected-description-icon--active {
-      opacity: 1 !important;
-      transform: translateY(0vh) !important; }
+      opacity: 0 !important;
+      transform: translateY(10vh) !important; }
 
 .line-2-sx, .line-4-sx, .line-1-dx, .line-4-dx {
   fill: none;

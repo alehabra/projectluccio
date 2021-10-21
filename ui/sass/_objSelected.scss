@@ -84,8 +84,8 @@
             margin:3vh auto;
             width: 23%;
             align-items: center;
-            opacity: 0;
-            transform: translateY(-2vh);
+            opacity: 1;
+            transform: translateY(0vh);
             img{
                 width:55%;
             }
@@ -93,8 +93,8 @@
             transition:all 1s;
         }
         .objSelected-description-icon--active{
-            opacity: 1 !important;
-            transform: translateY(0vh) !important;
+            opacity: 0 !important;
+            transform: translateY(10vh) !important;
         }
     }
 }

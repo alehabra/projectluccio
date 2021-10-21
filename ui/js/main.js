@@ -82,7 +82,7 @@ function showBoxObjSelected(){
     setTimeout(function(){
         objObtainedIcon.classList.add('objSelected-description-icon--active');
     }, 1000);
-    setTimeout(function(){
+     setTimeout(function(){
         removeBoxObjSelected();
     }, 2000);
 };
