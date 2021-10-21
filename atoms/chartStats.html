@@ -4,7 +4,9 @@
 
 <html>
     <body>
-        <div id="charStats">
+        <button style="font-size: 2vh; padding:2vh;" onclick="showChoicheChar()">Mostra scelte giocatore</button>
+
+        <div id="charStats" class="charStats--active">
             <div class="charStats-char1"></div>
             <div class="charStats-stats">
                 <div class="charStats-stats-icons">
@@ -41,7 +43,27 @@
                 </div>
             </div>
         </div>
+        <div id="charStats-choice">
+            <div id="charStats-choice-btns">
+                <div>
+                    <button class="charStats-choice-btn" onclick="showStatsChar()">
+                        <span>Usa oggetto</span>
+                    </button>
+                    <button class="charStats-choice-btn" onclick="showStatsChar()">
+                        <span>Cerca</span>
+                    </button>
+                </div>
+                <div>
+                <button class="charStats-choice-btn" onclick="showStatsChar()">
+                    <span>Scambia</span>
+                </button>
+                <button class="charStats-choice-btn" onclick="showStatsChar()">
+                    <span>Passa</span>
+                </button>
+                </div>
+            </div>                
+        </div>
     </body>
 </html>
 
-<script src="../ui/js/main.js"></script>
+<script src="../ui/js/chartStats.js"></script>
