@@ -1,0 +1,17 @@
+STATISTICHE PERSONAGGIO
+-funzioni inerenti le statistiche del solo giocatore
+
+showStatsChar()
+mostra le statistiche personaggio nascondendo il resto dell'interfaccia
+
+showChoicheChar()
+mostra i pulsanti di azione scelta personaggio nascondendo le statistiche personaggio
+
+changeCharStats(type,loss,number)
+mostra il cambio di statistica di uno dei parametri personaggio, mostrando una animazione che 
+fa capire quanto e cosa hai perso o guadagnato,
+cambia anche la grafica delle statistiche personaggio principale
+
+type ---> heart,food,mood
+loss ---> true/false
+number ---> da 1 a 4
