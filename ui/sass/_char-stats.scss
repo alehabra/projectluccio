@@ -47,28 +47,31 @@
                 img{
                     width: 50%;
                     margin:0 auto;
+                    z-index: 1;
                 } 
-                .charStats-heart-point-1,.charStats-heart-point-2,.charStats-heart-point-3,.charStats-heart-point-4,.charStats-hungry-point-1,.charStats-hungry-point-2,.charStats-hungry-point-3,.charStats-hungry-point-4,.charStats-mood-point-1,.charStats-mood-point-2,.charStats-mood-point-3,.charStats-mood-point-4{
+                #charStats-heart-point-1,#charStats-heart-point-2,#charStats-heart-point-3,#charStats-heart-point-4,#charStats-hungry-point-1,#charStats-hungry-point-2,#charStats-hungry-point-3,#charStats-hungry-point-4,#charStats-mood-point-1,#charStats-mood-point-2,#charStats-mood-point-3,#charStats-mood-point-4{
                     position: absolute;
                     width: 48%;
                     height:48%;
+                    z-index: 1;
                     img{
                         width: 100%;
+                        z-index: 1;
                     } 
                 }
-                .charStats-heart-point-1,.charStats-hungry-point-1,.charStats-mood-point-1{
+                #charStats-heart-point-1,#charStats-hungry-point-1,#charStats-mood-point-1{
                     left:0;
                     top:0;
                 }
-                .charStats-heart-point-2,.charStats-hungry-point-2,.charStats-mood-point-2{
+                #charStats-heart-point-2,#charStats-hungry-point-2,#charStats-mood-point-2{
                     right:0;
                     top:0;
                 }  
-                .charStats-heart-point-3,.charStats-hungry-point-3,.charStats-mood-point-3{
+                #charStats-heart-point-3,#charStats-hungry-point-3,#charStats-mood-point-3{
                     left:0;
                     bottom:0;
                 }  
-                .charStats-heart-point-4,.charStats-hungry-point-4,.charStats-mood-point-4{
+                #charStats-heart-point-4,#charStats-hungry-point-4,#charStats-mood-point-4{
                     right:0;
                     bottom:0;
                 }                  
@@ -88,8 +91,9 @@
                 img{
                     width: 60%;
                     margin:0 auto;
+                    z-index: 1;
                 }
-                .charStats-heart-point-1,.charStats-heart-point-2,.charStats-heart-point-3,.charStats-heart-point-4,.charStats-hungry-point-1,.charStats-hungry-point-2,.charStats-hungry-point-3,.charStats-hungry-point-4,.charStats-mood-point-1,.charStats-mood-point-2,.charStats-mood-point-3,.charStats-mood-point-4{
+                #charStats-heart-point-1,#charStats-heart-point-2,#charStats-heart-point-3,#charStats-heart-point-4,#charStats-hungry-point-1,#charStats-hungry-point-2,#charStats-hungry-point-3,#charStats-hungry-point-4,#charStats-mood-point-1,#charStats-mood-point-2,#charStats-mood-point-3,#charStats-mood-point-4{
                     position: absolute;
                     width: 48%;
                     height:48%;
@@ -97,23 +101,42 @@
                         width: 100%;
                     } 
                 }
-                .charStats-heart-point-1,.charStats-hungry-point-1,.charStats-mood-point-1{
+                #charStats-heart-point-1,#charStats-hungry-point-1,#charStats-mood-point-1{
                     left:0;
                     top:0;
                 }
-                .charStats-heart-point-2,.charStats-hungry-point-2,.charStats-mood-point-2{
+                #charStats-heart-point-2,#charStats-hungry-point-2,#charStats-mood-point-2{
                     right:0;
                     top:0;
                 }  
-                .charStats-heart-point-3,.charStats-hungry-point-3,.charStats-mood-point-3{
+                #charStats-heart-point-3,#charStats-hungry-point-3,#charStats-mood-point-3{
                     left:0;
                     bottom:0;
                 }  
-                .charStats-heart-point-4,.charStats-hungry-point-4,.charStats-mood-point-4{
+                #charStats-heart-point-4,#charStats-hungry-point-4,#charStats-mood-point-4{
                     right:0;
                     bottom:0;
                 }  
             }
+            .charStats-stats--hide{
+                visibility: hidden;
+                opacity: 0;
+            }
+            #chartstats-critic-heart,#chartstats-critic-hungry,#chartstats-critic-mood{
+                width:4vh;
+                height:4vh;
+                left:2vh;
+                top:2vh;
+                position: absolute;
+                z-index: 0;
+                background-image:url('../img/alert-stat.png');
+                background-size: 100%;
+                background-repeat: no-repeat;
+                animation: blinkStats 3s infinite;
+                display: none;
+                visibility: hidden;
+            }
+
         }
         .charStats-backpack{
             text-align: left;
@@ -189,4 +212,8 @@
 }
 .charStats-choice--active{
     transform: translateY(0vh) !important;
+}
+.charStats-critic--active{
+    display: block !important;
+    visibility: visible !important;
 }
