@@ -666,7 +666,7 @@
         height: 9vh; } }
     #alteredStats #altered-heart .alter-blink, #alteredStats #altered-hungry .alter-blink, #alteredStats #altered-mood .alter-blink {
       animation-name: blinkStats;
-      animation-duration: 2s; }
+      animation-duration: 3s; }
     #alteredStats #altered-heart .alter-removed, #alteredStats #altered-hungry .alter-removed, #alteredStats #altered-mood .alter-removed {
       animation-name: blinkStats;
       animation-duration: 2s; }

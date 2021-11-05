@@ -16,10 +16,6 @@ const moodTwo = document.getElementById('charStats-mood-point-2');
 const moodTree = document.getElementById('charStats-mood-point-3');
 const moodFour = document.getElementById('charStats-mood-point-4');
 
-/////////SEGNALATORE STATO CRITICO STATISTICHE GIOCATORE////////////////
-const healthCritic = document.getElementById('chartstats-critic-heart');
-const hungryCritic = document.getElementById('chartstats-critic-hungry');
-const moodCritic = document.getElementById('chartstats-critic-mood');
 
 
 ////////////LINEE ALTERA STATISTICA GIOCATORE//////////////
@@ -51,30 +47,7 @@ function showChoicheChar(){
     charChoiceUi.classList.add('charStats-choice--active');
 }
 
-/////////////FUNZIONE PER SEGNALARE STATO CRITICO////////////////
-function criticParam(type,loss){
-    if (type === "heart"){
-        if (loss === true){
-            healthCritic.classList.add('charStats-critic--active');
-        } else{
-            healthCritic.classList.remove('charStats-critic--active');  
-        }
-    }
-    if (type === "food"){
-        if (loss === true){
-            hungryCritic.classList.add('charStats-critic--active');
-        } else{
-            hungryCritic.classList.remove('charStats-critic--active');  
-        }
-    }
-    if (type === "mood"){
-        if (loss === true){
-            moodCritic.classList.add('charStats-critic--active');
-        } else{
-            moodCritic.classList.remove('charStats-critic--active');  
-        }
-    }
-}
+
 
 ///CAMBIO STATISTICHE GIOCATORE//////////////////
 function changeCharStats(type,loss,number){
@@ -91,56 +64,70 @@ function changeCharStats(type,loss,number){
         //gestisco perdo punti statistica
             if (number===1){
                 //ui giocatore
-                heartOne.classList.add('charStats-stats--hide');
-
+                if(loss === true){
+                    heartOne.classList.add('charStats-stats--hide');
+                } else{
+                    addStatsToChar(type,number);
+                }    
+                
                 //ui alterazione
                 heartAlter1.classList.add('alter-blink');
-                setTimeout(function(){ showStatsChar(); }, 2000);
+
+                setTimeout(function(){ showStatsChar(); }, 3000);
                 setTimeout(function(){removeBlinkalter();}, 3000);
             }
             if (number===2){
                 //ui giocatore
-                heartOne.classList.add('charStats-stats--hide');
-                heartTwo.classList.add('charStats-stats--hide');
+                if(loss === true){
+                    heartOne.classList.add('charStats-stats--hide');
+                    heartTwo.classList.add('charStats-stats--hide');
+                } else {
+                    addStatsToChar(type,number);                    
+                }
 
                 //ui alterazione
                 heartAlter1.classList.add('alter-blink');
                 heartAlter2.classList.add('alter-blink');
-                setTimeout(function(){ showStatsChar(); }, 2000);
+
+                setTimeout(function(){ showStatsChar(); }, 3000);
                 setTimeout(function(){removeBlinkalter();}, 3000);
             }
             if (number===3){
                 //ui giocatore
-                heartOne.classList.add('charStats-stats--hide');
-                heartTwo.classList.add('charStats-stats--hide');
-                heartTree.classList.add('charStats-stats--hide');
-                if(loss === true){
-                    criticParam('heart',true);
-                }
+                if(loss === true){ 
+                    heartOne.classList.add('charStats-stats--hide');
+                    heartTwo.classList.add('charStats-stats--hide');
+                    heartTree.classList.add('charStats-stats--hide');
+                }  else {
+                    addStatsToChar(type,number);
+                }  
 
-                //ui alterazione                
+                //ui alterazione
                 heartAlter1.classList.add('alter-blink');
                 heartAlter2.classList.add('alter-blink');
                 heartAlter3.classList.add('alter-blink');
-                setTimeout(function(){ showStatsChar(); }, 2000);
+
+
+                setTimeout(function(){ showStatsChar(); }, 3000);
                 setTimeout(function(){removeBlinkalter();}, 3000);
             }
             if (number===4){
                 //ui giocatore
-                heartOne.classList.add('charStats-stats--hide');
-                heartTwo.classList.add('charStats-stats--hide');
-                heartTree.classList.add('charStats-stats--hide');
-                heartFour.classList.add('charStats-stats--hide');
-                if(loss === true){
-                    criticParam('heart',true);
-                }
+                if(loss === true){ 
+                    heartOne.classList.add('charStats-stats--hide');
+                    heartTwo.classList.add('charStats-stats--hide');
+                    heartTree.classList.add('charStats-stats--hide');
+                    heartFour.classList.add('charStats-stats--hide');
+                } else {
+                    addStatsToChar(type,number);                  
+                }   
 
                 //ui alterazione                    
                 heartAlter1.classList.add('alter-blink');
                 heartAlter2.classList.add('alter-blink');
                 heartAlter3.classList.add('alter-blink');
                 heartAlter4.classList.add('alter-blink');
-                setTimeout(function(){ showStatsChar(); }, 2000);
+                setTimeout(function(){ showStatsChar(); }, 3000);
                 setTimeout(function(){removeBlinkalter();}, 3000);
             }
 
@@ -152,56 +139,67 @@ function changeCharStats(type,loss,number){
 
         if (number===1){
             //ui giocatore
-            hungryOne.classList.add('charStats-stats--hide');
+            if(loss === true){
+                hungryOne.classList.add('charStats-stats--hide');
+            } else {
+                addStatsToChar(type,number);
+            }
 
             //ui alterazione
             foodAlter1.classList.add('alter-blink');
-            setTimeout(function(){ showStatsChar(); }, 2000);
+            setTimeout(function(){ showStatsChar(); }, 3000);
             setTimeout(function(){removeBlinkalter();}, 3000);
         }
         if (number===2){
             //ui giocatore
-            hungryOne.classList.add('charStats-stats--hide');
-            hungryTwo.classList.add('charStats-stats--hide');
+            if(loss === true){
+                hungryOne.classList.add('charStats-stats--hide');
+                hungryTwo.classList.add('charStats-stats--hide');
+            } else {
+                addStatsToChar(type,number);
+            }    
 
             //ui alterazione            
             foodAlter1.classList.add('alter-blink');
             foodAlter2.classList.add('alter-blink');
-            setTimeout(function(){ showStatsChar(); }, 2000);
+            setTimeout(function(){ showStatsChar(); }, 3000);
             setTimeout(function(){removeBlinkalter();}, 3000);
         }
         if (number===3){
             //ui giocatore
-            hungryOne.classList.add('charStats-stats--hide');
-            hungryTwo.classList.add('charStats-stats--hide');
-            hungryTree.classList.add('charStats-stats--hide');
             if(loss === true){
-                criticParam('food',true);
+                hungryOne.classList.add('charStats-stats--hide');
+                hungryTwo.classList.add('charStats-stats--hide');
+                hungryTree.classList.add('charStats-stats--hide');
+            } else {
+                addStatsToChar(type,number);                
             }
+
 
             //ui alterazione              
             foodAlter1.classList.add('alter-blink');
             foodAlter2.classList.add('alter-blink');
             foodAlter3.classList.add('alter-blink');
-            setTimeout(function(){ showStatsChar(); }, 2000);
+            setTimeout(function(){ showStatsChar(); }, 3000);
             setTimeout(function(){removeBlinkalter();}, 3000);
         }
         if (number===4){
             //ui giocatore
-            hungryOne.classList.add('charStats-stats--hide');
-            hungryTwo.classList.add('charStats-stats--hide');
-            hungryTree.classList.add('charStats-stats--hide');
-            hungryFour.classList.add('charStats-stats--hide');
             if(loss === true){
-                criticParam('food',true);
-            }
+                hungryOne.classList.add('charStats-stats--hide');
+                hungryTwo.classList.add('charStats-stats--hide');
+                hungryTree.classList.add('charStats-stats--hide');
+                hungryFour.classList.add('charStats-stats--hide');
+            }   else {
+                addStatsToChar(type,number);
+            } 
 
             //ui alterazione             
             foodAlter1.classList.add('alter-blink');
             foodAlter2.classList.add('alter-blink');
             foodAlter3.classList.add('alter-blink');
             foodAlter4.classList.add('alter-blink');
-            setTimeout(function(){ showStatsChar(); }, 2000);
+            setTimeout(function(){ showStatsChar(); }, 3000);
             setTimeout(function(){removeBlinkalter();}, 3000);
         }
     }
@@ -212,48 +210,58 @@ function changeCharStats(type,loss,number){
 
         if (number===1){
             //ui giocatore
-            moodOne.classList.add('charStats-stats--hide');
+            if(loss === true){
+                moodOne.classList.add('charStats-stats--hide');
+            } else {
+                addStatsToChar(type,number);
+            }
 
             //ui alterazione 
             moodAlter1.classList.add('alter-blink');
-            setTimeout(function(){ showStatsChar(); }, 2000);
+            setTimeout(function(){ showStatsChar(); }, 3000);
             setTimeout(function(){removeBlinkalter();}, 3000);
         }
         if (number===2){
             //ui giocatore
-            moodOne.classList.add('charStats-stats--hide');
-            moodTwo.classList.add('charStats-stats--hide');
+            if(loss === true){
+                moodOne.classList.add('charStats-stats--hide');
+                moodTwo.classList.add('charStats-stats--hide');
+            }   else {
+                addStatsToChar(type,number);
+            } 
 
             //ui alterazione 
             moodAlter1.classList.add('alter-blink');
             moodAlter2.classList.add('alter-blink');
-            setTimeout(function(){ showStatsChar(); }, 2000);
+            setTimeout(function(){ showStatsChar(); }, 3000);
             setTimeout(function(){removeBlinkalter();}, 3000);
         }
         if (number===3){
             //ui giocatore
-            moodOne.classList.add('charStats-stats--hide');
-            moodTwo.classList.add('charStats-stats--hide');
-            moodTree.classList.add('charStats-stats--hide');
             if(loss === true){
-                criticParam('mood',true);
-            }
+                moodOne.classList.add('charStats-stats--hide');
+                moodTwo.classList.add('charStats-stats--hide');
+                moodTree.classList.add('charStats-stats--hide');
+            }  else {
+                addStatsToChar(type,number);
+            }  
 
             //ui alterazione             
             moodAlter1.classList.add('alter-blink');
             moodAlter2.classList.add('alter-blink');
             moodAlter3.classList.add('alter-blink');
-            setTimeout(function(){ showStatsChar(); }, 2000);
+            setTimeout(function(){ showStatsChar(); }, 3000);
             setTimeout(function(){removeBlinkalter();}, 3000);
         }
         if (number===4){
             //ui giocatore
-            moodOne.classList.add('charStats-stats--hide');
-            moodTwo.classList.add('charStats-stats--hide');
-            moodTree.classList.add('charStats-stats--hide');
-            moodFour.classList.add('charStats-stats--hide');
             if(loss === true){
-                criticParam('mood',true);
+                moodOne.classList.add('charStats-stats--hide');
+                moodTwo.classList.add('charStats-stats--hide');
+                moodTree.classList.add('charStats-stats--hide');
+                moodFour.classList.add('charStats-stats--hide');
+            } else {
+                addStatsToChar(type,number);
             }
 
             //ui alterazione              
@@ -261,10 +269,185 @@ function changeCharStats(type,loss,number){
             moodAlter2.classList.add('alter-blink');
             moodAlter3.classList.add('alter-blink');
             moodAlter4.classList.add('alter-blink');
-            setTimeout(function(){ showStatsChar(); }, 2000);
+            setTimeout(function(){ showStatsChar(); }, 3000);
             setTimeout(function(){removeBlinkalter();}, 3000);
         }
     }
+}
+
+//funzione callback per aumentare in modo ordinato la statistica del giocatore
+function addStatsToChar(type,number){
+    let decr = number;
+
+    //aggiungo punti
+    if (type === 'heart'){
+
+        //calcolo punti rimanenti da aggiungere
+        var rimasti = document.querySelectorAll("#charStats-heart-base .charStats-stats--hide");
+        if(decr > rimasti.length){
+            decr = rimasti.length;
+        }
+
+        while (decr > 0) {
+            if(heartFour.classList.contains('charStats-stats--hide')){
+                heartFour.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            }
+            if(heartTree.classList.contains('charStats-stats--hide')){
+                heartTree.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            } 
+            if(heartTwo.classList.contains('charStats-stats--hide')){
+                heartTwo.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            }  
+            if(heartOne.classList.contains('charStats-stats--hide')){
+                heartOne.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }     
+        }
+    }
+    if (type === 'food'){
+        //calcolo punti rimanenti da aggiungere
+        var rimasti = document.querySelectorAll("#charStats-hungry-base .charStats-stats--hide");
+        if(decr > rimasti.length){
+            decr = rimasti.length;
+        }
+
+        while (decr > 0) {
+            if(hungryFour.classList.contains('charStats-stats--hide')){
+                hungryFour.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            }
+            if(hungryTree.classList.contains('charStats-stats--hide')){
+                hungryTree.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            } 
+            if(hungryTwo.classList.contains('charStats-stats--hide')){
+                hungryTwo.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            }  
+            if(hungryOne.classList.contains('charStats-stats--hide')){
+                hungryOne.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            }     
+        }
+    }
+    if (type === 'mood'){     
+        //calcolo punti rimanenti da aggiungere
+        var rimasti = document.querySelectorAll("#charStats-mood-base .charStats-stats--hide");
+        if(decr > rimasti.length){
+            decr = rimasti.length;
+        }
+         
+        while (decr > 0) {
+            if(moodFour.classList.contains('charStats-stats--hide')){
+                moodFour.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            }
+            if(moodTree.classList.contains('charStats-stats--hide')){
+                moodTree.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            } 
+            if(moodTwo.classList.contains('charStats-stats--hide')){
+                moodTwo.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            }  
+            if(moodOne.classList.contains('charStats-stats--hide')){
+                moodOne.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                continue;
+            }     
+        }
+    }        
+}
+
+//funzione callback per diminuire in modo ordinato la statistica del giocatore
+function removeStatsToChar(type,number){
+    let decr = number;
+    if (type === 'heart'){
+        while (decr < 0) {
+            if(heartFour.classList.contains('charStats-stats--hide')){
+                heartFour.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }
+            if(heartTree.classList.contains('charStats-stats--hide')){
+                heartTree.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            } 
+            if(heartTwo.classList.contains('charStats-stats--hide')){
+                heartTwo.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }  
+            if(heartOne.classList.contains('charStats-stats--hide')){
+                heartOne.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }     
+        }
+    }
+    if (type === 'food'){
+        while (decr > 0) {
+            if(hungryFour.classList.contains('charStats-stats--hide')){
+                hungryFour.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }
+            if(hungryTree.classList.contains('charStats-stats--hide')){
+                hungryTree.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            } 
+            if(hungryTwo.classList.contains('charStats-stats--hide')){
+                hungryTwo.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }  
+            if(hungryOne.classList.contains('charStats-stats--hide')){
+                hungryOne.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }     
+        }
+    }
+    if (type === 'mood'){      
+        while (decr > 0) {
+            if(moodFour.classList.contains('charStats-stats--hide')){
+                moodFour.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }
+            if(moodTree.classList.contains('charStats-stats--hide')){
+                moodTree.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            } 
+            if(moodTwo.classList.contains('charStats-stats--hide')){
+                moodTwo.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }  
+            if(moodOne.classList.contains('charStats-stats--hide')){
+                moodOne.classList.remove('charStats-stats--hide');
+                decr = decr-1;
+                return;
+            }     
+        }
+    }        
 }
 
 function removeBlinkalter(){

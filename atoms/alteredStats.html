@@ -5,9 +5,14 @@
 
 <html>
     <body>
-        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('heart',true,2)">Rimuovi 2 salute giocatore</button>
-        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('food',true,1)">Rimuovi 1 cibo giocatore</button>
-        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('mood',true,3)">Rimuovi 3 mood giocatore</button>
+        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('food',true,2)">Rimuovi cibo giocatore</button>
+        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('food',false,1)">Aggiungi cibo giocatore</button>
+
+        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('heart',true,4)">Rimuovi salute giocatore</button>
+        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('heart',false,3)">aggiungi salute giocatore</button>
+
+        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('mood',true,3)">Rimuovi mood giocatore</button>
+        <button style="font-size: 2vh; padding:2vh;" onclick="changeCharStats('mood',false,2)">aggiungi mood giocatore</button>
 
         <div id="charStats" class="charStats--active">
             <div class="charStats-char1"></div>
