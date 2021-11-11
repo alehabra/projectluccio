@@ -1,6 +1,9 @@
 const gulp = require('gulp');
+const minify = require('gulp-minify');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
+const merge2 = require('merge2');
+const concat = require('gulp-concat')
 const del = require('del');
 const rename = require('gulp-rename');
 
@@ -26,4 +29,11 @@ gulp.task('minify-css', () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', gulp.series(['clean', 'styles', 'minify-css']));
+gulp.task('min-js', function () {    
+  return gulp.src('js/*.js')
+      .pipe(concat('bundle.js'))
+      .pipe(minify())
+      .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', gulp.series(['clean', 'styles', 'minify-css','min-js']));

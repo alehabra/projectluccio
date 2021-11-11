@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <script src="../ui/js/dialogs.js" ></script>
+<script src="../ui/js/music.js"></script>
 <link rel="stylesheet" href="../ui/dist/main.min.css"/>
 
 <html>
     <body>
-        <div id="enemyStats">
+        <div id="enemyStats" class="enemyStats--active">
             <div class="enemyStats-stats">
                 <div class="enemyStats-backpack">
                     <div class="enemyStats-backpack-desc">
@@ -17,30 +18,61 @@
                 </div>
                 <div class="enemyStats-stats-icons">
                     <div id="enemyStats-heart-base">
-                        <div class="enemyStats-heart-point-1"><img src="../ui/img/point-1.svg"/></div>
-                        <div class="enemyStats-heart-point-2"><img src="../ui/img/point-2.svg"/></div>
-                        <div class="enemyStats-heart-point-3"><img src="../ui/img/point-3.svg"/></div>
-                        <div class="enemyStats-heart-point-4"><img src="../ui/img/point-4.svg"/></div>
+                        <div id="enemyStats-heart-point-1"><img src="../ui/img/point-1.svg"/></div>
+                        <div id="enemyStats-heart-point-2"><img src="../ui/img/point-2.svg"/></div>
+                        <div id="enemyStats-heart-point-3"><img src="../ui/img/point-3.svg"/></div>
+                        <div id="enemyStats-heart-point-4"><img src="../ui/img/point-4.svg"/></div>
                         <img src="../ui/img/heart-icon.svg"/>
                     </div>
                     <div id="enemyStats-hungry-base">
-                        <div class="enemyStats-hungry-point-1"><img src="../ui/img/point-1.svg"/></div>
-                        <div class="enemyStats-hungry-point-2"><img src="../ui/img/point-2.svg"/></div>
-                        <div class="enemyStats-hungry-point-3"><img src="../ui/img/point-3.svg"/></div>
-                        <div class="enemyStats-hungry-point-4"><img src="../ui/img/point-4.svg"/></div>
+                        <div id="enemyStats-hungry-point-1"><img src="../ui/img/point-1.svg"/></div>
+                        <div id="enemyStats-hungry-point-2"><img src="../ui/img/point-2.svg"/></div>
+                        <div id="enemyStats-hungry-point-3"><img src="../ui/img/point-3.svg"/></div>
+                        <div id="enemyStats-hungry-point-4"><img src="../ui/img/point-4.svg"/></div>
                         <img src="../ui/img/stomach-icon.svg"/>
                     </div>
                     <div id="enemyStats-mood-base">
-                        <div class="enemyStats-mood-point-1"><img src="../ui/img/point-1.svg"/></div>
-                        <div class="enemyStats-mood-point-2"><img src="../ui/img/point-2.svg"/></div>
-                        <div class="enemyStats-mood-point-3"><img src="../ui/img/point-3.svg"/></div>
-                        <div class="enemyStats-mood-point-4"><img src="../ui/img/point-4.svg"/></div>
+                        <div id="enemyStats-mood-point-1"><img src="../ui/img/point-1.svg"/></div>
+                        <div id="enemyStats-mood-point-2"><img src="../ui/img/point-2.svg"/></div>
+                        <div id="enemyStats-mood-point-3"><img src="../ui/img/point-3.svg"/></div>
+                        <div id="enemyStats-mood-point-4"><img src="../ui/img/point-4.svg"/></div>
                         <img src="../ui/img/mood-icon.svg"/>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="alteredStatsEnem" class="">
+            <div id="altered-eheart">
+                <img id="h-estat-1" src="../ui/img/altera/segment1.svg"/>
+                <img id="h-estat-2" src="../ui/img/altera/segment2.svg"/>
+                <img id="h-estat-3" src="../ui/img/altera/segment3.svg"/>
+                <img id="h-estat-4" src="../ui/img/altera/segment4.svg"/>
+                <img class="altered-i" src="../ui/img/altera/heart-icon.svg"/>
+            </div>
+            <div id="altered-ehungry">
+                 <img id="f-estat-1" src="../ui/img/altera/segment1.svg"/>
+                 <img id="f-estat-2" src="../ui/img/altera/segment2.svg"/>
+                 <img id="f-estat-3" src="../ui/img/altera/segment3.svg"/>
+                 <img id="f-estat-4" src="../ui/img/altera/segment4.svg"/>
+                 <img class="altered-i" src="../ui/img/altera/stomach-icon.svg"/>
+             </div>
+             <div id="altered-emood">
+                 <img id="m-estat-1" src="../ui/img/altera/segment1.svg"/>
+                 <img id="m-estat-2" src="../ui/img/altera/segment2.svg"/>
+                 <img id="m-estat-3" src="../ui/img/altera/segment3.svg"/>
+                 <img id="m-estat-4" src="../ui/img/altera/segment4.svg"/>
+                 <img class="altered-i" src="../ui/img/altera/mood-icon.svg"/>
+             </div>
+        </div>
+        <button style="position:absolute; bottom:21vh; font-size: 2vh; padding:2vh;" onclick="changeEnemStats('heart',true,3)">modifica cuore avversario</button>
+        <button style="position:absolute; right:0; bottom:21vh; font-size: 2vh; padding:2vh;" onclick="changeEnemStats('heart',false,1)">aggiungi cuore avversario</button>
+
+        <button style="position:absolute; bottom:15vh; font-size: 2vh; padding:2vh;" onclick="changeEnemStats('mood',true,1)">modifica mood avversario</button>
+        <button style="position:absolute; right:0; bottom:15vh; font-size: 2vh; padding:2vh;" onclick="changeEnemStats('mood',false,3)">aggiungi mood avversario</button>
+
+        <button style="position:absolute; bottom:6vh; font-size: 2vh; padding:2vh;" onclick="changeEnemStats('food',true,2)">modifica food avversario</button>
+        <button style="position:absolute; right:0; bottom:6vh; font-size: 2vh; padding:2vh;" onclick="changeEnemStats('food',false,3)">aggiungi food avversario</button>
     </body>
 </html>
 
-<script src="../ui/js/main.js"></script>
+<script src="../ui/js/enemyStats.js"></script>

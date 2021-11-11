@@ -68,6 +68,76 @@
     }  
 }
 
+#alteredStatsEnem{
+    position: absolute;
+    height: 23vh;
+    padding:0 7%;
+    right: 0;
+    width: 87%;
+    top:0;
+    display: flex;
+    flex-direction: row;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-20vh);
+    -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+    #altered-eheart,#altered-ehungry,#altered-emood{
+        width:22%;
+        height:11vh;
+        position: relative;
+        text-align: center;
+        margin:0 1.5rem;
+        display: flex;
+        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+            height: 9vh;
+        }
+        .alter-blink{
+            animation-name: blinkStats;
+            animation-duration: 3s; 
+        }
+        .alter-removed{
+            animation-name: blinkStats;
+            animation-duration: 2s; 
+        }
+        #h-estat-1,#f-estat-1,#m-estat-1{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            left:0;
+            top:0;
+        }
+        #h-estat-2,#f-estat-2,#m-estat-2{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            right:0;
+            top:0;
+        }
+        #h-estat-3,#f-estat-3,#m-estat-3{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            left:0;
+            bottom:0;
+        }
+        #h-estat-4,#f-estat-4,#m-estat-4{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            right:0;
+            bottom:0;
+        }
+        .altered-i{
+            width:80%;
+            margin:auto;
+        }
+    }  
+}
+
 .alteredStats--active{
     transform: translateY(0) !important;
 }

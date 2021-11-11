@@ -17,10 +17,20 @@ loss ---> true/false
 number ---> da 1 a 4
 
 
+STATISTICHE NEMICO
+showEnemyStats()
+mostra le statistiche nemico
+
+hideEnemyStats()
+nascondi statistiche nemico
+
+changeEnemStats(type,loss,number)
+uguale a cambio statistiche personaggio
+
 -----------------TODO--------------------
-gestire aggiunta punti alterazione
 
 funzione mostra oggetto con cambia icona su zaino e oggetto scelto
 funzione popola oggetti su stanza
 
 interfaccia danno avversario
+popolare scritte con costanti lingua

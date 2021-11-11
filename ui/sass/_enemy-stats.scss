@@ -5,6 +5,14 @@
     min-height: 20vh;
     margin:0 5%;
     color: $maingrey;
+    transform: translateY(-20vh);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+        width: 45%;             
+     }
     .enemyStats-backpack{
         display: flex;
         flex-direction: row;
@@ -42,7 +50,7 @@
                 width: 50%;
                 margin:0 auto;
             }
-            .enemyStats-heart-point-1,.enemyStats-heart-point-2,.enemyStats-heart-point-3,.enemyStats-heart-point-4,.enemyStats-hungry-point-1,.enemyStats-hungry-point-2,.enemyStats-hungry-point-3,.enemyStats-hungry-point-4,.enemyStats-mood-point-1,.enemyStats-mood-point-2,.enemyStats-mood-point-3,.enemyStats-mood-point-4{
+            #enemyStats-heart-point-1,#enemyStats-heart-point-2,#enemyStats-heart-point-3,#enemyStats-heart-point-4,#enemyStats-hungry-point-1,#enemyStats-hungry-point-2,#enemyStats-hungry-point-3,#enemyStats-hungry-point-4,#enemyStats-mood-point-1,#enemyStats-mood-point-2,#enemyStats-mood-point-3,#enemyStats-mood-point-4{
                 position: absolute;
                 width: 48%;
                 height:48%;
@@ -50,22 +58,26 @@
                     width: 100%;
                 } 
             }
-            .enemyStats-heart-point-1,.enemyStats-hungry-point-1,.enemyStats-mood-point-1{
+            #enemyStats-heart-point-1,#enemyStats-hungry-point-1,#enemyStats-mood-point-1{
                 left:0;
                 top:0;
             }
-            .enemyStats-heart-point-2,.enemyStats-hungry-point-2,.enemyStats-mood-point-2{
+            #enemyStats-heart-point-2,#enemyStats-hungry-point-2,#enemyStats-mood-point-2{
                 right:0;
                 top:0;
             }  
-            .enemyStats-heart-point-3,.enemyStats-hungry-point-3,.enemyStats-mood-point-3{
+            #enemyStats-heart-point-3,#enemyStats-hungry-point-3,#enemyStats-mood-point-3{
                 left:0;
                 bottom:0;
             }  
-            .enemyStats-heart-point-4,.enemyStats-hungry-point-4,.enemyStats-mood-point-4{
+            #enemyStats-heart-point-4,#enemyStats-hungry-point-4,#enemyStats-mood-point-4{
                 right:0;
                 bottom:0;
             }  
+            .charStats-stats--hide{
+                visibility: hidden;
+                opacity: 0;
+            }
         }
         #enemyStats-hungry-base,#enemyStats-mood-base{
             width: 6vh;
@@ -79,7 +91,7 @@
                 width: 60%;
                 margin:0 auto;
             }
-            .enemyStats-heart-point-1,.enemyStats-heart-point-2,.enemyStats-heart-point-3,.enemyStats-heart-point-4,.enemyStats-hungry-point-1,.enemyStats-hungry-point-2,.enemyStats-hungry-point-3,.enemyStats-hungry-point-4,.enemyStats-mood-point-1,.enemyStats-mood-point-2,.enemyStats-mood-point-3,.enemyStats-mood-point-4{
+            #enemyStats-heart-point-1,#enemyStats-heart-point-2,#enemyStats-heart-point-3,#enemyStats-heart-point-4,#enemyStats-hungry-point-1,#enemyStats-hungry-point-2,#enemyStats-hungry-point-3,#enemyStats-hungry-point-4,#enemyStats-mood-point-1,#enemyStats-mood-point-2,#enemyStats-mood-point-3,#enemyStats-mood-point-4{
                 position: absolute;
                 width: 48%;
                 height:48%;
@@ -87,22 +99,30 @@
                     width: 100%;
                 } 
             }
-            .enemyStats-heart-point-1,.enemyStats-hungry-point-1,.enemyStats-mood-point-1{
+            #enemyStats-heart-point-1,#enemyStats-hungry-point-1,#enemyStats-mood-point-1{
                 left:0;
                 top:0;
             }
-            .enemyStats-heart-point-2,.enemyStats-hungry-point-2,.enemyStats-mood-point-2{
+            #enemyStats-heart-point-2,#enemyStats-hungry-point-2,#enemyStats-mood-point-2{
                 right:0;
                 top:0;
             }  
-            .enemyStats-heart-point-3,.enemyStats-hungry-point-3,.enemyStats-mood-point-3{
+            #enemyStats-heart-point-3,#enemyStats-hungry-point-3,#enemyStats-mood-point-3{
                 left:0;
                 bottom:0;
             }  
-            .enemyStats-heart-point-4,.enemyStats-hungry-point-4,.enemyStats-mood-point-4{
+            #enemyStats-heart-point-4,#enemyStats-hungry-point-4,#enemyStats-mood-point-4{
                 right:0;
                 bottom:0;
+            }
+            .charStats-stats--hide{
+                visibility: hidden;
+                opacity: 0;
             }  
         }
     }
+}
+
+.enemyStats--active{
+    transform: translateY(0vh) !important;
 }
