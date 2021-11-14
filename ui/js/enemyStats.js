@@ -51,7 +51,7 @@ function changeEnemStats(type,loss,number){
 
     //cambio statistiche salute nella ui alterazione
     if(type === 'heart'){
-        statsType = document.getElementById('altered-heart');
+        statsType = document.getElementById('altered-eheart');
         
         //gestisco perdo punti statistica
             if (number===1){
@@ -127,10 +127,10 @@ function changeEnemStats(type,loss,number){
 
     //cambio statistiche fame nella ui alterazione
     if(type === 'food'){
-        statsType = document.getElementById('altered-hungry');
+        statsType = document.getElementById('altered-ehungry');
 
         if (number===1){
-            //ui giocatore
+            //ui nemico
             if(loss === true){
                 hungryEnemOne.classList.add('charStats-stats--hide');
             } else {
@@ -143,7 +143,7 @@ function changeEnemStats(type,loss,number){
             setTimeout(function(){removeBlinkEnemalter();}, 3000);
         }
         if (number===2){
-            //ui giocatore
+            //ui nemico
             if(loss === true){
                 hungryEnemOne.classList.add('charStats-stats--hide');
                 hungryEnemTwo.classList.add('charStats-stats--hide');
@@ -158,7 +158,7 @@ function changeEnemStats(type,loss,number){
             setTimeout(function(){removeBlinkEnemalter();}, 3000);
         }
         if (number===3){
-            //ui giocatore
+            //ui nemico
             if(loss === true){
                 hungryEnemOne.classList.add('charStats-stats--hide');
                 hungryEnemTwo.classList.add('charStats-stats--hide');
@@ -198,7 +198,7 @@ function changeEnemStats(type,loss,number){
 
     //cambio statistiche mood nella ui alterazione
     if(type === 'mood'){
-        statsType = document.getElementById('altered-mood');
+        statsType = document.getElementById('altered-emood');
 
         if (number===1){
             //ui giocatore
@@ -211,7 +211,7 @@ function changeEnemStats(type,loss,number){
             //ui alterazione 
             moodEAlter1.classList.add('alter-blink');
             setTimeout(function(){ showEnemyStats(); }, 3000);
-            
+            setTimeout(function(){removeBlinkEnemalter();}, 3000);
         }
         if (number===2){
             //ui giocatore

@@ -582,7 +582,7 @@ function changeEnemStats(type,loss,number){
         statsType = document.getElementById('altered-hungry');
 
         if (number===1){
-            //ui giocatore
+            //ui nemico
             if(loss === true){
                 hungryEnemOne.classList.add('charStats-stats--hide');
             } else {
@@ -595,7 +595,7 @@ function changeEnemStats(type,loss,number){
             setTimeout(function(){removeBlinkEnemalter();}, 3000);
         }
         if (number===2){
-            //ui giocatore
+            //ui nemico
             if(loss === true){
                 hungryEnemOne.classList.add('charStats-stats--hide');
                 hungryEnemTwo.classList.add('charStats-stats--hide');
@@ -610,7 +610,7 @@ function changeEnemStats(type,loss,number){
             setTimeout(function(){removeBlinkEnemalter();}, 3000);
         }
         if (number===3){
-            //ui giocatore
+            //ui nemico
             if(loss === true){
                 hungryEnemOne.classList.add('charStats-stats--hide');
                 hungryEnemTwo.classList.add('charStats-stats--hide');
