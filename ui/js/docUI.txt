@@ -26,6 +26,10 @@ nascondi statistiche nemico
 
 changeEnemStats(type,loss,number)
 uguale a cambio statistiche personaggio
+type ---> heart,food,mood
+loss ---> true/false
+number ---> da 1 a 4
+
 
 -----------------TODO--------------------
 

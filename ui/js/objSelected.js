@@ -22,6 +22,7 @@ var confetti = new ConfettiGenerator(confettiSettings);
 confetti.render();
 
 function showBoxObjSelected(){
+    selectFX.play();
     objObtained.classList.add('objSelected--active');
     objImageSelected.classList.add('animation-obj');
     objImageConfetti.classList.add('animation-confetti');
