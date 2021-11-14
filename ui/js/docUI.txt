@@ -35,6 +35,6 @@ number ---> da 1 a 4
 
 funzione mostra oggetto con cambia icona su zaino e oggetto scelto
 funzione popola oggetti su stanza
+scelta dialogo si/no
 
-interfaccia danno avversario
 popolare scritte con costanti lingua
