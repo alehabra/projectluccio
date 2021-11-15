@@ -906,7 +906,7 @@ function removeBoxObjSelected(){
     objObtainedIcon.classList.remove('objSelected-description-icon--active');
 }
 
-////////////etichette lingua/////////////
+////////////etichette lingua UI/////////////
 var lang = {
 
     'ita':{

@@ -1,4 +1,4 @@
-////////////etichette lingua/////////////
+////////////etichette lingua UI/////////////
 var lang = {
 
     'ita':{

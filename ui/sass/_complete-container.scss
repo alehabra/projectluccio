@@ -1,0 +1,8 @@
+#complete{
+    #objSelector{
+        transform: translateY(-180vh);
+    }
+    .objSelector--active{
+        transform: translateY(-62vh) !important;
+    }
+}
