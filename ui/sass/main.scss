@@ -8,6 +8,7 @@
 @import "_objSelector";
 @import "_objSelected";
 @import "_altered-stats";
+@import "_levelintro";
 @import "_complete-container";
 
 html,body{
@@ -22,6 +23,8 @@ html,body{
     //background-image:url('https://cdnb.artstation.com/p/assets/images/images/027/409/621/large/hong-tam-dang-asset.jpg?1591455902');
     background-size: cover;
     background-position: center;
+    padding: 0;
+    margin:0;
 }
 
 
