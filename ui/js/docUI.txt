@@ -41,6 +41,10 @@ showBoxObjSelected();
 
 -----------------TODO--------------------
 inizio livello
+funzione nascondi tutto il resto della ui ad inizio livello
+funzione mostra ui personaggio ad inizio livello
+
+
 funzione mostra oggetto con cambia icona su zaino e oggetto scelto
 funzione popola oggetti su stanza
 scelta dialogo si/no

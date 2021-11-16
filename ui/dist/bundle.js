@@ -831,7 +831,12 @@ function removeBlinkEnemalter(){
     moodEAlter3.classList.remove('alter-blink');
     moodEAlter4.classList.remove('alter-blink');
 }
-
+(function () {
+    startlevel();
+}());
+function startlevel(){
+    document.getElementsByTagName('body')[0].style = "background: url('')";
+}
 
 
 var selectFX = new Audio("../ui/music/select.mp3");

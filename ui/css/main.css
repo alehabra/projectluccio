@@ -783,12 +783,79 @@
 .alteredStats--active {
   transform: translateY(0) !important; }
 
+#introlivello {
+  position: absolute;
+  width: 70%;
+  left: 15%;
+  color: #a8a3a3;
+  top: 20%; }
+  #introlivello h1 {
+    text-align: center; }
+  #introlivello #intro-parag {
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 6vh 0;
+    line-height: 2.3rem; }
+    @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+      #introlivello #intro-parag {
+        font-size: 1.5rem;
+        margin: 6vh 0; } }
+
+#intro-statistic {
+  position: absolute;
+  width: 70%;
+  left: 15%;
+  bottom: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  #intro-statistic #intro-heart, #intro-statistic #intro-food, #intro-statistic #intro-mood {
+    width: 10vh;
+    height: 10vh;
+    position: relative; }
+    #intro-statistic #intro-heart #intro-icon, #intro-statistic #intro-food #intro-icon, #intro-statistic #intro-mood #intro-icon {
+      width: 50%;
+      position: absolute;
+      left: 15%; }
+    #intro-statistic #intro-heart #intro-heart_line1, #intro-statistic #intro-heart #intro-food_line1, #intro-statistic #intro-heart #intro-mood_line1, #intro-statistic #intro-food #intro-heart_line1, #intro-statistic #intro-food #intro-food_line1, #intro-statistic #intro-food #intro-mood_line1, #intro-statistic #intro-mood #intro-heart_line1, #intro-statistic #intro-mood #intro-food_line1, #intro-statistic #intro-mood #intro-mood_line1 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48%;
+      height: 48%; }
+      #intro-statistic #intro-heart #intro-heart_line1 img, #intro-statistic #intro-heart #intro-food_line1 img, #intro-statistic #intro-heart #intro-mood_line1 img, #intro-statistic #intro-food #intro-heart_line1 img, #intro-statistic #intro-food #intro-food_line1 img, #intro-statistic #intro-food #intro-mood_line1 img, #intro-statistic #intro-mood #intro-heart_line1 img, #intro-statistic #intro-mood #intro-food_line1 img, #intro-statistic #intro-mood #intro-mood_line1 img {
+        width: 100%; }
+    #intro-statistic #intro-heart #intro-heart_line2, #intro-statistic #intro-heart #intro-food_line2, #intro-statistic #intro-heart #intro-mood_line2, #intro-statistic #intro-food #intro-heart_line2, #intro-statistic #intro-food #intro-food_line2, #intro-statistic #intro-food #intro-mood_line2, #intro-statistic #intro-mood #intro-heart_line2, #intro-statistic #intro-mood #intro-food_line2, #intro-statistic #intro-mood #intro-mood_line2 {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 48%;
+      height: 48%; }
+      #intro-statistic #intro-heart #intro-heart_line2 img, #intro-statistic #intro-heart #intro-food_line2 img, #intro-statistic #intro-heart #intro-mood_line2 img, #intro-statistic #intro-food #intro-heart_line2 img, #intro-statistic #intro-food #intro-food_line2 img, #intro-statistic #intro-food #intro-mood_line2 img, #intro-statistic #intro-mood #intro-heart_line2 img, #intro-statistic #intro-mood #intro-food_line2 img, #intro-statistic #intro-mood #intro-mood_line2 img {
+        width: 100%; }
+    #intro-statistic #intro-heart #intro-heart_line3, #intro-statistic #intro-heart #intro-food_line3, #intro-statistic #intro-heart #intro-mood_line3, #intro-statistic #intro-food #intro-heart_line3, #intro-statistic #intro-food #intro-food_line3, #intro-statistic #intro-food #intro-mood_line3, #intro-statistic #intro-mood #intro-heart_line3, #intro-statistic #intro-mood #intro-food_line3, #intro-statistic #intro-mood #intro-mood_line3 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 48%;
+      height: 48%; }
+      #intro-statistic #intro-heart #intro-heart_line3 img, #intro-statistic #intro-heart #intro-food_line3 img, #intro-statistic #intro-heart #intro-mood_line3 img, #intro-statistic #intro-food #intro-heart_line3 img, #intro-statistic #intro-food #intro-food_line3 img, #intro-statistic #intro-food #intro-mood_line3 img, #intro-statistic #intro-mood #intro-heart_line3 img, #intro-statistic #intro-mood #intro-food_line3 img, #intro-statistic #intro-mood #intro-mood_line3 img {
+        width: 100%; }
+    #intro-statistic #intro-heart #intro-heart_line4, #intro-statistic #intro-heart #intro-food_line4, #intro-statistic #intro-heart #intro-mood_line4, #intro-statistic #intro-food #intro-heart_line4, #intro-statistic #intro-food #intro-food_line4, #intro-statistic #intro-food #intro-mood_line4, #intro-statistic #intro-mood #intro-heart_line4, #intro-statistic #intro-mood #intro-food_line4, #intro-statistic #intro-mood #intro-mood_line4 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 48%;
+      height: 48%; }
+      #intro-statistic #intro-heart #intro-heart_line4 img, #intro-statistic #intro-heart #intro-food_line4 img, #intro-statistic #intro-heart #intro-mood_line4 img, #intro-statistic #intro-food #intro-heart_line4 img, #intro-statistic #intro-food #intro-food_line4 img, #intro-statistic #intro-food #intro-mood_line4 img, #intro-statistic #intro-mood #intro-heart_line4 img, #intro-statistic #intro-mood #intro-food_line4 img, #intro-statistic #intro-mood #intro-mood_line4 img {
+        width: 100%; }
+
 #videobkg {
   position: absolute;
   top: 0;
-  width: 100%;
-  z-index: 0;
-  left: 0; }
+  width: 150%;
+  z-index: -1;
+  left: -25%; }
 
 #complete #objSelector {
   transform: translateY(-180vh); }
